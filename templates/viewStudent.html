@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="/static/template/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="/static/template/assests/library/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/template/assests/library/sweetAlert2/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/template/assests/library/loader/src/loading.css">
+    <title>EasyAttendance</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+  </head>
+  <body class="sidebar-mini fixed">
+    <!-- data -->
+    <input type="text" id="token" hidden="" value="{{ user['token'] }}">
+    <input type="text" id="userName" hidden="" value="{{ user['userName'] }}">
+    <input type="text" id="id" hidden="" value="{{ id }}">
+    <div class="wrapper">
+      <!-- Navbar-->
+      <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+          <!-- Navbar Right Menu-->
+          <div class="navbar-custom-menu">
+            <ul class="top-nav">
+              <!-- User Menu-->
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu">
+                  <li><a href="profile"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                  <li><a href="logout"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print">
+        <section class="sidebar">
+          <div class="user-panel">
+            <div class="pull-left image"><img class="img-circle" src="static/template/images/home_user_white.png" alt="User Image"></div>
+            <div class="pull-left info">
+              <p>{{ user['userName'] }}</p>
+              <p class="designation">{{ user['role'] }}</p>
+            </div>
+          </div>
+          <!-- Sidebar Menu-->
+          <ul class="sidebar-menu">
+            <li><a href="page_attendance"><i class="fa fa-dashboard"></i><span>Mark Attendance</span></a></li>
+
+            {% if(user['roleId']==0) %}
+            <li class="treeview"><a href="#"><i class="fa fa-users"></i><span>Users</span><i class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="page_addUser"><i class="fa fa-circle-o"></i> Add User</a></li>
+                <li><a href="page_users"><i class="fa fa-circle-o"></i> Users</a></li>
+              </ul>
+            </li>
+            <li class="treeview"><a href="#"><i class="fa fa-graduation-cap"></i><span>Students</span><i class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="page_addStudent"><i class="fa fa-circle-o"></i> Add Student</a></li>
+                <li><a href="page_students"><i class="fa fa-circle-o"></i> Students</a></li>
+              </ul>
+            </li>
+            <li class="treeview"><a href="#"><i class="fa fa-book"></i><span>Courses</span><i class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="page_addCourse"><i class="fa fa-circle-o"></i> Add Course</a></li>
+                <li><a href="page_courses"><i class="fa fa-circle-o"></i> Courses</a></li>
+              </ul>
+            </li>
+            <li class="treeview"><a href="#"><i class="fa fa-calendar"></i><span>Sessions</span><i class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="page_addSession"><i class="fa fa-circle-o"></i> Add Session</a></li>
+                <li><a href="page_sessions"><i class="fa fa-circle-o"></i> Sessions</a></li>
+              </ul>
+            </li>
+            {% endif %}
+          </ul>
+        </section>
+      </aside>
+      <div class="content-wrapper">
+        <div class="page-title">
+          <div>
+            <h1><i class="fa fa-graduation-cap"></i> Students</h1>
+            <p>Add a new student</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <h3 class="card-title">Register</h3>
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="control-label">Student Id</label>
+                    <input class="form-control" disabled="" id="studentId" type="text" placeholder="Enter student id">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Student Name</label>
+                    <input class="form-control" disabled="" id="studentName" type="text" placeholder="Enter student name">
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary icon-btn" onclick="" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Courses</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="/static/template/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/template/js/bootstrap.min.js"></script>
+    <script src="/static/template/js/plugins/pace.min.js"></script>
+    <script src="/static/template/js/main.js"></script>
+    <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
+    <script src="/static/template/js/plugins/bootstrap-notify.min.js"></script>
+    <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
+    <script type="text/javascript">
+
+        function loadStudentInformation() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var id = document.getElementById('id').value;
+            var token = document.getElementById('token').value;
+            $.ajax({
+                        url : "/student/getStudent/"+id,
+                            type : "get",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                                document.getElementById('studentId').value = data.studentId;
+                                document.getElementById('studentName').value = data.studentName;
+                            }
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+                        }
+                    });
+        }
+
+
+        $(document).ready(function () {
+            loadStudentInformation();
+        })
+    </script>
+  </body>
+</html>

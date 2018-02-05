@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+	<title>EasyAttendance</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/login/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/template/assests/library/sweetAlert2/sweetalert2.min.css">
+<!--===============================================================================================-->
+<!--=========================================================================================
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/login/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/static/login/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Account Login
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5" onsubmit="return false">
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" id="username" name="username" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" id="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button onclick="checkLogin()" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/login/js/main.js"></script>
+    <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
+    <script type="text/javascript">
+        function checkLogin() {
+            var name = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if(name!="" && password!=""){
+                var loginData = {username:name,password:password};
+                window.location.url = "facebook.com";
+                $.ajax({
+                    url : "/login/check",
+                    type : "post",
+                    timeout : 3000,
+                    async : "false",
+                    contentType: "application/json; charset=utf-8",
+                    data : JSON.stringify(loginData),
+                    success : function(data){
+                        if(data=='-1'){
+                            swal("Network error","",'error');
+
+                        }else if(data=='0'){
+                            swal("Invalid username or password","",'error');
+                        }else{
+                            var token= data.token
+                            window.location.href = "home";
+                        }
+                    },
+                    error : function(a,b,c) {
+
+                    }
+                });
+            }
+        }
+        function mySubmitFunction(evt) {
+            evt.preventDefault();
+            return false;
+        }
+    </script>
+
+</body>
+</html>
