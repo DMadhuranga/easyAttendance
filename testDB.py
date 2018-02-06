@@ -8,12 +8,8 @@ from classes.Tokens import Tokens
 
 tokens = Tokens()
 conn = courseDB.getConnection("database/example.db")
-studentDB.createTable(conn)
+courseDB.createTable(conn)
 #studentDB.addStudent(conn,"a001","Mahela Jayawardane")
 #courseDB.addCourse(conn,"CS2012","Introduction object oriented programming")
 #userDB.addStaff(conn,"staff1","staff1@123")
-print(studentDB.doesStudentIdExist(conn,'a002'))
-print("___________________________")
-students = studentDB.getStudents(conn)
-for student in students:
-    student.printStudent()
+courseDB.addSection(conn,1,2018,"Second semester")

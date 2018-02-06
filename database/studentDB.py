@@ -79,3 +79,10 @@ class studentDB:
                 return True
             return False
         return None
+
+    def addSection(conn,id,sectionId):
+        if(conn):
+            cursor = conn.cursor()
+            array = [sectionId, id]
+            cursor.execute("insert into enrollment (section_id,id) values (?,?)", array)
+            conn.commit()

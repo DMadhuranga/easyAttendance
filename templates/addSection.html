@@ -21,7 +21,11 @@
   <body class="sidebar-mini fixed">
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
-    <input type="text" id="courseId" hidden="" value="{{ courseId }}">
+    <input type="text" id="userName" hidden="" value="{{ user['userName'] }}">
+    <input type="text" id="courseId" hidden="" value="{{ course['courseId'] }}">
+    <input type="text" id="courseCode" hidden="" value="{{ course['courseCode'] }}">
+    <input type="text" id="courseTitle" hidden="" value="{{ course['courseTitle'] }}">
+
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -87,51 +91,28 @@
       <div class="content-wrapper">
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-graduation-cap"></i> Courses</h1>
-            <p>Course details</p>
+            <h1><i class="fa fa-graduation-cap"></i> Section</h1>
+            <p>Add a new section</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <h3 class="card-title">Course</h3>
+              <h3 class="card-title">{{ course['courseCode'] }}&nbsp;&nbsp; - &nbsp;&nbsp;{{ course['courseTitle'] }}</h3>
               <div class="card-body">
                 <form>
                   <div class="form-group">
-                    <label class="control-label">Course Code</label>
-                    <input class="form-control" disabled="" id="courseCode" type="text" placeholder="Enter course code">
+                    <label class="control-label">Year</label>
+                    <input class="form-control" id="year" type="text" placeholder="Enter year">
                   </div>
                   <div class="form-group">
-                    <label class="control-label">Course Title</label>
-                    <input class="form-control" disabled="" id="courseTitle" type="text" placeholder="Enter course title">
+                    <label class="control-label">Semester</label>
+                    <input class="form-control" id="semester" type="text" placeholder="Enter semester">
                   </div>
                 </form>
               </div>
               <div class="card-footer">
-                <button class="btn btn-primary icon-btn" onclick="addASection()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Section</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <h3 class="card-title">Sections</h3>
-              <div class="card-body">
-
-                  <table class="table table-hover table-bordered" id="sectionTable">
-                  <thead>
-                    <tr>
-                      <th>Section Id</th>
-                      <th>Year</th>
-                      <th>Semester</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                  </tbody>
-                </table>
+                <button class="btn btn-primary icon-btn" onclick="submitForm()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Section</button>
               </div>
             </div>
           </div>
@@ -143,30 +124,64 @@
     <script src="/static/template/js/bootstrap.min.js"></script>
     <script src="/static/template/js/plugins/pace.min.js"></script>
     <script src="/static/template/js/main.js"></script>
-    <script type="text/javascript" src="/static/template/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="/static/template/js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
     <script src="/static/template/js/plugins/bootstrap-notify.min.js"></script>
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
     <script type="text/javascript">
 
-        function loadStudentInformation() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var id = document.getElementById('courseId').value;
+        function submitForm() {
+            var year = document.getElementById('year').value;
+            var semester = document.getElementById('semester').value;
+            var courseId = document.getElementById('courseId').value;
             var token = document.getElementById('token').value;
-            $.ajax({
-                        url : "/course/getCourse/"+id,
-                            type : "get",
+            if(year=="" || semester==""){
+                $.notify({
+      		    title: "Please complete the form : ",
+      		    message: "Some fields are empty",
+      		    icon: 'fa fa-exclamation'
+      	        },{
+      		    type: "danger"
+      	        });
+            }else{
+                var studentData = {courseId:courseId,year:year,semester:semester};
+                swal({
+                title: 'Are you sure?',
+                text: "",
+                type: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#009688',
+                cancelButtonColor: '#bec4ce',
+                confirmButtonText: 'Add Section',
+                allowOutsideClick: false
+            }).then(function () {
+                swal({
+                    title: 'Please wait',
+                    text: '',
+                    timer: 3000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    },
+                    allowOutsideClick: false
+                }).then(function () {},
+                    // handling the promise rejection
+                    function (dismiss) {
+                        if (dismiss === 'timer') {
+                            console.log('I was closed by the timer')
+                        }
+                    }
+                );
+
+                $.ajax({
+                        url : "/section/addSection",
+                            type : "post",
                             headers:{
                                 'Token' : token
                             },
                             timeout : 3000,
                             async : "false",
                             contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify(studentData),
                         success : function(data){
-                            $.hideLoading();
                             if(data.hasOwnProperty('error')){
                                 swal({
                                     title:data.error,
@@ -175,68 +190,16 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                document.getElementById('courseCode').value = data.courseCode;
-                                document.getElementById('courseTitle').value = data.courseTitle;
-                            }
-                        },
-                        error : function(a,b,c) {
-                            $.hideLoading();
-                            swal({
-                                title:'Connection failed!',
-                                text:'',
-                                type:'info',
-                                confirmButtonColor:'#009688'
-                            });
-                        }
-                    });
-        }
-
-
-        $(document).ready(function () {
-            loadStudentInformation();
-            loadSectionInformation();
-        });
-
-        function addASection() {
-            var id = document.getElementById('courseId').value;
-            window.location.href = "page_addSection?courseId="+id;
-        }
-
-        function loadSectionInformation() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var token = document.getElementById('token').value;
-            var id = document.getElementById('courseId').value;
-            $.ajax({
-                        url : "/sections/"+id,
-                            type : "get",
-                            headers:{
-                                'Token' : token
-                            },
-                            timeout : 3000,
-                            async : "false",
-                            contentType: "application/json; charset=utf-8",
-                        success : function(data){
-                            $.hideLoading();
-                            if(data.hasOwnProperty('error')){
                                 swal({
-                                    title:data.error,
+                                    title:'Section Added!',
                                     text:'',
-                                    type:'error',
+                                    type:'success',
                                     confirmButtonColor:'#009688'
                                 });
-                            }else{
-                                var students = data.sections;
-                                for(i=0; i<students.length; i++){
-                                    student = students[i];
-                                    $('#sectionTable').append("<tr onclick='sendToSection(this)' data-id='"+student.sectionId+"'><td>"+student.sectionId+"</td><td>"+student.year+'</td><td>'+student.semester+'</td></tr>');
-                                }
-                                $('#sectionTable').DataTable();
+                                setTimeout(function(){window.location.href= "page_viewSection?sectionId="+data.sectionId; },1500);
                             }
                         },
                         error : function(a,b,c) {
-                            $.hideLoading();
                             swal({
                                 title:'Connection failed!',
                                 text:'',
@@ -245,10 +208,8 @@
                             });
                         }
                     });
-        }
-
-        function sendToSection(me) {
-
+            });
+            }
         }
     </script>
   </body>

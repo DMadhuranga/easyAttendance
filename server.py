@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify, session
 import webbrowser
 import socket
 from database.userDB import userDB
+from database.courseDB import courseDB
 from classes.Tokens import Tokens
 from controllers.userController import userController
 from controllers.studentController import studentController
@@ -100,6 +101,18 @@ def getCoursesPage():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_addSection')
+def getAddSectionPage():
+    id = request.args.get('courseId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        course = courseDB.getCourse(courseDB.getConnection('database/example.db'),id)
+        if(course!=None):
+            return render_template("addSection.html",user=tokens.getUserDetails(session['token']),course={'courseId':course.getCourseId(),'courseCode':course.getCourseCode(),'courseTitle':course.getCourseTitle()})
+        return render_template("sections.html", user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("sections.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -180,6 +193,18 @@ def getCourses():
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getCourses()
+
+@app.route('/sections/<courseId>')
+def getSections(courseId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSections(courseId)
+
+@app.route('/section/addSection',methods=['POST'])
+def addSections():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.addSection(request)
 
 #run_server__________________________________________________________________________________________________________
 

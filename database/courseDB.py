@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 from classes.Course import Course
+from classes.Section import Section
 
 class courseDB:
     def getConnection(db_file):
@@ -67,3 +68,44 @@ class courseDB:
             array = [courseId]
             cursor.execute("update course set deleted='1' where course_id=?", array)
             conn.commit()
+
+    def addSection(conn,courseId,year,semester):
+        if(conn):
+            cursor = conn.cursor()
+            array = [courseId,year,semester]
+            cursor.execute("insert into section (course_id,year,semester) values (?,?,?)",array)
+            conn.commit()
+            return cursor.lastrowid
+        return None
+
+    def addStudent(conn,sectionId,id):
+        if(conn):
+            cursor = conn.cursor()
+            array = [sectionId, id]
+            cursor.execute("insert into enrollment (section_id,id) values (?,?)", array)
+            conn.commit()
+
+    def getSections(conn,courseId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [courseId]
+            cursor.execute("select * from section where course_id = ?", array)
+            sections = []
+            rows = cursor.fetchall()
+            for row in rows:
+                section = Section(row[0], row[1], row[2],row[3])
+                sections.append(section)
+            return sections
+        return None
+
+    def getSection(conn,secionId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [secionId]
+            cursor.execute("select * from section where section_id = ?", array)
+            sections = []
+            rows = cursor.fetchall()
+            if(len(rows)==1):
+                row = rows[0]
+                return Section(row[0], row[1], row[2],row[3])
+        return None
