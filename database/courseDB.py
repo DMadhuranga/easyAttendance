@@ -2,6 +2,7 @@ import sqlite3
 from sqlite3 import Error
 from classes.Course import Course
 from classes.Section import Section
+from classes.Session import Session
 
 class courseDB:
     def getConnection(db_file):
@@ -16,6 +17,7 @@ class courseDB:
         cursor = conn.cursor()
         cursor.execute("CREATE TABLE IF NOT EXISTS course (course_id integer PRIMARY KEY AUTOINCREMENT,course_code varchar(25) NOT NULL, course_title varchar(200) NOT NULL, deleted integer(1) DEFAULT 0)")
         cursor.execute("CREATE TABLE IF NOT EXISTS section (section_id integer PRIMARY KEY AUTOINCREMENT,course_id integer, year YEAR NOT NULL, semester varchar(50) NOT NULL, deleted integer(1) DEFAULT 0, FOREIGN KEY (course_id) REFERENCES course(course_id))")
+        cursor.execute("CREATE TABLE IF NOT EXISTS session (session_id integer PRIMARY KEY AUTOINCREMENT,section_id integer, date Date NOT NULL, starting_time Time NOT NULL, deleted integer(1) DEFAULT 0, FOREIGN KEY (section_id) REFERENCES section(section_id))")
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS student (id integer PRIMARY KEY AUTOINCREMENT,student_id varchar(25) NOT NULL, student_name varchar(200) NOT NULL, deleted integer(1) DEFAULT 0)")
         cursor.execute(
@@ -89,11 +91,11 @@ class courseDB:
         if (conn):
             cursor = conn.cursor()
             array = [courseId]
-            cursor.execute("select * from section where course_id = ?", array)
+            cursor.execute("select course_id,course_code,course_title,section_id,year,semester from section join course using(course_id) where course_id = ?", array)
             sections = []
             rows = cursor.fetchall()
             for row in rows:
-                section = Section(row[0], row[1], row[2],row[3])
+                section = Section(row[0], row[1], row[2],row[3], row[4],row[5])
                 sections.append(section)
             return sections
         return None
@@ -102,10 +104,32 @@ class courseDB:
         if (conn):
             cursor = conn.cursor()
             array = [secionId]
-            cursor.execute("select * from section where section_id = ?", array)
+            cursor.execute("select course_id,course_code,course_title,section_id,year,semester from section join course using(course_id) where section_id = ?", array)
             sections = []
             rows = cursor.fetchall()
             if(len(rows)==1):
                 row = rows[0]
-                return Section(row[0], row[1], row[2],row[3])
+                return Section(row[0], row[1], row[2],row[3], row[4],row[5])
+        return None
+
+    def addSession(conn,sectionId,date,time):
+        if(conn):
+            cursor = conn.cursor()
+            array = [sectionId,date,time]
+            cursor.execute("insert into session (section_id,date,starting_time) values (?,?,?)",array)
+            conn.commit()
+            return cursor.lastrowid
+        return None
+
+    def getSessions(conn,sectionId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [sectionId]
+            cursor.execute("select course_id,course_code,course_title,section_id,year,semester,session_id,date,starting_time from (section join course using(course_id)) join session using(section_id) where section_id = ?", array)
+            sessions = []
+            rows = cursor.fetchall()
+            for row in rows:
+                session = Session(row[0], row[1], row[2],row[3], row[4],row[5],row[6], row[7],row[8])
+                sessions.append(session)
+            return sessions
         return None

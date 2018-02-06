@@ -113,6 +113,27 @@ def getAddSectionPage():
         return render_template("sections.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_viewSection')
+def getViewSectionPage():
+    id = request.args.get('sectionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("viewSection.html",sectionId=id, user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_addSession')
+def getAddSessionPage():
+    id = request.args.get('sectionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        section = courseDB.getSection(courseDB.getConnection('database/example.db'),id)
+        if(section!=None):
+            return render_template("addSession.html",user=tokens.getUserDetails(session['token']),section={'sectionId':section.getSectionId(),'courseId':section.getCourseId(),'courseCode':section.getCourseCode(),'courseTitle':section.getCourseTitle(),'year':section.getYear(),'semester':section.getSemester()})
+        return render_template("sessions.html", user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("sessions.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -205,6 +226,24 @@ def addSections():
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.addSection(request)
+
+@app.route('/section/getSection/<sectionId>')
+def getSection(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSection(sectionId)
+
+@app.route('/sessions/<sectionId>')
+def getSessions(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSessions(sectionId)
+
+@app.route('/session/addSession',methods=['POST'])
+def addSession():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.addSession(request)
 
 #run_server__________________________________________________________________________________________________________
 

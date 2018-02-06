@@ -2,12 +2,16 @@ class Section:
 
     sectionId = ""
     courseId = ""
+    courseCode = ""
+    courseTitle = ""
     year = ""
     semester = ""
 
-    def __init__(self,sectionId,courseId,year,semester):
+    def __init__(self,courseId,courseCode,courseTitle,sectionId,year,semester):
         self.courseId = courseId
         self.sectionId = sectionId
+        self.courseCode = courseCode
+        self.courseTitle = courseTitle
         self.year = year
         self.semester = semester
 
@@ -22,6 +26,12 @@ class Section:
 
     def getYear(self):
         return self.year
+
+    def getCourseCode(self):
+        return self.courseCode
+
+    def getCourseTitle(self):
+        return self.courseTitle
 
     def printCourse(self):
         print("SectionId : " + str(self.getSectionId()))

@@ -1,7 +1,25 @@
+import datetime
 from flask import request, jsonify
 from classes.Course import Course
 from classes.Section import Section
 from database.courseDB import courseDB
+
+
+
+def isValidTime(time):
+    timeformat = "%H:%M:%S"
+    try:
+        validtime = datetime.datetime.strptime(time, timeformat)
+        return True
+    except ValueError:
+        return False
+
+def validate(date_text):
+    try:
+        datetime.datetime.strptime(date_text, '%Y-%m-%d')
+        return True
+    except ValueError:
+        return False
 
 class courseController:
 
@@ -76,5 +94,46 @@ class courseController:
         retSections = []
         for section in sections:
             retSections.append({'sectionId': section.getSectionId(), 'courseId': section.getCourseId(),
-                               'year': section.getYear(),'semester': section.getSemester()})
+                               'year': section.getYear(),'semester': section.getSemester(),'courseCode': section.getCourseCode(),'courseTitle': section.getCourseTitle()})
         return jsonify(sections=retSections)
+
+    def getSessions(sessionId):
+        conn = courseDB.getConnection('database/example.db')
+        sessions = courseDB.getSessions(conn,sessionId)
+        if(sessions==None):
+            return jsonify(error="sessions not found")
+        retSessions = []
+        for session in sessions:
+            retSessions.append({'sectionId': session.getSectionId(), 'courseId': session.getCourseId(),
+                               'year': session.getYear(),'semester': session.getSemester(),'courseCode': session.getCourseCode(), 'courseTitle': session.getCourseTitle(),
+                               'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime()})
+        return jsonify(sessions=retSessions)
+
+    def getSection(sectionId):
+        conn = courseDB.getConnection('database/example.db')
+        section = courseDB.getSection(conn,sectionId)
+        if(section==None):
+            return jsonify(error="section not found")
+        return jsonify(sectionId= section.getSectionId(), courseId= section.getCourseId(),
+                               year= section.getYear(),semester = section.getSemester(),courseCode= section.getCourseCode(),courseTitle=section.getCourseTitle())
+
+
+    def addSession(request):
+        conn = courseDB.getConnection('database/example.db')
+        if (request.is_json):
+            data = request.get_json()
+            if (('sectionId' in data) and (('date' in data) and ('startingTime' in data))):
+                sectionId = data['sectionId']
+                date = data['date']
+                startingTime = data['startingTime']
+                if (not validate(date)):
+                    return jsonify(error="Invalid date")
+                if (not isValidTime(startingTime)):
+                    return jsonify(error="Invalid starting time")
+                conn = courseDB.getConnection('database/example.db')
+                section = courseDB.getSection(conn,sectionId)
+                if(section==None):
+                    return jsonify(error="Invalid section")
+                sessionId = courseDB.addSession(conn,sectionId,date,startingTime)
+                return jsonify(sessionId=sessionId)
+        return jsonify(error="Invalid request")
