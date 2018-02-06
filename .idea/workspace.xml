@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cc60903-0dca-4d85-b991-eb2114496021" name="Default" comment="" />
+    <list default="true" id="5cc60903-0dca-4d85-b991-eb2114496021" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/classes/Section.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/courses.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/students.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/controllers/courseController.py" afterPath="$PROJECT_DIR$/controllers/courseController.py" />
+      <change beforePath="$PROJECT_DIR$/controllers/studentController.py" afterPath="$PROJECT_DIR$/controllers/studentController.py" />
+      <change beforePath="$PROJECT_DIR$/database/courseDB.py" afterPath="$PROJECT_DIR$/database/courseDB.py" />
+      <change beforePath="$PROJECT_DIR$/database/studentDB.py" afterPath="$PROJECT_DIR$/database/studentDB.py" />
+      <change beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,28 +22,67 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/cam$testDB.coverage" NAME="testDB Coverage Results" MODIFIED="1517705430258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$courseDB.coverage" NAME="courseDB Coverage Results" MODIFIED="1517671068085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1517760203645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1517892945985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$cam.coverage" NAME="cam Coverage Results" MODIFIED="1517129878555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+            <state relative-caret-position="359">
+              <caret line="94" column="27" lean-forward="true" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studentDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/studentDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="20" column="250" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="20" selection-end-column="250" />
               <folding>
-                <element signature="e#0#67#0" expanded="true" />
+                <marker date="1517894578027" expanded="true" signature="372:550" ph="CREATE TABLE... IF" />
+                <marker date="1517894578027" expanded="true" signature="590:824" ph="CREATE TABLE... IF" />
+                <marker date="1517894578027" expanded="true" signature="851:1022" ph="CREATE TABLE... IF" />
+                <marker date="1517894578027" expanded="true" signature="1049:1273" ph="CREATE TABLE... IF" />
+                <marker date="1517894578027" expanded="true" signature="1422:1480" ph="insert into student... " />
+                <marker date="1517894578027" expanded="true" signature="1653:1692" ph="select * fro... student" />
+                <marker date="1517894578027" expanded="true" signature="2069:2117" ph="select * fro... student" />
+                <marker date="1517894578027" expanded="true" signature="2468:2524" ph="select * fro... student" />
+                <marker date="1517894578027" expanded="true" signature="2852:2893" ph="update student... " />
+                <marker date="1517894578027" expanded="true" signature="3087:3143" ph="select * fro... student" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addCourse.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/addCourse.html">
+      <file leaf-file-name="students.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/students.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4053">
-              <caret line="193" column="102" lean-forward="false" selection-start-line="193" selection-start-column="102" selection-end-line="193" selection-end-column="102" />
+            <state relative-caret-position="215">
+              <caret line="126" column="43" lean-forward="false" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courses.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/courses.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3654">
+              <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addStudent.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/addStudent.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="193" column="97" lean-forward="false" selection-start-line="193" selection-start-column="97" selection-end-line="193" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -42,26 +91,39 @@
       <file leaf-file-name="courseDB.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/courseDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="252">
+              <caret line="20" column="239" lean-forward="false" selection-start-line="20" selection-start-column="239" selection-end-line="20" selection-end-column="239" />
               <folding>
-                <marker date="1517724523781" expanded="true" signature="356:534" ph="CREATE TABLE... IF" />
-                <marker date="1517724523781" expanded="true" signature="683:741" ph="insert into course... " />
-                <marker date="1517724523781" expanded="true" signature="913:933" ph="select * fro... user" />
-                <marker date="1517724523781" expanded="true" signature="913:951" ph="select * fro... course" />
-                <marker date="1517724523781" expanded="true" signature="1335:1389" ph="select * fro... user" />
-                <marker date="1517724523781" expanded="true" signature="1735:1791" ph="select * fro... user" />
-                <marker date="1517724523781" expanded="true" signature="2129:2176" ph="update user... " />
+                <marker date="1517894577980" expanded="true" signature="356:534" ph="CREATE TABLE... IF" />
+                <marker date="1517894577980" expanded="true" signature="561:795" ph="CREATE TABLE... IF" />
+                <marker date="1517894577980" expanded="true" signature="835:1006" ph="CREATE TABLE... IF" />
+                <marker date="1517894577980" expanded="true" signature="1046:1270" ph="CREATE TABLE... IF" />
+                <marker date="1517894577980" expanded="true" signature="1419:1477" ph="insert into course... " />
+                <marker date="1517894577980" expanded="true" signature="1649:1669" ph="select * fro... user" />
+                <marker date="1517894577980" expanded="true" signature="1649:1687" ph="select * fro... course" />
+                <marker date="1517894577980" expanded="true" signature="2071:2125" ph="select * fro... user" />
+                <marker date="1517894577980" expanded="true" signature="2471:2527" ph="select * fro... user" />
+                <marker date="1517894577980" expanded="true" signature="2865:2912" ph="update user... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewCourse.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewCourse.html">
+      <file leaf-file-name="Section.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Section.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2310">
-              <caret line="110" column="151" lean-forward="false" selection-start-line="110" selection-start-column="151" selection-end-line="110" selection-end-column="151" />
+            <state relative-caret-position="147">
+              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Course.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Course.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -70,62 +132,11 @@
       <file leaf-file-name="studentController.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/studentController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="27" column="47" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="27" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userController.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/userController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/User.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/userDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            <state relative-caret-position="485">
+              <caret line="51" column="44" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="51" selection-end-column="44" />
               <folding>
-                <marker date="1517789572949" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
-                <marker date="1517789572949" expanded="true" signature="744:803" ph="insert into user... " />
-                <marker date="1517789572949" expanded="true" signature="1024:1083" ph="insert into user... " />
-                <marker date="1517789572949" expanded="true" signature="1253:1271" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="1645:1679" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="1645:1695" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="2044:2079" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="2044:2095" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="2447:2498" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="2792:2835" ph="update user... " />
-                <marker date="1517789572949" expanded="true" signature="2798:2834" ph="select * fro... user" />
-                <marker date="1517789572949" expanded="true" signature="3029:3080" ph="select * fro... user" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewStudent.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewStudent.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3612">
-              <caret line="172" column="10" lean-forward="false" selection-start-line="128" selection-start-column="8" selection-end-line="172" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -133,8 +144,8 @@
       <file leaf-file-name="courseController.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/courseController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="35" column="124" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="35" selection-end-column="124" />
+            <state relative-caret-position="296">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -148,10 +159,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -166,20 +180,23 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/classes/Student.py" />
         <option value="$PROJECT_DIR$/testDB.py" />
-        <option value="$PROJECT_DIR$/database/studentDB.py" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/page_addCourse.html" />
-        <option value="$PROJECT_DIR$/database/courseDB.py" />
         <option value="$PROJECT_DIR$/templates/viewStudent.html" />
         <option value="$PROJECT_DIR$/classes/Tokens.py" />
         <option value="$PROJECT_DIR$/templates/addStudent.html" />
         <option value="$PROJECT_DIR$/templates/addCourse.html" />
-        <option value="$PROJECT_DIR$/templates/viewCourse.html" />
-        <option value="$PROJECT_DIR$/controllers/courseController.py" />
-        <option value="$PROJECT_DIR$/controllers/studentController.py" />
         <option value="$PROJECT_DIR$/database/userDB.py" />
         <option value="$PROJECT_DIR$/controllers/userController.py" />
+        <option value="$PROJECT_DIR$/templates/viewCourse.html" />
+        <option value="$PROJECT_DIR$/controllers/studentController.py" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/controllers/courseController.py" />
+        <option value="$PROJECT_DIR$/templates/students.html" />
+        <option value="$PROJECT_DIR$/templates/courses.html" />
+        <option value="$PROJECT_DIR$/database/studentDB.py" />
+        <option value="$PROJECT_DIR$/database/courseDB.py" />
+        <option value="$PROJECT_DIR$/classes/Section.py" />
       </list>
     </option>
   </component>
@@ -189,12 +206,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
     <option name="height" value="990" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -210,7 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,6 +270,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,16 +408,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23895809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23895809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17669173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18474758" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -450,36 +467,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/courseDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding>
-            <marker date="1517724523781" expanded="true" signature="356:534" ph="CREATE TABLE... IF" />
-            <marker date="1517724523781" expanded="true" signature="683:741" ph="insert into course... " />
-            <marker date="1517724523781" expanded="true" signature="913:933" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="913:951" ph="select * fro... course" />
-            <marker date="1517724523781" expanded="true" signature="1335:1389" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="1735:1791" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="2129:2176" ph="update user... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tokens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -505,9 +492,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
           <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -515,9 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -532,20 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1869">
           <caret line="92" column="31" lean-forward="false" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
-          <folding>
-            <marker date="1517789572949" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
-            <marker date="1517789572949" expanded="true" signature="744:803" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1024:1083" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1253:1271" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1679" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1695" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2079" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2095" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2447:2498" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2792:2835" ph="update user... " />
-            <marker date="1517789572949" expanded="true" signature="2798:2834" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="3029:3080" ph="select * fro... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -567,9 +535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -577,9 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,20 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1869">
           <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
-          <folding>
-            <marker date="1517789572949" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
-            <marker date="1517789572949" expanded="true" signature="744:803" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1024:1083" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1253:1271" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1679" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1695" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2079" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2095" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2447:2498" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2792:2835" ph="update user... " />
-            <marker date="1517789572949" expanded="true" signature="2798:2834" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="3029:3080" ph="select * fro... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,9 +578,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -660,20 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1491">
           <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <marker date="1517789572949" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
-            <marker date="1517789572949" expanded="true" signature="744:803" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1024:1083" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1253:1271" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1679" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1695" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2079" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2095" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2447:2498" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2792:2835" ph="update user... " />
-            <marker date="1517789572949" expanded="true" signature="2798:2834" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="3029:3080" ph="select * fro... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,9 +614,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -705,9 +636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Student.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -761,41 +683,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/page_addCourse.html" />
-    <entry file="file://$PROJECT_DIR$/classes/Course.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/studentDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="102" column="23" lean-forward="false" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Tokens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addStudent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4053">
-          <caret line="193" column="97" lean-forward="false" selection-start-line="193" selection-start-column="97" selection-end-line="193" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -803,6 +694,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4053">
+          <caret line="193" column="102" lean-forward="false" selection-start-line="193" selection-start-column="102" selection-end-line="193" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/userDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -814,82 +726,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addCourse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4053">
-          <caret line="193" column="102" lean-forward="false" selection-start-line="193" selection-start-column="102" selection-end-line="193" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewCourse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="110" column="151" lean-forward="false" selection-start-line="110" selection-start-column="151" selection-end-line="110" selection-end-column="151" />
+        <state relative-caret-position="2667">
+          <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="171" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/studentController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="27" column="47" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="27" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/userDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <marker date="1517789572949" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
-            <marker date="1517789572949" expanded="true" signature="744:803" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1024:1083" ph="insert into user... " />
-            <marker date="1517789572949" expanded="true" signature="1253:1271" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1679" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="1645:1695" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2079" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2044:2095" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2447:2498" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="2792:2835" ph="update user... " />
-            <marker date="1517789572949" expanded="true" signature="2798:2834" ph="select * fro... user" />
-            <marker date="1517789572949" expanded="true" signature="3029:3080" ph="select * fro... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/courseDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <marker date="1517724523781" expanded="true" signature="356:534" ph="CREATE TABLE... IF" />
-            <marker date="1517724523781" expanded="true" signature="683:741" ph="insert into course... " />
-            <marker date="1517724523781" expanded="true" signature="913:933" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="913:951" ph="select * fro... course" />
-            <marker date="1517724523781" expanded="true" signature="1335:1389" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="1735:1791" ph="select * fro... user" />
-            <marker date="1517724523781" expanded="true" signature="2129:2176" ph="update user... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/courseController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="35" column="124" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="35" selection-end-column="124" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -901,13 +742,125 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1407">
+          <caret line="67" column="42" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Student.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/studentController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="51" column="44" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="51" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/courseController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addStudent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="193" column="97" lean-forward="false" selection-start-line="193" selection-start-column="97" selection-end-line="193" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        <state relative-caret-position="359">
+          <caret line="94" column="27" lean-forward="true" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/students.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="126" column="43" lean-forward="false" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3654">
+          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/studentDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="20" column="250" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="20" selection-end-column="250" />
           <folding>
-            <element signature="e#0#67#0" expanded="true" />
+            <marker date="1517894578027" expanded="true" signature="372:550" ph="CREATE TABLE... IF" />
+            <marker date="1517894578027" expanded="true" signature="590:824" ph="CREATE TABLE... IF" />
+            <marker date="1517894578027" expanded="true" signature="851:1022" ph="CREATE TABLE... IF" />
+            <marker date="1517894578027" expanded="true" signature="1049:1273" ph="CREATE TABLE... IF" />
+            <marker date="1517894578027" expanded="true" signature="1422:1480" ph="insert into student... " />
+            <marker date="1517894578027" expanded="true" signature="1653:1692" ph="select * fro... student" />
+            <marker date="1517894578027" expanded="true" signature="2069:2117" ph="select * fro... student" />
+            <marker date="1517894578027" expanded="true" signature="2468:2524" ph="select * fro... student" />
+            <marker date="1517894578027" expanded="true" signature="2852:2893" ph="update student... " />
+            <marker date="1517894578027" expanded="true" signature="3087:3143" ph="select * fro... student" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/courseDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="239" lean-forward="false" selection-start-line="20" selection-start-column="239" selection-end-line="20" selection-end-column="239" />
+          <folding>
+            <marker date="1517894577980" expanded="true" signature="356:534" ph="CREATE TABLE... IF" />
+            <marker date="1517894577980" expanded="true" signature="561:795" ph="CREATE TABLE... IF" />
+            <marker date="1517894577980" expanded="true" signature="835:1006" ph="CREATE TABLE... IF" />
+            <marker date="1517894577980" expanded="true" signature="1046:1270" ph="CREATE TABLE... IF" />
+            <marker date="1517894577980" expanded="true" signature="1419:1477" ph="insert into course... " />
+            <marker date="1517894577980" expanded="true" signature="1649:1669" ph="select * fro... user" />
+            <marker date="1517894577980" expanded="true" signature="1649:1687" ph="select * fro... course" />
+            <marker date="1517894577980" expanded="true" signature="2071:2125" ph="select * fro... user" />
+            <marker date="1517894577980" expanded="true" signature="2471:2527" ph="select * fro... user" />
+            <marker date="1517894577980" expanded="true" signature="2865:2912" ph="update user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Course.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Section.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

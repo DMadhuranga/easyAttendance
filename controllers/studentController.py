@@ -40,3 +40,13 @@ class studentController:
         if(student==None):
             return jsonify(error="student not found")
         return jsonify(id=student.getId(),studentId=student.getStudentId(),studentName=student.getStudentName())
+
+    def getStudents():
+        conn = studentDB.getConnection('database/example.db')
+        students = studentDB.getStudents(conn)
+        if(students==None):
+            return jsonify(error="Student information not available")
+        retStudents = []
+        for student in students:
+            retStudents.append({'id':student.getId(),'studentId':student.getStudentId(),'studentName':student.getStudentName()})
+        return jsonify(students=retStudents)

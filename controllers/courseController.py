@@ -34,3 +34,13 @@ class courseController:
         if(course==None):
             return jsonify(error="student not found")
         return jsonify(courseId=course.getCourseId(), courseCode=course.getCourseCode(),courseTitle=course.getCourseTitle())
+
+    def getCourses():
+        conn = courseDB.getConnection('database/example.db')
+        courses = courseDB.getCourses(conn)
+        if(courses==None):
+            return jsonify(error="COurse information not available")
+        retCourses = []
+        for course in courses:
+            retCourses.append({'courseId':course.getCourseId(),'courseCode':course.getCourseCode(),'courseTitle':course.getCourseTitle()})
+        return jsonify(courses=retCourses)

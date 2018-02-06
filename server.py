@@ -84,6 +84,22 @@ def getViewCoursePage():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_students')
+def getStudentsPage():
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("students.html",user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_courses')
+def getCoursesPage():
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("courses.html",user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -152,6 +168,18 @@ def getCourse(id):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getCourse(id)
+
+@app.route('/students')
+def getStudents():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return studentController.getStudents()
+
+@app.route('/courses')
+def getCourses():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getCourses()
 
 #run_server__________________________________________________________________________________________________________
 
