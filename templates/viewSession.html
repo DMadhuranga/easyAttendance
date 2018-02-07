@@ -21,7 +21,7 @@
   <body class="sidebar-mini fixed">
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
-    <input type="text" id="sectionId" hidden="" value="{{ sectionId }}">
+    <input type="text" id="sessionId" hidden="" value="{{ sessionId }}">
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -87,14 +87,14 @@
       <div class="content-wrapper">
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-graduation-cap"></i> Sections</h1>
-            <p>Section details</p>
+            <h1><i class="fa fa-graduation-cap"></i> Sessions</h1>
+            <p>Session details</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <h3 class="card-title">Section</h3>
+              <h3 class="card-title">Session</h3>
               <div class="card-body">
                 <form>
                   <div class="form-group">
@@ -107,16 +107,24 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Year</label>
-                    <input class="form-control" disabled="" id="year" type="text" placeholder="Enter course title">
+                    <input class="form-control" disabled="" id="year" type="text" placeholder="Enter course code">
                   </div>
                   <div class="form-group">
                     <label class="control-label">Semester</label>
                     <input class="form-control" disabled="" id="semester" type="text" placeholder="Enter course title">
                   </div>
+                  <div class="form-group">
+                    <label class="control-label">Date</label>
+                    <input class="form-control" disabled="" id="date" type="text" placeholder="Enter course code">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Starting Time</label>
+                    <input class="form-control" disabled="" id="startingTime" type="text" placeholder="Enter course title">
+                  </div>
                 </form>
               </div>
               <div class="card-footer">
-                <button class="btn btn-primary icon-btn" onclick="addSession()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Session</button>
+                <button id="submitBtn" hidden="" class="btn btn-primary icon-btn" onclick="addASection()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance</button>
               </div>
             </div>
           </div>
@@ -125,15 +133,15 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-title">Sessions</h3>
+              <h3 class="card-title">Attendance</h3>
               <div class="card-body">
 
-                  <table class="table table-hover table-bordered" id="sessionTable">
+                  <table hidden="" class="table table-hover table-bordered" id="attendanceTable">
                   <thead>
                     <tr>
-                      <th>Date</th>
-                      <th>Starting Time</th>
-                      <th>Status</th>
+                      <th>Student Id</th>
+                      <th>Student Name</th>
+                      <th>Attendance</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -162,10 +170,10 @@
             $.showLoading({
             name : "line-pulse"
         });
-            var id = document.getElementById('sectionId').value;
+            var id = document.getElementById('sessionId').value;
             var token = document.getElementById('token').value;
             $.ajax({
-                        url : "/section/getSection/"+id,
+                        url : "/session/getSession/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -185,8 +193,17 @@
                             }else{
                                 document.getElementById('courseCode').value = data.courseCode;
                                 document.getElementById('courseTitle').value = data.courseTitle;
-                                document.getElementById('semester').value = data.semester;
                                 document.getElementById('year').value = data.year;
+                                document.getElementById('semester').value = data.semester;
+                                document.getElementById('date').value = data.date;
+                                document.getElementById('startingTime').value = data.startingTime;
+                                var marked = data.marked;
+                                if(marked==0){
+                                    document.getElementById('submitBtn').hidden = false;
+                                }else{
+                                    document.getElementById('attendanceTable').hidden=false;
+                                    loadAttendance();
+                                }
                             }
                         },
                         error : function(a,b,c) {
@@ -204,22 +221,21 @@
 
         $(document).ready(function () {
             loadStudentInformation();
-            loadSectionInformation();
         });
 
-        function addSession() {
-            var id = document.getElementById('sectionId').value;
-            window.location.href = "page_addSession?sectionId="+id;
+        function addASection() {
+            var id = document.getElementById('courseId').value;
+            window.location.href = "page_addSection?courseId="+id;
         }
 
-        function loadSectionInformation() {
+        function loadAttendance() {
             $.showLoading({
             name : "line-pulse"
         });
             var token = document.getElementById('token').value;
-            var id = document.getElementById('sectionId').value;
+            var id = document.getElementById('sessionId').value;
             $.ajax({
-                        url : "/sessions/"+id,
+                        url : "/attendances/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -237,16 +253,16 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                var students = data.sessions;
+                                var students = data.attendances;
                                 for(i=0; i<students.length; i++){
                                     student = students[i];
-                                    if(student.marked=='1') {
-                                        $('#sessionTable').append("<tr onclick='sendToSection(this)' data-id='" + student.sessionId + "'><td>" + student.date + "</td><td>" + student.startingTime + "</td><td><i class='fa fa-check-circle'><i/></td></tr>");
-                                    }else{
-                                        $('#sessionTable').append("<tr onclick='sendToSection(this)' data-id='" + student.sessionId + "'><td>" + student.date + "</td><td>" + student.startingTime + "</td><td><i class='fa fa-spinner'><i/></td></tr>");
+                                    icon = "fa fa-times";
+                                    if(student.attended=="1"){
+                                        icon = "fa fa-check";
                                     }
+                                    $('#attendanceTable').append("<tr onclick='sendToSection(this)' data-id='"+student.id+"'><td>"+student.studentId+"</td><td>"+student.studentName+"</td><td><i class='"+icon+"'></i></td></tr>");
                                 }
-                                $('#sessionTable').DataTable();
+                                $('#attendanceTable').DataTable();
                             }
                         },
                         error : function(a,b,c) {
@@ -259,11 +275,6 @@
                             });
                         }
                     });
-        }
-
-        function sendToSection(me) {
-            var sessionId = $(me).data('id');
-            window.location.href = "page_viewSession?sessionId="+sessionId;
         }
     </script>
   </body>

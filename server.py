@@ -134,6 +134,23 @@ def getAddSessionPage():
         return render_template("sessions.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_viewSession')
+def getViewSessionPage():
+    id = request.args.get('sessionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("viewSession.html",sessionId=id, user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_sessions')
+def getSessionsPage():
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("sessions.html",user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -239,11 +256,29 @@ def getSessions(sectionId):
         return jsonify(error="Invalid request or user")
     return courseController.getSessions(sectionId)
 
+@app.route('/sessions')
+def getAllSessions():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getAllSessions()
+
 @app.route('/session/addSession',methods=['POST'])
 def addSession():
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.addSession(request)
+
+@app.route('/session/getSession/<sessionId>')
+def getSesseion(sessionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSession(sessionId)
+
+@app.route('/attendances/<sessionId>')
+def getAttendance(sessionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getAttendance(sessionId)
 
 #run_server__________________________________________________________________________________________________________
 

@@ -2,6 +2,7 @@ import datetime
 from flask import request, jsonify
 from classes.Course import Course
 from classes.Section import Section
+from classes.Attendance import Attendance
 from database.courseDB import courseDB
 
 
@@ -106,7 +107,7 @@ class courseController:
         for session in sessions:
             retSessions.append({'sectionId': session.getSectionId(), 'courseId': session.getCourseId(),
                                'year': session.getYear(),'semester': session.getSemester(),'courseCode': session.getCourseCode(), 'courseTitle': session.getCourseTitle(),
-                               'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime()})
+                               'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime(),'marked':session.getMarked()})
         return jsonify(sessions=retSessions)
 
     def getSection(sectionId):
@@ -137,3 +138,34 @@ class courseController:
                 sessionId = courseDB.addSession(conn,sectionId,date,startingTime)
                 return jsonify(sessionId=sessionId)
         return jsonify(error="Invalid request")
+
+    def getSession(sessionId):
+        conn = courseDB.getConnection('database/example.db')
+        session = courseDB.getSession(conn,sessionId)
+        if(session==None):
+            return jsonify(error="session not found")
+        return jsonify(sectionId= session.getSectionId(), courseId= session.getCourseId(),
+                               year= session.getYear(),semester = session.getSemester(),courseCode= session.getCourseCode(),courseTitle=session.getCourseTitle(),
+                       date= session.getDate(),startingTime=session.getStartingTime(),marked=session.getMarked())
+
+    def getAllSessions():
+        conn = courseDB.getConnection('database/example.db')
+        sessions = courseDB.getAllSessions(conn)
+        if(sessions==None):
+            return jsonify(error="sessions not found")
+        retSessions = []
+        for session in sessions:
+            retSessions.append({'sectionId': session.getSectionId(), 'courseId': session.getCourseId(),
+                               'year': session.getYear(),'semester': session.getSemester(),'courseCode': session.getCourseCode(), 'courseTitle': session.getCourseTitle(),
+                               'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime(),'marked':session.getMarked()})
+        return jsonify(sessions=retSessions)
+
+    def getAttendance(sessionId):
+        conn = courseDB.getConnection('database/example.db')
+        attendances = courseDB.getAttendance(conn,sessionId)
+        if(attendances==None):
+            return jsonify(error="sessions not found")
+        retSessions = []
+        for attendance in attendances:
+            retSessions.append({'id':attendance.getId(),'studentId':attendance.getStudentId(),'studentName':attendance.getStudentName(),'sessionId':attendance.getSessionId(),'attended':attendance.getAttended()})
+        return jsonify(attendances=retSessions)

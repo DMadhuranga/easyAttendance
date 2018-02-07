@@ -9,9 +9,10 @@ class Session:
     startingTime=""
     date = ""
     sessionId = ""
+    marked = ""
 
 
-    def __init__(self,courseId,courseCode,courseTitle,sectionId,year,semester,sessionId,date,startingTime):
+    def __init__(self,courseId,courseCode,courseTitle,sectionId,year,semester,sessionId,date,startingTime,marked):
         self.courseId = courseId
         self.courseTitle = courseTitle
         self.courseCode = courseCode
@@ -21,6 +22,7 @@ class Session:
         self.sessionId = sessionId
         self.date = date
         self.startingTime = startingTime
+        self.marked = marked
 
     def getCourseId(self):
         return self.courseId
@@ -48,6 +50,9 @@ class Session:
 
     def getStartingTime(self):
         return self.startingTime
+
+    def getMarked(self):
+        return self.marked
 
     def printCourse(self):
         print("CourseId : "+str(self.getCourseId()))
