@@ -1,6 +1,11 @@
 import sqlite3
 from sqlite3 import Error
 from classes.Student import Student
+import random
+import string
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+   return ''.join(random.choice(chars) for _ in range(size))
 
 class studentDB:
     def getConnection(db_file):
@@ -23,6 +28,8 @@ class studentDB:
         cursor.execute("CREATE TABLE IF NOT EXISTS enrollment (id integer,section_id INTEGER, deleted integer(1) DEFAULT 0,PRIMARY KEY(id,section_id), FOREIGN KEY (id) REFERENCES student(id), FOREIGN KEY (section_id) REFERENCES section(section_id))")
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS attendance (id integer,session_id INTEGER, attended integer(1) DEFAULT 1,PRIMARY KEY(id,session_id), FOREIGN KEY (id) REFERENCES student(id), FOREIGN KEY (session_id) REFERENCES session(session_id))")
+        cursor.execute(
+            "CREATE TABLE IF NOT EXISTS student_pictures (id integer,image_name VARCHAR(25),PRIMARY KEY(id,image_name), FOREIGN KEY (id) REFERENCES student(id))")
 
 
     def addStudent(conn,studentId,studentName):
@@ -90,3 +97,26 @@ class studentDB:
             array = [sectionId, id]
             cursor.execute("insert into enrollment (section_id,id) values (?,?)", array)
             conn.commit()
+
+    def addImage(conn,id,extension):
+        if(conn):
+            cursor = conn.cursor()
+            imageId = str(id)+id_generator()+"."+extension
+            array = [id, imageId]
+            cursor.execute("insert into student_pictures (id,image_name) values (?,?)", array)
+            conn.commit()
+            return imageId
+
+    def getSessionPhotos(conn,sessionId):
+        if(conn):
+            cursor = conn.cursor()
+            array = [sessionId]
+            cursor.execute("select id,image_name from student_pictures join attendance using(id) where session_id=?", array)
+            rows = cursor.fetchall()
+            dictionary = {}
+            for row in rows:
+                if row[0] not in dictionary.keys():
+                    dictionary[row[0]] = []
+                dictionary[row[0]].append(row[1])
+            return dictionary
+        return None

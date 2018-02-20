@@ -50,3 +50,10 @@ class studentController:
         for student in students:
             retStudents.append({'id':student.getId(),'studentId':student.getStudentId(),'studentName':student.getStudentName()})
         return jsonify(students=retStudents)
+
+    def saveStudentImage(id):
+        conn = studentDB.getConnection('database/example.db')
+        return studentDB.addImage(conn,id,"jpg")
+    def getStudentPictures(sessionId):
+        conn = studentDB.getConnection('database/example.db')
+        return studentDB.getSessionPhotos(conn,sessionId)

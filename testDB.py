@@ -5,11 +5,19 @@ from database.courseDB import courseDB
 from classes.Student import Student
 from database.studentDB import studentDB
 from classes.Tokens import Tokens
+from classes.Recognizer import Recognizer
+import cv2
+import random
+import string
+from controllers.imageController import imageController
+
+#imageController.saveVideo(7,360)
 
 tokens = Tokens()
-conn = courseDB.getConnection("database/example.db")
-courseDB.createTable(conn)
+conn = studentDB.getConnection("database/example.db")
+#print(studentDB.getSessionPhotos(conn,7))
+imageController.markAttendance(7)
+
 #studentDB.addStudent(conn,"a001","Mahela Jayawardane")
 #courseDB.addCourse(conn,"CS2012","Introduction object oriented programming")
 #userDB.addStaff(conn,"staff1","staff1@123")
-courseDB.addSession(conn,1,"2018-02-09","12:15:00")

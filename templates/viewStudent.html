@@ -109,7 +109,7 @@
                 </form>
               </div>
               <div class="card-footer">
-                <button class="btn btn-primary icon-btn" onclick="" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Courses</button>
+                <button class="btn btn-primary icon-btn" onclick="getImages()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Images</button>
               </div>
             </div>
           </div>
@@ -153,6 +153,45 @@
                             }else{
                                 document.getElementById('studentId').value = data.studentId;
                                 document.getElementById('studentName').value = data.studentName;
+                            }
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+                        }
+                    });
+        }
+
+        function getImages() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var id = document.getElementById('id').value;
+            var token = document.getElementById('token').value;
+            $.ajax({
+                        url : "/images/"+id,
+                            type : "post",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
                             }
                         },
                         error : function(a,b,c) {

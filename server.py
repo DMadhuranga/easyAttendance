@@ -7,6 +7,7 @@ from classes.Tokens import Tokens
 from controllers.userController import userController
 from controllers.studentController import studentController
 from controllers.courseController import courseController
+from controllers.imageController import imageController
 
 app = Flask(__name__)
 tokens = Tokens()
@@ -151,6 +152,14 @@ def getSessionsPage():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_testCam')
+def testPage():
+    if (sessionLogged() and sessionAdmin()):
+        return render_template("testCam.html", user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -279,6 +288,12 @@ def getAttendance(sessionId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getAttendance(sessionId)
+
+@app.route('/images/<studentId>',methods=['post'])
+def takeMyPic(studentId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return imageController.saveImage(studentId)
 
 #run_server__________________________________________________________________________________________________________
 
