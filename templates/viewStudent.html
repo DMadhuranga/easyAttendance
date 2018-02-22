@@ -89,13 +89,13 @@
         <div class="page-title">
           <div>
             <h1><i class="fa fa-graduation-cap"></i> Students</h1>
-            <p>Add a new student</p>
+            <p>Student details</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <h3 class="card-title">Register</h3>
+              <h3 class="card-title">Student</h3>
               <div class="card-body">
                 <form>
                   <div class="form-group">
@@ -114,6 +114,30 @@
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <h3 class="card-title">Enrolled Sections</h3>
+              <div class="card-body">
+
+                  <table class="table table-hover table-bordered" hidden="" id="sectionTable">
+                  <thead>
+                    <tr>
+                      <th>Course Code</th>
+                      <th>Course Title</th>
+                      <th>Year</th>
+                      <th>Semester</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Javascripts-->
@@ -121,6 +145,8 @@
     <script src="/static/template/js/bootstrap.min.js"></script>
     <script src="/static/template/js/plugins/pace.min.js"></script>
     <script src="/static/template/js/main.js"></script>
+    <script type="text/javascript" src="/static/template/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/template/js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
     <script src="/static/template/js/plugins/bootstrap-notify.min.js"></script>
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
@@ -206,9 +232,58 @@
                     });
         }
 
+        function loadSectionInformation() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var token = document.getElementById('token').value;
+            var id = document.getElementById('id').value;
+            $.ajax({
+                        url : "/getEnrolledSections/"+id,
+                            type : "get",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                                var sections = data.sections;
+                                for(i=0; i<sections.length; i++){
+                                    section = sections[i];
+                                    $('#sectionTable').append("<tr data-id='"+section.sectionId+"'><td>"+section.courseCode+"</td><td>"+section.courseTitle+"</td><td>"+section.year+'</td><td>'+section.semester+'</td></tr>');
+                                }
+                                if(sections.length>0){
+                                    document.getElementById('sectionTable').hidden = false;
+                                    $('#sectionTable').DataTable();
+                                }
+                            }
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+                        }
+                    });
+        }
+
 
         $(document).ready(function () {
             loadStudentInformation();
+            loadSectionInformation()
         })
     </script>
   </body>

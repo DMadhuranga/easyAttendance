@@ -26,7 +26,7 @@ class courseDB:
             "CREATE TABLE IF NOT EXISTS enrollment (id integer,section_id INTEGER, deleted integer(1) DEFAULT 0,PRIMARY KEY(id,section_id), FOREIGN KEY (id) REFERENCES student(id), FOREIGN KEY (section_id) REFERENCES section(section_id))")
         cursor.execute("CREATE TABLE IF NOT EXISTS attendance (id integer,session_id INTEGER, attended integer(1) DEFAULT 0,PRIMARY KEY(id,session_id), FOREIGN KEY (id) REFERENCES student(id), FOREIGN KEY (session_id) REFERENCES session(session_id))")
         cursor.execute(
-            "CREATE TABLE IF NOT EXISTS student_pictures (id integer,image_name VARCHAR(25),PRIMARY KEY(id,image_name), FOREIGN KEY (id) REFERENCES student(id))")
+            "CREATE TABLE IF NOT EXISTS student_pictures (id integer,image_name VARCHAR(25),deleted integer(1) default 0,PRIMARY KEY(id,image_name), FOREIGN KEY (id) REFERENCES student(id))")
 
     def addCourse(conn,courseCode,courseTitle):
         array = [courseCode, courseTitle]

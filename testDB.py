@@ -15,8 +15,8 @@ from controllers.imageController import imageController
 
 tokens = Tokens()
 conn = studentDB.getConnection("database/example.db")
-#print(studentDB.getSessionPhotos(conn,7))
-imageController.markAttendance(8)
+print(studentDB.getSessionPhotos(conn,12))
+#imageController.markAttendance(8)
 
 #studentDB.addStudent(conn,"a001","Mahela Jayawardane")
 #courseDB.addCourse(conn,"CS2012","Introduction object oriented programming")

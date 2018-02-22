@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 from classes.Student import Student
+from classes.Section import Section
 import random
 import string
 
@@ -29,7 +30,7 @@ class studentDB:
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS attendance (id integer,session_id INTEGER, attended integer(1) DEFAULT 1,PRIMARY KEY(id,session_id), FOREIGN KEY (id) REFERENCES student(id), FOREIGN KEY (session_id) REFERENCES session(session_id))")
         cursor.execute(
-            "CREATE TABLE IF NOT EXISTS student_pictures (id integer,image_name VARCHAR(25),PRIMARY KEY(id,image_name), FOREIGN KEY (id) REFERENCES student(id))")
+            "CREATE TABLE IF NOT EXISTS student_pictures (id integer,image_name VARCHAR(25),deleted integer(1) DEFAULT 0,PRIMARY KEY(id,image_name), FOREIGN KEY (id) REFERENCES student(id))")
 
 
     def addStudent(conn,studentId,studentName):
@@ -110,13 +111,26 @@ class studentDB:
     def getSessionPhotos(conn,sessionId):
         if(conn):
             cursor = conn.cursor()
-            array = [sessionId]
-            cursor.execute("select id,image_name from student_pictures join attendance using(id) where session_id=?", array)
+            array = [sessionId,0]
+            cursor.execute("select id,image_name from student_pictures join attendance using(id) where session_id=? and deleted=?", array)
             rows = cursor.fetchall()
             dictionary = {}
+            print(len(rows))
             for row in rows:
                 if row[0] not in dictionary.keys():
                     dictionary[row[0]] = []
                 dictionary[row[0]].append(row[1])
             return dictionary
+        return None
+
+    def getEnrolledSections(conn,id):
+        if(conn):
+            cursor = conn.cursor()
+            array = [id]
+            cursor.execute("select course_id,course_code,course_title,section_id,year,semester from enrollment join section using(section_id) join course using(course_id) where id=?", array)
+            sections = []
+            rows = cursor.fetchall()
+            for row in rows:
+                sections.append(Section(row[0], row[1], row[2], row[3], row[4], row[5]))
+            return sections
         return None

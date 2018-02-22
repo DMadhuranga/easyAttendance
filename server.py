@@ -334,6 +334,12 @@ def markStudentAttendance(sessionId):
         return jsonify(error="Invalid request or user")
     return imageController.markAttendance(sessionId)
 
+@app.route('/getEnrolledSections/<id>')
+def getEnrolledSection(id):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return studentController.getEnrolledSections(id)
+
 #run_server__________________________________________________________________________________________________________
 
 if __name__ == '__main__':

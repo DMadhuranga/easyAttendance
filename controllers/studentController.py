@@ -1,5 +1,6 @@
 from flask import request, jsonify
 from classes.Student import Student
+from classes.Section import Section
 from database.studentDB import studentDB
 
 dbName = 'database/example.db'
@@ -56,6 +57,19 @@ class studentController:
     def saveStudentImage(id):
         conn = studentDB.getConnection(dbName)
         return studentDB.addImage(conn,id,"jpg")
+
     def getStudentPictures(sessionId):
         conn = studentDB.getConnection(dbName)
         return studentDB.getSessionPhotos(conn,sessionId)
+
+    def getEnrolledSections(id):
+        conn = studentDB.getConnection(dbName)
+        sections = studentDB.getEnrolledSections(conn,id)
+        if(sections==None):
+            return jsonify(error="Section information not available")
+        retStudents = []
+        for section in sections:
+            retStudents.append({'courseId':section.getCourseId(),'courseCode':section.getCourseCode(),'courseTitle':section.getCourseTitle(),
+                                'sectionId': section.getSectionId(), 'semester': section.getSemester(),
+                                'year': section.getYear()})
+        return jsonify(sections=retStudents)
