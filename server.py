@@ -160,6 +160,15 @@ def testPage():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_enrollStudent')
+def getEnrollPage():
+    id = request.args.get('sectionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("enrollStudents.html", sectionId=id, user=tokens.getUserDetails(session['token']))
+    elif (sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -294,6 +303,36 @@ def takeMyPic(studentId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return imageController.saveImage(studentId)
+
+@app.route('/sectionStudents/<sectionId>')
+def getSectionStudents(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getEnrolledStudents(sectionId)
+
+@app.route('/enrolledStudents/<sectionId>')
+def getenrolledStudents(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getEnrolledStudents(sectionId)
+
+@app.route('/notEnrolledStudents/<sectionId>')
+def getNotEnrolledStudents(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getNotEnrolledStudents(sectionId)
+
+@app.route('/section/enrollStudent',methods=['POST'])
+def addStudentToSection():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.addStudentToSection(request)
+
+@app.route('/markAttendances/<sessionId>')
+def markStudentAttendance(sessionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return imageController.markAttendance(sessionId)
 
 #run_server__________________________________________________________________________________________________________
 

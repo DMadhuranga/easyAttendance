@@ -184,7 +184,7 @@
                             contentType: "application/json; charset=utf-8",
                         success : function(data){
                             $.hideLoading();
-                            if(data.hasOwnProperty('error')){
+                            /*if(data.hasOwnProperty('error')){
                                 swal({
                                     title:data.error,
                                     text:'',
@@ -192,16 +192,16 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                            }
+                            }*/
                         },
                         error : function(a,b,c) {
                             $.hideLoading();
-                            swal({
+                            /*swal({
                                 title:'Connection failed!',
                                 text:'',
                                 type:'info',
                                 confirmButtonColor:'#009688'
-                            });
+                            });*/
                         }
                     });
         }

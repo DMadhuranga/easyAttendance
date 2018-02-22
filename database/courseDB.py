@@ -4,6 +4,7 @@ from classes.Course import Course
 from classes.Section import Section
 from classes.Session import Session
 from classes.Attendance import Attendance
+from classes.Student import Student
 
 class courseDB:
     def getConnection(db_file):
@@ -191,7 +192,54 @@ class courseDB:
         if(conn):
             cursor = conn.cursor()
             array = [sessionId,id]
-            cursor.execute("update attendance set id='1' where session_id=? and id=?)",array)
+            cursor.execute("update attendance set attended='1' where session_id=? and id=?)",array)
+            conn.commit()
+            return True
+        return None
+
+    def getSectionStudents(conn,sectionId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [sectionId]
+            cursor.execute("select id,student_id,student_name from enrollment join student using(id) where section_id = ?", array)
+            students = []
+            rows = cursor.fetchall()
+            for row in rows:
+                student = Student(row[0], row[1], row[2])
+                students.append(student)
+            return students
+        return None
+
+    def markAttendanceToDB(conn,sessionId,ids):
+        if (conn):
+            cursor = conn.cursor()
+            for id in ids:
+                array = [sessionId, id]
+                cursor.execute("update attendance set attended='1' where session_id=? and id=?", array)
+                conn.commit()
+            cursor.execute("update session set marked='1' where session_id=?", [sessionId])
+            conn.commit()
+            return True
+        return None
+
+    def getNotSectionStudents(conn,sectionId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [sectionId]
+            cursor.execute("select id,student_id,student_name from student where id NOT IN (select id from enrollment where section_id = ?)", array)
+            students = []
+            rows = cursor.fetchall()
+            for row in rows:
+                student = Student(row[0], row[1], row[2])
+                students.append(student)
+            return students
+        return None
+
+    def enrollStudent(conn,sectionId,id):
+        if(conn):
+            cursor = conn.cursor()
+            array = [sectionId,id]
+            cursor.execute("insert into enrollment (section_id,id) values (?,?)",array)
             conn.commit()
             return True
         return None

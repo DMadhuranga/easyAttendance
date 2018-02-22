@@ -2,6 +2,8 @@ from flask import request, jsonify
 from classes.User import User
 from database.userDB import userDB
 
+dbName = 'database/example.db'
+
 class userController:
     def addStaff(self):
         if (request.is_json):
@@ -15,7 +17,7 @@ class userController:
                     return jsonify(error="Maximum 25 characters for student id")
                 if (len(password) < 8):
                     return jsonify(error="Minimum 8 characters for password")
-                conn = userDB.getConnection('database/example.db')
+                conn = userDB.getConnection(dbName)
                 exists = userDB.doesUserNameExist(conn,userName)
                 if(exists==None):
                     return jsonify(error="Database error")
@@ -27,14 +29,14 @@ class userController:
         return jsonify(error="Invalid request")
 
     def getUser(userId):
-        conn = userDB.getConnection('database/example.db')
+        conn = userDB.getConnection(dbName)
         user = userDB.getUser(conn,userId)
         if(user==None):
             return jsonify(error="user not found")
         return jsonify(userId=user.getUserId(),userName = user.getUserName(),roleId=user.getRoleId(),password= user.getPassword())
 
     def getUserByUserName(userName):
-        conn = userDB.getConnection('database/example.db')
+        conn = userDB.getConnection(dbName)
         user = userDB.getUserByName(conn, userName)
         if (user == None):
             return jsonify(error="user not found")

@@ -21,7 +21,7 @@
   <body class="sidebar-mini fixed">
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
-    <input type="text" id="sessionId" hidden="" value="{{ sessionId }}">
+    <input type="text" id="sectionId" hidden="" value="{{ sectionId }}">
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -87,14 +87,14 @@
       <div class="content-wrapper">
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-graduation-cap"></i> Sessions</h1>
-            <p>Session details</p>
+            <h1><i class="fa fa-graduation-cap"></i> Sections</h1>
+            <p>Enroll students</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <h3 class="card-title">Session</h3>
+              <h3 class="card-title">Section</h3>
               <div class="card-body">
                 <form>
                   <div class="form-group">
@@ -107,24 +107,16 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Year</label>
-                    <input class="form-control" disabled="" id="year" type="text" placeholder="Enter course code">
+                    <input class="form-control" disabled="" id="year" type="text" placeholder="Enter course title">
                   </div>
                   <div class="form-group">
                     <label class="control-label">Semester</label>
                     <input class="form-control" disabled="" id="semester" type="text" placeholder="Enter course title">
                   </div>
-                  <div class="form-group">
-                    <label class="control-label">Date</label>
-                    <input class="form-control" disabled="" id="date" type="text" placeholder="Enter course code">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Starting Time</label>
-                    <input class="form-control" disabled="" id="startingTime" type="text" placeholder="Enter course title">
-                  </div>
                 </form>
               </div>
-              <div class="card-footer" id="cardFooter" hidden="">
-                <button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendance()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance</button>
+              <div class="card-footer">
+
               </div>
             </div>
           </div>
@@ -133,15 +125,16 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-title">Attendance</h3>
+              <h3 class="card-title">Students</h3>
               <div class="card-body">
 
-                  <table hidden="" class="table table-hover table-bordered" id="attendanceTable">
+                  <table class="table table-hover table-bordered" id="studentTable">
                   <thead>
                     <tr>
+                      <th>Enrol</th>
                       <th>Student Id</th>
                       <th>Student Name</th>
-                      <th>Attendance</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -170,10 +163,10 @@
             $.showLoading({
             name : "line-pulse"
         });
-            var id = document.getElementById('sessionId').value;
+            var id = document.getElementById('sectionId').value;
             var token = document.getElementById('token').value;
             $.ajax({
-                        url : "/session/getSession/"+id,
+                        url : "/section/getSection/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -193,17 +186,8 @@
                             }else{
                                 document.getElementById('courseCode').value = data.courseCode;
                                 document.getElementById('courseTitle').value = data.courseTitle;
-                                document.getElementById('year').value = data.year;
                                 document.getElementById('semester').value = data.semester;
-                                document.getElementById('date').value = data.date;
-                                document.getElementById('startingTime').value = data.startingTime;
-                                var marked = data.marked;
-                                if(marked==0){
-                                    document.getElementById('cardFooter').hidden = false;
-                                }else{
-                                    document.getElementById('attendanceTable').hidden=false;
-                                    loadAttendance();
-                                }
+                                document.getElementById('year').value = data.year;
                             }
                         },
                         error : function(a,b,c) {
@@ -221,21 +205,17 @@
 
         $(document).ready(function () {
             loadStudentInformation();
+            loadEnrolledStudent();
         });
 
-        function addASection() {
-            var id = document.getElementById('courseId').value;
-            window.location.href = "page_addSection?courseId="+id;
-        }
-
-        function loadAttendance() {
+        function loadEnrolledStudent() {
             $.showLoading({
             name : "line-pulse"
         });
             var token = document.getElementById('token').value;
-            var id = document.getElementById('sessionId').value;
+            var id = document.getElementById('sectionId').value;
             $.ajax({
-                        url : "/attendances/"+id,
+                        url : "/notEnrolledStudents/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -253,16 +233,12 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                var students = data.attendances;
+                                var students = data.students;
                                 for(i=0; i<students.length; i++){
                                     student = students[i];
-                                    icon = "fa fa-times";
-                                    if(student.attended=="1"){
-                                        icon = "fa fa-check";
-                                    }
-                                    $('#attendanceTable').append("<tr onclick='sendToSection(this)' data-id='"+student.id+"'><td>"+student.studentId+"</td><td>"+student.studentName+"</td><td><i class='"+icon+"'></i></td></tr>");
+                                    $('#studentTable').append("<tr><td><button data-id='" + student.id +"' class='btn btn-primary icon-btn' onclick='enrollStudent(this)' type='button'><i class='fa fa-plus-square'></i>Enroll</button></td><td>" + student.studentId + "</td><td>" + student.studentName + "</td></tr>");
                                 }
-                                $('#attendanceTable').DataTable();
+                                $('#studentTable').DataTable();
                             }
                         },
                         error : function(a,b,c) {
@@ -277,29 +253,76 @@
                     });
         }
 
-        function markAttendance() {
-            $.showLoading({
-            name : "line-pulse"
-        });
+        function enrollStudent(me) {
+            var id = $(me).data('id');
+            var sectionId = document.getElementById('sectionId').value;
             var token = document.getElementById('token').value;
-            var id = document.getElementById('sessionId').value;
-            $.ajax({
-                        url : "/markAttendances/"+id,
-                            type : "get",
+                var studentData = {id:id,sectionId:sectionId};
+            swal({
+                title: 'Are you sure?',
+                text: "",
+                type: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#009688',
+                cancelButtonColor: '#bec4ce',
+                confirmButtonText: 'Enroll Student',
+                allowOutsideClick: false
+            }).then(function () {
+                swal({
+                    title: 'Please wait',
+                    text: '',
+                    timer: 3000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    },
+                    allowOutsideClick: false
+                }).then(function () {},
+                    // handling the promise rejection
+                    function (dismiss) {
+                        if (dismiss === 'timer') {
+                            console.log('I was closed by the timer')
+                        }
+                    }
+                );
+
+                $.ajax({
+                        url : "/section/enrollStudent",
+                            type : "post",
                             headers:{
                                 'Token' : token
                             },
-                            timeout : 10000,
+                            timeout : 3000,
                             async : "false",
                             contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify(studentData),
                         success : function(data){
-                            $.hideLoading();
-
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                                swal({
+                                    title:'Student Added!',
+                                    text:'',
+                                    type:'success',
+                                    confirmButtonColor:'#009688'
+                                });
+                                setTimeout(function(){window.location.href= "page_enrollStudent?sectionId="+sectionId; },1500);
+                            }
                         },
                         error : function(a,b,c) {
-                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
                         }
                     });
+            });
         }
     </script>
   </body>

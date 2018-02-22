@@ -2,6 +2,8 @@ from flask import request, jsonify
 from classes.Student import Student
 from database.studentDB import studentDB
 
+dbName = 'database/example.db'
+
 class studentController:
 
     def addStudent(request):
@@ -16,7 +18,7 @@ class studentController:
                     return jsonify(error="Maximum 25 characters for student id")
                 if (len(studentName) > 200):
                     return jsonify(error="Maximum 200 characters for student name")
-                conn = studentDB.getConnection('database/example.db')
+                conn = studentDB.getConnection(dbName)
                 exists = studentDB.doesStudentIdExist(conn,studentId)
                 if(exists==None):
                     return jsonify(error="Database error")
@@ -28,21 +30,21 @@ class studentController:
         return jsonify(error="Invalid request")
 
     def getStudent(id):
-        conn = studentDB.getConnection('database/example.db')
+        conn = studentDB.getConnection(dbName)
         student = studentDB.getStudent(conn,id)
         if(student==None):
             return jsonify(error="student not found")
         return jsonify(id=student.getId(),studentId=student.getStudentId(),studentName=student.getStudentName())
 
     def getStudentByStudentId(studentId):
-        conn = studentDB.getConnection('database/example.db')
+        conn = studentDB.getConnection(dbName)
         student = studentDB.getStudentByStudentId(conn,studentId)
         if(student==None):
             return jsonify(error="student not found")
         return jsonify(id=student.getId(),studentId=student.getStudentId(),studentName=student.getStudentName())
 
     def getStudents():
-        conn = studentDB.getConnection('database/example.db')
+        conn = studentDB.getConnection(dbName)
         students = studentDB.getStudents(conn)
         if(students==None):
             return jsonify(error="Student information not available")
@@ -52,8 +54,8 @@ class studentController:
         return jsonify(students=retStudents)
 
     def saveStudentImage(id):
-        conn = studentDB.getConnection('database/example.db')
+        conn = studentDB.getConnection(dbName)
         return studentDB.addImage(conn,id,"jpg")
     def getStudentPictures(sessionId):
-        conn = studentDB.getConnection('database/example.db')
+        conn = studentDB.getConnection(dbName)
         return studentDB.getSessionPhotos(conn,sessionId)

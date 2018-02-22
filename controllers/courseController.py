@@ -4,6 +4,8 @@ from classes.Course import Course
 from classes.Section import Section
 from classes.Attendance import Attendance
 from database.courseDB import courseDB
+from database.studentDB import studentDB
+from classes.Student import Student
 
 
 
@@ -22,6 +24,8 @@ def validate(date_text):
     except ValueError:
         return False
 
+dbName = 'database/example.db'
+
 class courseController:
 
     def addCourse(request):
@@ -36,27 +40,27 @@ class courseController:
                     return jsonify(error="Maximum 25 characters for course code")
                 if (len(courseTitle) > 200):
                     return jsonify(error="Maximum 200 characters for course title")
-                conn = courseDB.getConnection('database/example.db')
+                conn = courseDB.getConnection(dbName)
                 courseId = courseDB.addCourse(conn,courseCode,courseTitle)
                 return jsonify(courseId=courseId)
         return jsonify(error="Invalid request")
 
     def getCourse(courseId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         course = courseDB.getCourse(conn,courseId)
         if(course==None):
             return jsonify(error="student not found")
         return jsonify(courseId=course.getCourseId(),courseCode=course.getCourseCode(),courseTitle=course.getCourseTitle())
 
     def getCourseByCode(courseCode):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         course = courseDB.getCourseByCode(conn,courseCode)
         if(course==None):
             return jsonify(error="student not found")
         return jsonify(courseId=course.getCourseId(), courseCode=course.getCourseCode(),courseTitle=course.getCourseTitle())
 
     def getCourses():
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         courses = courseDB.getCourses(conn)
         if(courses==None):
             return jsonify(error="COurse information not available")
@@ -66,7 +70,7 @@ class courseController:
         return jsonify(courses=retCourses)
 
     def addSection(request):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         if (request.is_json):
             data = request.get_json()
             if (('courseId' in data) and (('semester' in data) and ('year' in data))):
@@ -79,7 +83,7 @@ class courseController:
                     return jsonify(error="Invalid year")
                 if (len(semester) > 50):
                     return jsonify(error="Maximum 50 characters for semester")
-                conn = courseDB.getConnection('database/example.db')
+                conn = courseDB.getConnection(dbName)
                 course = courseDB.getCourse(conn,courseId)
                 if(course==None):
                     return jsonify(error="Invalid course")
@@ -88,7 +92,7 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getSections(courseId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         sections = courseDB.getSections(conn,courseId)
         if(sections==None):
             return jsonify(error="sections not found")
@@ -99,7 +103,7 @@ class courseController:
         return jsonify(sections=retSections)
 
     def getSessions(sessionId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSessions(conn,sessionId)
         if(sessions==None):
             return jsonify(error="sessions not found")
@@ -111,7 +115,7 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getSection(sectionId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         section = courseDB.getSection(conn,sectionId)
         if(section==None):
             return jsonify(error="section not found")
@@ -120,7 +124,7 @@ class courseController:
 
 
     def addSession(request):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         if (request.is_json):
             data = request.get_json()
             if (('sectionId' in data) and (('date' in data) and ('startingTime' in data))):
@@ -131,7 +135,7 @@ class courseController:
                     return jsonify(error="Invalid date")
                 if (not isValidTime(startingTime)):
                     return jsonify(error="Invalid starting time")
-                conn = courseDB.getConnection('database/example.db')
+                conn = courseDB.getConnection(dbName)
                 section = courseDB.getSection(conn,sectionId)
                 if(section==None):
                     return jsonify(error="Invalid section")
@@ -140,7 +144,7 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getSession(sessionId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         session = courseDB.getSession(conn,sessionId)
         if(session==None):
             return jsonify(error="session not found")
@@ -149,7 +153,7 @@ class courseController:
                        date= session.getDate(),startingTime=session.getStartingTime(),marked=session.getMarked())
 
     def getAllSessions():
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         sessions = courseDB.getAllSessions(conn)
         if(sessions==None):
             return jsonify(error="sessions not found")
@@ -161,7 +165,7 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getAttendance(sessionId):
-        conn = courseDB.getConnection('database/example.db')
+        conn = courseDB.getConnection(dbName)
         attendances = courseDB.getAttendance(conn,sessionId)
         if(attendances==None):
             return jsonify(error="sessions not found")
@@ -169,3 +173,43 @@ class courseController:
         for attendance in attendances:
             retSessions.append({'id':attendance.getId(),'studentId':attendance.getStudentId(),'studentName':attendance.getStudentName(),'sessionId':attendance.getSessionId(),'attended':attendance.getAttended()})
         return jsonify(attendances=retSessions)
+
+    def getEnrolledStudents(sectionId):
+        conn = courseDB.getConnection(dbName)
+        students = courseDB.getSectionStudents(conn,sectionId)
+        if(students==None):
+            return jsonify(error="Students not found")
+        retSessions = []
+        for student in students:
+            retSessions.append({'id':student.getId(),'studentId':student.getStudentId(),'studentName':student.getStudentName()})
+        return jsonify(students=retSessions)
+
+    def getNotEnrolledStudents(sectionId):
+        conn = courseDB.getConnection(dbName)
+        students = courseDB.getNotSectionStudents(conn,sectionId)
+        if(students==None):
+            return jsonify(error="Students not found")
+        retSessions = []
+        for student in students:
+            retSessions.append({'id':student.getId(),'studentId':student.getStudentId(),'studentName':student.getStudentName()})
+        return jsonify(students=retSessions)
+
+    def markAttendanceToDB(sessionId,ids):
+        conn = courseDB.getConnection(dbName)
+        courseDB.markAttendanceToDB(conn,sessionId,ids)
+
+    def addStudentToSection(request):
+        conn = courseDB.getConnection(dbName)
+        if (request.is_json):
+            data = request.get_json()
+            if (('sectionId' in data) and ('id' in data)):
+                sectionId = data['sectionId']
+                id = data['id']
+                conn = courseDB.getConnection(dbName)
+                section = courseDB.getSection(conn,sectionId)
+                student = studentDB.getStudent(conn,id)
+                if(section==None or student==None):
+                    return jsonify(error="Invalid section or student")
+                courseDB.enrollStudent(conn,sectionId,id)
+                return jsonify(success="Added")
+        return jsonify(error="Invalid request")

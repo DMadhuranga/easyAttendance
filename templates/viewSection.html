@@ -117,6 +117,7 @@
               </div>
               <div class="card-footer">
                 <button class="btn btn-primary icon-btn" onclick="addSession()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Session</button>
+                  <button class="btn btn-primary icon-btn" onclick="enrollStudent()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Enroll Students</button>
               </div>
             </div>
           </div>
@@ -134,6 +135,28 @@
                       <th>Date</th>
                       <th>Starting Time</th>
                       <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <h3 class="card-title">Enrolled Students</h3>
+              <div class="card-body">
+
+                  <table class="table table-hover table-bordered" id="studentTable">
+                  <thead>
+                    <tr>
+                      <th>Student Id</th>
+                      <th>Student Name</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -205,11 +228,17 @@
         $(document).ready(function () {
             loadStudentInformation();
             loadSectionInformation();
+            loadEnrolledStudent();
         });
 
         function addSession() {
             var id = document.getElementById('sectionId').value;
             window.location.href = "page_addSession?sectionId="+id;
+        }
+
+        function enrollStudent() {
+            var id = document.getElementById('sectionId').value;
+            window.location.href = "page_enrollStudent?sectionId="+id;
         }
 
         function loadSectionInformation() {
@@ -261,9 +290,59 @@
                     });
         }
 
+        function loadEnrolledStudent() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var token = document.getElementById('token').value;
+            var id = document.getElementById('sectionId').value;
+            $.ajax({
+                        url : "/enrolledStudents/"+id,
+                            type : "get",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                                var students = data.students;
+                                for(i=0; i<students.length; i++){
+                                    student = students[i];
+                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td>" + student.studentId + "</td><td>" + student.studentName + "</td></tr>");
+                                }
+                                $('#studentTable').DataTable();
+                            }
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+                        }
+                    });
+        }
+
         function sendToSection(me) {
             var sessionId = $(me).data('id');
             window.location.href = "page_viewSession?sessionId="+sessionId;
+        }
+
+        function sendToStudentView(me) {
+            var id = $(me).data('id');
+            window.location.href = "page_viewStudent?id="+id;
         }
     </script>
   </body>
