@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify, session
 import webbrowser
 import socket
+import datetime
 from database.userDB import userDB
 from database.courseDB import courseDB
 from classes.Tokens import Tokens
@@ -169,6 +170,15 @@ def getEnrollPage():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_viewStudentAttendanceSummary')
+def pageViewStudentAttendanceSummary():
+    id = request.args.get('sectionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("viewStudentAttendance.html", sectionId=id, user=tokens.getUserDetails(session['token']), toDate = datetime.datetime.today().strftime('%Y-%m-%d'))
+    elif (sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -330,7 +340,7 @@ def addStudentToSection():
 
 @app.route('/markAttendances/<sessionId>')
 def markStudentAttendance(sessionId):
-    if (authenticationFail(request) or adminAuthenticationFail(request)):
+    if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return imageController.markAttendance(sessionId)
 
@@ -339,6 +349,18 @@ def getEnrolledSection(id):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return studentController.getEnrolledSections(id)
+
+@app.route('/getSectionAttendance/<sectionId>')
+def getSectionAttendance(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSectionAttendanceSummary(sectionId)
+
+@app.route('/section/getStudentAttendanceSummary/<sectionId>')
+def getSectionStudentAttendance(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSectionAttendanceSummary(sectionId)
 
 #run_server__________________________________________________________________________________________________________
 

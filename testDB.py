@@ -14,8 +14,8 @@ from controllers.imageController import imageController
 #imageController.saveVideo(7,360)
 
 tokens = Tokens()
-conn = studentDB.getConnection("database/example.db")
-print(studentDB.getSessionPhotos(conn,12))
+conn = courseDB.getConnection("database/example.db")
+dic = courseDB.getSectionAttendanceSummary(conn,2)
 #imageController.markAttendance(8)
 
 #studentDB.addStudent(conn,"a001","Mahela Jayawardane")

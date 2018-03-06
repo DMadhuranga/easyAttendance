@@ -6,6 +6,7 @@ from classes.Attendance import Attendance
 from database.courseDB import courseDB
 from database.studentDB import studentDB
 from classes.Student import Student
+from classes.SessionAttendance import SessionAttendance
 
 
 
@@ -213,3 +214,16 @@ class courseController:
                 courseDB.enrollStudent(conn,sectionId,id)
                 return jsonify(success="Added")
         return jsonify(error="Invalid request")
+
+    def getSectionAttendanceSummary(sectionId):
+        conn = courseDB.getConnection(dbName)
+        sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
+        if(sessions==None):
+            return jsonify(error="Date not found")
+        retSessions = []
+        for session in sessions.keys():
+            students = []
+            for student in sessions[session].getStudentAttendance().keys():
+                students.append({'id':student,'attended':sessions[session].getStudentAttendance()[student]})
+            retSessions.append({'students':students ,'sessionId':sessions[session].getSessionId(),'date':sessions[session].getDate(),'startingTime':sessions[session].getStartingTime(),'marked':sessions[session].isMarked()})
+        return jsonify(sessions=retSessions)

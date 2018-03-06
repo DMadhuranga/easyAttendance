@@ -5,6 +5,7 @@ from classes.Section import Section
 from classes.Session import Session
 from classes.Attendance import Attendance
 from classes.Student import Student
+from classes.SessionAttendance import SessionAttendance
 
 class courseDB:
     def getConnection(db_file):
@@ -242,4 +243,18 @@ class courseDB:
             cursor.execute("insert into enrollment (section_id,id) values (?,?)",array)
             conn.commit()
             return True
+        return None
+
+    def getSectionAttendanceSummary(conn,sectionId):
+        if (conn):
+            cursor = conn.cursor()
+            array = [sectionId]
+            cursor.execute("select section_id,session_id,date,starting_time,id,marked,id,attended from session join attendance using(session_id) where session.section_id=? order by session.date, session.session_id", array)
+            sessions = {}
+            rows = cursor.fetchall()
+            for row in rows:
+                if not row[1] in sessions:
+                    sessions[row[1]] = SessionAttendance(row[0],row[1],row[2],row[3],row[4])
+                sessions[row[1]].addStudent(row[5],row[6])
+            return sessions
         return None

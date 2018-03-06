@@ -21,7 +21,7 @@
   <body class="sidebar-mini fixed">
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
-    <input type="text" id="sessionId" hidden="" value="{{ sessionId }}">
+    <input type="text" id="sectionId" hidden="" value="{{ sectionId }}">
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -85,85 +85,51 @@
         </section>
       </aside>
       <div class="content-wrapper">
-        <div class="page-title">
-          <div>
-            <h1><i class="fa fa-graduation-cap"></i> Sessions</h1>
-            <p>Session details</p>
+        <div class="page-title hidden-print">
+          <div class="col-xs-3">
+            <h1><i class="fa fa-file-text-o"></i> Attendance</h1>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <h3 class="card-title">Session</h3>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label class="control-label">Course Code</label>
-                    <input class="form-control" disabled="" id="courseCode" type="text" placeholder="Enter course code">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Course Title</label>
-                    <input class="form-control" disabled="" id="courseTitle" type="text" placeholder="Enter course title">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Year</label>
-                    <input class="form-control" disabled="" id="year" type="text" placeholder="Enter course code">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Semester</label>
-                    <input class="form-control" disabled="" id="semester" type="text" placeholder="Enter course title">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Date</label>
-                    <input class="form-control" disabled="" id="date" type="text" placeholder="Enter course code">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label">Starting Time</label>
-                    <input class="form-control" disabled="" id="startingTime" type="text" placeholder="Enter course title">
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer" id="cardFooter" hidden="">
-                <button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendance()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance</button>
-              </div>
-            </div>
-          </div>
-        </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <section class="invoice">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="page-header" id="pageTitle"></h2>
+                            </div>
+                        </div>
+                        <div class="row invoice-info">
+                            <div class="col-xs-4" >
+                                <strong>Course Code</strong><br>Year<br>Semester
+                            </div>
+                            <div class="col-xs-4" id="stringOfDetails"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 table-responsive">
+                                <table id="studentTable" class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Student Id</th>
+                                        <th>Student Name</th>
+                                        <th>Conducted Dates</th>
+                                        <th>Attended Dates</th>
+                                        <th>Attendance Precentage</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <h3 class="card-title">Attendance</h3>
-              <div class="card-body">
-                  <div class="bs-element-section">
-                      <div class="row">
-                          <div class="col-lg-12">
-                  <h4 id="progress-alternatives">Attendance Precentage</h4>
-                    <div id="barInClass" class="bs-component">
-                      <div class="progress">
-                        <div id="myBar" class="progress-bar progress-bar-success" style="width: 40%;"></div>
-                      </div>
-                        <h5 id="precentage"></h5>
-                    </div>
-                          </div>
-                       </div>
-                  </div>
-                  <h4 id="progress-alternatives">Students</h4>
-                  <table hidden="" class="table table-hover table-bordered" id="attendanceTable">
-                  <thead>
-                    <tr>
-                      <th>Student Id</th>
-                      <th>Student Name</th>
-                      <th>Attendance</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                  </tbody>
-                </table>
-              </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row hidden-print mt-20">
+                            <div class="col-xs-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Print</a></div>
+                        </div>
+                    </section>
+                </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -183,10 +149,10 @@
             $.showLoading({
             name : "line-pulse"
         });
-            var id = document.getElementById('sessionId').value;
+            var id = document.getElementById('sectionId').value;
             var token = document.getElementById('token').value;
             $.ajax({
-                        url : "/session/getSession/"+id,
+                        url : "/section/getSection/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -204,19 +170,8 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                document.getElementById('courseCode').value = data.courseCode;
-                                document.getElementById('courseTitle').value = data.courseTitle;
-                                document.getElementById('year').value = data.year;
-                                document.getElementById('semester').value = data.semester;
-                                document.getElementById('date').value = data.date;
-                                document.getElementById('startingTime').value = data.startingTime;
-                                var marked = data.marked;
-                                if(marked==0){
-                                    document.getElementById('cardFooter').hidden = false;
-                                }else{
-                                    document.getElementById('attendanceTable').hidden=false;
-                                    loadAttendance();
-                                }
+                                document.getElementById('stringOfDetails').innerHTML = "<strong>"+data.courseCode+"</strong><br>"+data.year+"<br>" + data.semester;
+                                document.getElementById("pageTitle").innerHTML = "<i class='fa fa-globe'></i> "+data.courseTitle+"<small class='pull-right'>Date:&nbsp;&nbsp; "+(new Date().toISOString().split("T")[0])+"</small>";
                             }
                         },
                         error : function(a,b,c) {
@@ -233,25 +188,18 @@
 
 
         $(document).ready(function () {
-            document.getElementById("barInClass").hidden = true;
             loadStudentInformation();
+            loadEnrolledStudent();
         });
 
-        function addASection() {
-            var id = document.getElementById('courseId').value;
-            window.location.href = "page_addSection?courseId="+id;
-        }
-
-        function loadAttendance() {
+        function loadEnrolledStudent() {
             $.showLoading({
             name : "line-pulse"
         });
             var token = document.getElementById('token').value;
-            var id = document.getElementById('sessionId').value;
-            var noOfStudents = 0;
-            var noOfPresents = 0;
+            var id = document.getElementById('sectionId').value;
             $.ajax({
-                        url : "/attendances/"+id,
+                        url : "section/getStudentAttendanceSummary/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -269,21 +217,12 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                var students = data.attendances;
-                                noOfStudents = students.length;
+                                var students = data.students;
                                 for(i=0; i<students.length; i++){
                                     student = students[i];
-                                    icon = "fa fa-times";
-                                    if(student.attended=="1"){
-                                        noOfPresents++;
-                                        icon = "fa fa-check";
-                                    }
-                                    $('#attendanceTable').append("<tr onclick='sendToSection(this)' data-id='"+student.id+"'><td>"+student.studentId+"</td><td>"+student.studentName+"</td><td><i class='"+icon+"'></i></td></tr>");
+                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td>" + student.studentId + "</td><td>" + student.studentName + "</td></tr>");
                                 }
-                                $('#attendanceTable').DataTable();
-                                document.getElementById("barInClass").hidden = false;
-                                document.getElementById("precentage").innerText = (noOfPresents/noOfStudents)*100 +" %";
-                                document.getElementById("myBar").style = "width: "+(noOfPresents/noOfStudents)*100+"%;";
+                                $('#studentTable').DataTable();
                             }
                         },
                         error : function(a,b,c) {
@@ -294,31 +233,6 @@
                                 type:'info',
                                 confirmButtonColor:'#009688'
                             });
-                        }
-                    });
-        }
-
-        function markAttendance() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var token = document.getElementById('token').value;
-            var id = document.getElementById('sessionId').value;
-            $.ajax({
-                        url : "/markAttendances/"+id,
-                            type : "get",
-                            headers:{
-                                'Token' : token
-                            },
-                            timeout : 10000,
-                            async : "false",
-                            contentType: "application/json; charset=utf-8",
-                        success : function(data){
-                            $.hideLoading();
-
-                        },
-                        error : function(a,b,c) {
-                            $.hideLoading();
                         }
                     });
         }

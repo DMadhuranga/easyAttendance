@@ -118,6 +118,7 @@
               <div class="card-footer">
                 <button class="btn btn-primary icon-btn" onclick="addSession()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Session</button>
                   <button class="btn btn-primary icon-btn" onclick="enrollStudent()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Enroll Students</button>
+                  <button class="btn btn-primary icon-btn" onclick="getStudentAttendanceSummary()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Student Attendance Summary</button>
               </div>
             </div>
           </div>
@@ -151,7 +152,6 @@
             <div class="card">
               <h3 class="card-title">Enrolled Students</h3>
               <div class="card-body">
-
                   <table class="table table-hover table-bordered" id="studentTable">
                   <thead>
                     <tr>
@@ -344,6 +344,10 @@
             var id = $(me).data('id');
             window.location.href = "page_viewStudent?id="+id;
         }
+        function getStudentAttendanceSummary() {
+            window.location.href = "page_viewStudentAttendanceSummary?sectionId="+document.getElementById('sectionId').value;
+        }
+
     </script>
   </body>
 </html>
