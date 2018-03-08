@@ -249,12 +249,17 @@ class courseDB:
         if (conn):
             cursor = conn.cursor()
             array = [sectionId]
-            cursor.execute("select section_id,session_id,date,starting_time,id,marked,id,attended from session join attendance using(session_id) where session.section_id=? order by session.date, session.session_id", array)
+            cursor.execute("select section_id,session_id,date,starting_time,marked,id,student_id,student_name,attended from (session join attendance using(session_id)) join student using(id) where session.section_id=? order by session.date, session.session_id", array)
             sessions = {}
+            ret_sessions = {}
             rows = cursor.fetchall()
             for row in rows:
                 if not row[1] in sessions:
                     sessions[row[1]] = SessionAttendance(row[0],row[1],row[2],row[3],row[4])
-                sessions[row[1]].addStudent(row[5],row[6])
-            return sessions
+                sessions[row[1]].addStudent(row[5],row[6],row[7],row[8])
+
+                if not row[1] in ret_sessions:
+                    ret_sessions[row[1]] = {"sectionId":row[0],"sessionId":row[1],"date":row[2],"startingTime":row[3],"marked":row[4],"students":[]}
+                ret_sessions[row[1]]["students"].append([row[5],row[6],row[7],row[8]])
+            return ret_sessions
         return None

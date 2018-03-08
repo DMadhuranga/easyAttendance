@@ -27,11 +27,17 @@ class SessionAttendance:
     def getStartingTime(self):
         return self.startingTime
 
-    def addStudent(self,studentId,attended):
-        self.students[studentId] = attended
+    def addStudent(self,id,studentId,studentName,attended):
+        #print("Adding to "+str(self.sessionId)+" student "+str(studentName)+" attendance "+str(attended))
+        self.students[id] = [studentId,studentName,attended]
 
     def getStudentAttendance(self):
         return self.students
 
     def isMarked(self):
         return self.marked
+
+    def printStudents(self):
+        for i in self.students:
+            student = self.students[i]
+            print(student)

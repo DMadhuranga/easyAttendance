@@ -224,6 +224,39 @@ class courseController:
         for session in sessions.keys():
             students = []
             for student in sessions[session].getStudentAttendance().keys():
-                students.append({'id':student,'attended':sessions[session].getStudentAttendance()[student]})
+                students.append({'id':student,'studentId':sessions[session].getStudentAttendance()[student][0],'studentName':sessions[session].getStudentAttendance()[student][1],'attended':sessions[session].getStudentAttendance()[student][2]})
             retSessions.append({'students':students ,'sessionId':sessions[session].getSessionId(),'date':sessions[session].getDate(),'startingTime':sessions[session].getStartingTime(),'marked':sessions[session].isMarked()})
         return jsonify(sessions=retSessions)
+
+    def getStudentAttendanceSummary(sectionId):
+        conn = courseDB.getConnection(dbName)
+        sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
+        if(sessions==None):
+            return jsonify(error="Date not found")
+        students = {}
+        for session in sessions.keys():
+            for student in sessions[session].getStudentAttendance().keys():
+                if student not in students.keys():
+                    students[student] = {'presentDays':0,'conductedDays':0,'id':student,'studentId':sessions[session].getStudentAttendance()[student][0],'studentName':sessions[session].getStudentAttendance()[student][1]}
+                print(str(student)+" ============ attendance before ========"+str(students[student]['presentDays']))
+                print(str(student) + " ============ conduct before ========" + str(students[student]['conductedDays']))
+                print(sessions[session].getStudentAttendance()[student])
+                students[student]['conductedDays']+=1
+                students[student]['presentDays'] += sessions[session].getStudentAttendance()[student][2]
+                print(str(student) + " ============ attendance after ========" + str(students[student]['presentDays']))
+                print(str(student) + " ============ conduct after ========" + str(students[student]['conductedDays']))
+        return jsonify(students=students)
+
+    def getStudentAttendanceSummaryJSON(sectionId):
+        conn = courseDB.getConnection(dbName)
+        sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
+        if(sessions==None):
+            return jsonify(error="Date not found")
+        students = {}
+        for session in sessions.keys():
+            for student in sessions[session]["students"]:
+                if student[0] not in students.keys():
+                    students[student[0]] = {'presentDays':0,'conductedDays':0,'id':student[0],'studentId':student[1],'studentName':student[2]}
+                students[student[0]]['conductedDays']+=1
+                students[student[0]]['presentDays'] += student[3]
+        return jsonify(students=students)

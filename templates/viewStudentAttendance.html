@@ -106,11 +106,12 @@
                             <div class="col-xs-4" id="stringOfDetails"></div>
                         </div>
                         <div class="row">
+                            <br>
+                            <br>
                             <div class="col-xs-12 table-responsive">
                                 <table id="studentTable" class="table">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Student Id</th>
                                         <th>Student Name</th>
                                         <th>Conducted Dates</th>
@@ -218,11 +219,16 @@
                                 });
                             }else{
                                 var students = data.students;
-                                for(i=0; i<students.length; i++){
-                                    student = students[i];
-                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td>" + student.studentId + "</td><td>" + student.studentName + "</td></tr>");
+                                var count = 0;
+                                for(tempId in students){
+                                    student = students[tempId];
+                                    count++;
+                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td>" + student.studentId + "</td><td>" + student.studentName + "</td><td>" + student.conductedDays + "</td><td>" + student.presentDays + "</td><td>" + (student.presentDays/student.conductedDays)*100 + "</td></tr>");
                                 }
-                                $('#studentTable').DataTable();
+                                $('#studentTable').DataTable( {
+                                    searching: false,
+                                    paging: false
+                                } );
                             }
                         },
                         error : function(a,b,c) {

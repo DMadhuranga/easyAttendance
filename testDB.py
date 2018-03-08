@@ -9,13 +9,13 @@ from classes.Recognizer import Recognizer
 import cv2
 import random
 import string
-from controllers.imageController import imageController
+from controllers.courseController import courseController
 
 #imageController.saveVideo(7,360)
 
 tokens = Tokens()
-conn = courseDB.getConnection("database/example.db")
-dic = courseDB.getSectionAttendanceSummary(conn,2)
+#conn = courseDB.getConnection("database/example.db")
+print(courseController.getStudentAttendanceSummaryJSON(2))
 #imageController.markAttendance(8)
 
 #studentDB.addStudent(conn,"a001","Mahela Jayawardane")

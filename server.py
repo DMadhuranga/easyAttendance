@@ -360,7 +360,7 @@ def getSectionAttendance(sectionId):
 def getSectionStudentAttendance(sectionId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
-    return courseController.getSectionAttendanceSummary(sectionId)
+    return courseController.getStudentAttendanceSummaryJSON(sectionId)
 
 #run_server__________________________________________________________________________________________________________
 
