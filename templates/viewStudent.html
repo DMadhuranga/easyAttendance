@@ -108,8 +108,11 @@
                   </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <button class="btn btn-primary icon-btn" onclick="getImages()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Images</button>
+              <div class="card-footer" hidden="" id="addImageSection" >
+                <button hidden=""  class="btn btn-primary icon-btn" onclick="getImages()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Images</button>
+              </div>
+              <div class="card-footer"  hidden="" id="removeImageSection">
+                <button class="btn btn-primary icon-btn" onclick="removeImages()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Remove Images</button>
               </div>
             </div>
           </div>
@@ -179,6 +182,12 @@
                             }else{
                                 document.getElementById('studentId').value = data.studentId;
                                 document.getElementById('studentName').value = data.studentName;
+                                console.log(data.noOfImages);
+                                if(data.noOfImages<3){
+                                    document.getElementById("addImageSection").hidden = false;
+                                }else{
+                                    document.getElementById("removeImageSection").hidden = false;
+                                }
                             }
                         },
                         error : function(a,b,c) {
@@ -189,6 +198,46 @@
                                 type:'info',
                                 confirmButtonColor:'#009688'
                             });
+                        }
+                    });
+        }
+
+        function removeImages() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var id = document.getElementById('id').value;
+            var token = document.getElementById('token').value;
+            $.ajax({
+                        url : "/images/remove/"+id,
+                            type : "get",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            /*if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                            }*/
+                            location.reload();
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            /*swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });*/
                         }
                     });
         }

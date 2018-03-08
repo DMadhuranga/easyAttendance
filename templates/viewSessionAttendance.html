@@ -243,7 +243,7 @@
                                 for(index in sessions){
                                     session = sessions[index];
                                     count++;
-                                    $('#studentTable').append("<tr onclick='sendToSession(this)' data-id='" + session.sessionId + "'><td></td><td>" + session.date + "</td><td>" + session.startingTime + "</td><td>" + session.numberOfAttendance + "</td><td>" + session.numberOfTotalStudents + "</td><td>" + (session.numberOfAttendance/session.numberOfTotalStudents)*100 + "</td></tr>");
+                                    $('#studentTable').append("<tr onclick='sendToSession(this)' data-id='" + session.sessionId + "'><td></td><td>" + session.date + "</td><td>" + session.startingTime + "</td><td>" + session.numberOfAttendance + "</td><td>" + session.numberOfTotalStudents + "</td><td>" +((session.numberOfAttendance/session.numberOfTotalStudents)*100).toFixed(2) + "</td></tr>");
                                 }
                                 var t = $('#studentTable').DataTable( {
                                     searching: false,

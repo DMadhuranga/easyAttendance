@@ -61,9 +61,8 @@ class imageController:
 
     def saveImage(id):
             count = 0
-            cap = cv2.VideoCapture("TestVideos/rivindu.avi")
-            #getFrameRate(cap)
-            while(count<10 and cap.isOpened()):
+            cap = cv2.VideoCapture(0)
+            while(count<3 and cap.isOpened()):
                 ret, frame = cap.read()
                 if (ret):
                     image, size = FaceRecognizer.detect_face(frame)
@@ -137,3 +136,69 @@ class imageController:
                 courseController.markAttendanceToDB(sessionId,list(set(allNames)))
             cv2.destroyAllWindows()
             return jsonify(success="Student Attendance Marked")
+
+    def markAttendanceRealTime(request,sessionId):
+        if (request.is_json):
+            data = request.get_json()
+            if 'recordingTime' in data:
+                recordingTime = data['recordingTime']
+                if isinstance(recordingTime,int) and recordingTime>0:
+                    photoset = studentController.getStudentPictures(sessionId)
+                    if(len(photoset.values())==0):
+                        return jsonify(error="Invalid request")
+                    cap = cv2.VideoCapture(0)
+                    recognizer = FaceRecognizer()
+                    print("Start Loading")
+                    recognizer.prepare_training_data(photoset)
+                    print("Finish Loading")
+                    valid = True
+                    process = 0
+                    allNames = []
+                    startTime = time.time()
+                    while(valid and (time.time()-startTime)<recordingTime):
+                        valid,frame = cap.read()
+                        if valid and process%5==0:
+                            names, img = recognizer.predic(frame)
+                            if not names is None:
+                                allNames = allNames+names
+                            cv2.imshow('Video', img)
+                            cv2.waitKey(1)
+                        process += 1
+                    if(len(allNames)>0):
+                        courseController.markAttendanceToDB(sessionId,list(set(allNames)))
+                    cv2.destroyAllWindows()
+                    return jsonify(success="Student Attendance Marked")
+        return jsonify(error="Invalid request")
+
+    def markAttendanceAfterSaving(request,sessionId):
+        if (request.is_json):
+            data = request.get_json()
+            if 'recordingTime' in data:
+                recordingTime = data['recordingTime']
+                if isinstance(recordingTime,int) and recordingTime>0:
+                    photoset = studentController.getStudentPictures(sessionId)
+                    if(len(photoset.values())==0):
+                        return jsonify(error="Invalid request")
+                    cap = cv2.VideoCapture(0)
+                    recognizer = FaceRecognizer()
+                    print("Start Loading")
+                    recognizer.prepare_training_data(photoset)
+                    print("Finish Loading")
+                    valid = True
+                    process = 0
+                    allNames = []
+                    startTime = time.time()
+                    while(valid and (time.time()-startTime)<recordingTime):
+                        valid,frame = cap.read()
+                        if valid and process%5==0:
+                            names, img = recognizer.predic(frame)
+                            if not names is None:
+                                allNames = allNames+names
+                            cv2.imshow('Video', img)
+                            cv2.waitKey(1)
+                        process += 1
+                    if(len(allNames)>0):
+                        courseController.markAttendanceToDB(sessionId,list(set(allNames)))
+                    cv2.destroyAllWindows()
+                    return jsonify(success="Student Attendance Marked")
+        return jsonify(error="Invalid request")

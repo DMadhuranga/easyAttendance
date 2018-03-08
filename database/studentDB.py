@@ -134,3 +134,20 @@ class studentDB:
                 sections.append(Section(row[0], row[1], row[2], row[3], row[4], row[5]))
             return sections
         return None
+
+    def getNumberOfImages(conn,id):
+        if(conn):
+            cursor = conn.cursor()
+            array = [id]
+            cursor.execute("select * from student_pictures where id=? and deleted='0'", array)
+            sections = []
+            rows = cursor.fetchall()
+            return len(rows)
+        return None
+
+    def removeStudentImages(conn,id):
+        if(conn):
+            cursor = conn.cursor()
+            array = [id]
+            cursor.execute("update student_pictures set deleted='1' where id=?", array)
+            conn.commit()

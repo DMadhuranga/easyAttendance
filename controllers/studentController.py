@@ -33,9 +33,12 @@ class studentController:
     def getStudent(id):
         conn = studentDB.getConnection(dbName)
         student = studentDB.getStudent(conn,id)
+        noOfImages = studentDB.getNumberOfImages(conn,id)
+        if noOfImages==None:
+            noOfImages = 0
         if(student==None):
             return jsonify(error="student not found")
-        return jsonify(id=student.getId(),studentId=student.getStudentId(),studentName=student.getStudentName())
+        return jsonify(id=student.getId(),studentId=student.getStudentId(),studentName=student.getStudentName(),noOfImages=noOfImages)
 
     def getStudentByStudentId(studentId):
         conn = studentDB.getConnection(dbName)
@@ -73,3 +76,15 @@ class studentController:
                                 'sectionId': section.getSectionId(), 'semester': section.getSemester(),
                                 'year': section.getYear()})
         return jsonify(sections=retStudents)
+
+    def numberOfPhotos(id):
+        conn = studentDB.getConnection(dbName)
+        students = studentDB.getNumberOfImages(conn,id)
+        if(students==None):
+            return jsonify(error="Student information not available")
+        return jsonify(numberOfImages=students)
+
+    def removeStudentImages(id):
+        conn = studentDB.getConnection(dbName)
+        studentDB.removeStudentImages(conn,id)
+        return jsonify(success="Done")

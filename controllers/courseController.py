@@ -254,11 +254,12 @@ class courseController:
             return jsonify(error="Date not found")
         students = {}
         for session in sessions.keys():
-            for student in sessions[session]["students"]:
-                if student[0] not in students.keys():
-                    students[student[0]] = {'presentDays':0,'conductedDays':0,'id':student[0],'studentId':student[1],'studentName':student[2]}
-                students[student[0]]['conductedDays']+=1
-                students[student[0]]['presentDays'] += student[3]
+            if(sessions[session]["marked"]==1):
+                for student in sessions[session]["students"]:
+                    if student[0] not in students.keys():
+                        students[student[0]] = {'presentDays':0,'conductedDays':0,'id':student[0],'studentId':student[1],'studentName':student[2]}
+                    students[student[0]]['conductedDays']+=1
+                    students[student[0]]['presentDays'] += student[3]
         return jsonify(students=students)
 
     def getSessionAttendanceSummaryJSON(sectionId):
@@ -268,10 +269,11 @@ class courseController:
             return jsonify(error="Date not found")
         ret_Session = []
         for session in sessions.keys():
-            numberOfTotalStudents = 0
-            numberOfAttendance = 0
-            for student in sessions[session]["students"]:
-                numberOfTotalStudents+=1
-                numberOfAttendance += student[3]
-            ret_Session.append({"sessionId":session,"date":sessions[session]["date"],"startingTime":sessions[session]["startingTime"],"numberOfAttendance":numberOfAttendance,"numberOfTotalStudents":numberOfTotalStudents})
+            if (sessions[session]["marked"] == 1):
+                numberOfTotalStudents = 0
+                numberOfAttendance = 0
+                for student in sessions[session]["students"]:
+                    numberOfTotalStudents+=1
+                    numberOfAttendance += student[3]
+                ret_Session.append({"sessionId":session,"date":sessions[session]["date"],"startingTime":sessions[session]["startingTime"],"numberOfAttendance":numberOfAttendance,"numberOfTotalStudents":numberOfTotalStudents})
         return jsonify(sessions=ret_Session)

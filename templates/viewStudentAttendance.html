@@ -229,7 +229,7 @@
                                 for(tempId in students){
                                     student = students[tempId];
                                     count++;
-                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td></td><td>" + student.studentId + "</td><td>" + student.studentName + "</td><td>" + student.conductedDays + "</td><td>" + student.presentDays + "</td><td>" + (student.presentDays/student.conductedDays)*100 + "</td></tr>");
+                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td></td><td>" + student.studentId + "</td><td>" + student.studentName + "</td><td>" + student.conductedDays + "</td><td>" + student.presentDays + "</td><td>" + ((student.presentDays/student.conductedDays)*100).toFixed(2) + "</td></tr>");
                                 }
                                 var t = $('#studentTable').DataTable( {
                                     searching: false,

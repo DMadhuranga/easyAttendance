@@ -124,7 +124,32 @@
                 </form>
               </div>
               <div class="card-footer" id="cardFooter" hidden="">
-                <button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendance()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance</button>
+                  <form>
+                      <div class="form-group">
+                          <label class="control-label">Marking Time</label>
+                          <select class="form-control" id="markingTimeHours">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                          </select>
+                          <select class="form-control" id="markingTimeMinutes">
+                            <option value="0">0</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                          </select>
+                      </div>
+                  </form>
+                <button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendanceAfterSaving()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance After Recording</button>
+                  <br><br><button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendanceRealTime()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance Real Time</button>
               </div>
             </div>
           </div>
@@ -298,29 +323,94 @@
                     });
         }
 
-        function markAttendance() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var token = document.getElementById('token').value;
-            var id = document.getElementById('sessionId').value;
-            $.ajax({
-                        url : "/markAttendances/"+id,
-                            type : "get",
-                            headers:{
-                                'Token' : token
-                            },
-                            timeout : 10000,
-                            async : "false",
-                            contentType: "application/json; charset=utf-8",
-                        success : function(data){
-                            $.hideLoading();
-
-                        },
-                        error : function(a,b,c) {
-                            $.hideLoading();
+        function markAttendanceRealTime() {
+            var markingtime = parseInt(document.getElementById("markingTimeHours").value)*3600+parseInt(document.getElementById("markingTimeMinutes").value)*60;
+            console.log(markingtime);
+            if(markingtime>0) {
+                $.showLoading({
+                    name: "line-pulse"
+                });
+                var token = document.getElementById('token').value;
+                var id = document.getElementById('sessionId').value;
+                $.ajax({
+                    url: "/markAttendancesRealTime/" + id,
+                    type: "post",
+                    headers: {
+                        'Token': token
+                    },
+                    timeout: 10000,
+                    async: "false",
+                    data:JSON.stringify({recordingTime:markingtime}),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $.hideLoading();
+                        if(data.hasOwnProperty('error')){
+                            swal({
+                                title:data.error,
+                                text:'',
+                                type:'error',
+                                confirmButtonColor:'#009688'
+                            });
                         }
-                    });
+
+                    },
+                    error: function (a, b, c) {
+                        $.hideLoading();
+                    }
+                });
+            }else{
+                swal({
+                                title:'Invalid time!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+            }
+        }
+
+        function markAttendanceAfterSaving() {
+            var markingtime = parseInt(document.getElementById("markingTimeHours").value) * 3600 + parseInt(document.getElementById("markingTimeMinutes").value) * 60;
+            console.log(markingtime);
+            if (markingtime > 0) {
+                $.showLoading({
+                    name: "line-pulse"
+                });
+                var token = document.getElementById('token').value;
+                var id = document.getElementById('sessionId').value;
+                $.ajax({
+                    url: "/markAttendancesAfterSaving/" + id,
+                    type: "post",
+                    headers: {
+                        'Token': token
+                    },
+                    timeout: 10000,
+                    async: "false",
+                    data:JSON.stringify({recordingTime:markingtime}),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $.hideLoading();
+                        if (data.hasOwnProperty('error')) {
+                            swal({
+                                title: data.error,
+                                text: '',
+                                type: 'error',
+                                confirmButtonColor: '#009688'
+                            });
+                        }
+
+                    },
+                    error: function (a, b, c) {
+                        $.hideLoading();
+                    }
+                });
+            }else{
+                swal({
+                                title:'Invalid time!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+            }
         }
     </script>
   </body>

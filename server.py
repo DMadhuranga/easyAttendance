@@ -13,6 +13,7 @@ from controllers.imageController import imageController
 app = Flask(__name__)
 tokens = Tokens()
 portId = 0
+imageProcesing = False
 
 #common_functions
 def authenticationFail(request):
@@ -31,6 +32,14 @@ def sessionAdmin():
         return True
     return False
 
+def imageProcesingStart():
+    imageProcesing = True
+
+def imageProcesingStop():
+    imageProcesing = False
+
+def isImageProcessing():
+    return imageProcesing
 
 #page_requests
 
@@ -321,7 +330,23 @@ def getAttendance(sessionId):
 def takeMyPic(studentId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
-    return imageController.saveImage(studentId)
+    if isImageProcessing():
+        return jsonify(error="Image processing going on. Please try again later.")
+    imageProcesingStart()
+    returnObject = imageController.saveImage(studentId)
+    imageProcesingStop()
+    return returnObject
+
+@app.route('/images/remove/<studentId>')
+def removeMyPic(studentId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    if isImageProcessing():
+        return jsonify(error="Image processing going on. Please try again later.")
+    imageProcesingStart()
+    returnObject = studentController.removeStudentImages(studentId)
+    imageProcesingStop()
+    return returnObject
 
 @app.route('/sectionStudents/<sectionId>')
 def getSectionStudents(sectionId):
@@ -351,7 +376,12 @@ def addStudentToSection():
 def markStudentAttendance(sessionId):
     if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
-    return imageController.markAttendance(sessionId)
+    if isImageProcessing():
+        return jsonify(error="Image processing going on. Please try again later.")
+    imageProcesingStart()
+    returnObject = imageController.markAttendance(sessionId)
+    imageProcesingStop()
+    return returnObject
 
 @app.route('/getEnrolledSections/<id>')
 def getEnrolledSection(id):
@@ -376,6 +406,28 @@ def getSectionSessionAttendance(sectionId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getSessionAttendanceSummaryJSON(sectionId)
+
+@app.route('/markAttendancesRealTime/<sessionId>',methods=['POST'])
+def markStudentAttendanceRealTime(sessionId):
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    if isImageProcessing():
+        return jsonify(error="Image processing going on. Please try again later.")
+    imageProcesingStart()
+    returnObject = imageController.markAttendanceRealTime(request,sessionId)
+    imageProcesingStop()
+    return returnObject
+
+@app.route('/markAttendancesAfterSaving/<sessionId>',methods=['POST'])
+def markAttendancesAfterSaving(sessionId):
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    if isImageProcessing():
+        return jsonify(error="Image processing going on. Please try again later.")
+    imageProcesingStart()
+    returnObject = imageController.markAttendanceAfterSaving(request,sessionId)
+    imageProcesingStop()
+    return returnObject
 
 #run_server__________________________________________________________________________________________________________
 
