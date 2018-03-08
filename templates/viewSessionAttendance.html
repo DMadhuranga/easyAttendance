@@ -113,10 +113,10 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Student Id</th>
-                                        <th>Student Name</th>
-                                        <th>Conducted Sessions</th>
-                                        <th>Attended Sessions</th>
+                                        <th>Date</th>
+                                        <th>Starting Time</th>
+                                        <th>Number Of Attendances</th>
+                                        <th>Number Of Total Students</th>
                                         <th>Attendance Precentage</th>
                                     </tr>
                                     </thead>
@@ -133,6 +133,19 @@
                 </div>
             </div>
         </div>
+        <div class="row hidden-print">
+            <div class="col-md-12">
+            <div class="card">
+              <h3 class="card-title">Chart</h3>
+              <!--<div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+                  <canvas id="myChart" width="400" height="400"></canvas>
+              </div>
+              -->
+              <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Javascripts-->
@@ -140,6 +153,7 @@
     <script src="/static/template/js/bootstrap.min.js"></script>
     <script src="/static/template/js/plugins/pace.min.js"></script>
     <script src="/static/template/js/main.js"></script>
+    <script type="text/javascript" src="/static/template/js/plugins/chart_new.min.js"></script>
     <script type="text/javascript" src="/static/template/js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/static/template/js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
@@ -147,9 +161,9 @@
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
     <script type="text/javascript">
 
-        function sendToStudentView(me) {
-            var id = $(me).data('id');
-            window.location.href = "page_viewStudent?id="+id;
+        function sendToSession(me) {
+            var sessionId = $(me).data('id');
+            window.location.href = "page_viewSession?sessionId="+sessionId;
         }
 
         function loadStudentInformation() {
@@ -206,7 +220,7 @@
             var token = document.getElementById('token').value;
             var id = document.getElementById('sectionId').value;
             $.ajax({
-                        url : "section/getStudentAttendanceSummary/"+id,
+                        url : "section/getSessionAttendanceSummary/"+id,
                             type : "get",
                             headers:{
                                 'Token' : token
@@ -224,23 +238,23 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                var students = data.students;
+                                var sessions = data.sessions;
                                 var count = 0;
-                                for(tempId in students){
-                                    student = students[tempId];
+                                for(index in sessions){
+                                    session = sessions[index];
                                     count++;
-                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td></td><td>" + student.studentId + "</td><td>" + student.studentName + "</td><td>" + student.conductedDays + "</td><td>" + student.presentDays + "</td><td>" + (student.presentDays/student.conductedDays)*100 + "</td></tr>");
+                                    $('#studentTable').append("<tr onclick='sendToSession(this)' data-id='" + session.sessionId + "'><td></td><td>" + session.date + "</td><td>" + session.startingTime + "</td><td>" + session.numberOfAttendance + "</td><td>" + session.numberOfTotalStudents + "</td><td>" + (session.numberOfAttendance/session.numberOfTotalStudents)*100 + "</td></tr>");
                                 }
                                 var t = $('#studentTable').DataTable( {
                                     searching: false,
                                     paging: false
                                 } );
-
                                 t.on( 'order.dt search.dt', function () {
                                     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                                         cell.innerHTML = i+1;
                                     } );
                                 } ).draw();
+                                setGraph(sessions);
                             }
                         },
                         error : function(a,b,c) {
@@ -253,6 +267,81 @@
                             });
                         }
                     });
+        }
+
+        function setGraph(sessions) {
+            var dateSet = [];
+            var attendanceSet = [];
+            for(index in sessions){
+                //dateSet.append(sessions[index].date+" "+sessions[index].startingTime);
+                dateSet.push(sessions[index].date);
+                attendanceSet.push(sessions[index].numberOfAttendance);
+            }
+            /*var data = {
+      	        labels: dateSet,
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: attendanceSet
+                    }
+                ],
+                borderWidth: 1
+            };
+            var options = {
+      	        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            };
+            var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+            var lineChart = new Chart(ctxl).Line(data,options);*/
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dateSet,
+                    datasets: [{
+                        label: '# of students',
+                        data: attendanceSet,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
         }
     </script>
   </body>

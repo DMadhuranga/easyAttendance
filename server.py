@@ -174,7 +174,16 @@ def getEnrollPage():
 def pageViewStudentAttendanceSummary():
     id = request.args.get('sectionId')
     if ((sessionLogged() and id) and sessionAdmin()):
-        return render_template("viewStudentAttendance.html", sectionId=id, user=tokens.getUserDetails(session['token']), toDate = datetime.datetime.today().strftime('%Y-%m-%d'))
+        return render_template("viewStudentAttendance.html", sectionId=id, user=tokens.getUserDetails(session['token']))
+    elif (sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_viewSessionAttendanceSummary')
+def pageViewSessionAttendanceSummary():
+    id = request.args.get('sectionId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("viewSessionAttendance.html", sectionId=id, user=tokens.getUserDetails(session['token']))
     elif (sessionLogged()):
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
@@ -361,6 +370,12 @@ def getSectionStudentAttendance(sectionId):
     if (authenticationFail(request) or adminAuthenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getStudentAttendanceSummaryJSON(sectionId)
+
+@app.route('/section/getSessionAttendanceSummary/<sectionId>')
+def getSectionSessionAttendance(sectionId):
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getSessionAttendanceSummaryJSON(sectionId)
 
 #run_server__________________________________________________________________________________________________________
 

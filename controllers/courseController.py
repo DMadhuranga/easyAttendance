@@ -260,3 +260,18 @@ class courseController:
                 students[student[0]]['conductedDays']+=1
                 students[student[0]]['presentDays'] += student[3]
         return jsonify(students=students)
+
+    def getSessionAttendanceSummaryJSON(sectionId):
+        conn = courseDB.getConnection(dbName)
+        sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
+        if(sessions==None):
+            return jsonify(error="Date not found")
+        ret_Session = []
+        for session in sessions.keys():
+            numberOfTotalStudents = 0
+            numberOfAttendance = 0
+            for student in sessions[session]["students"]:
+                numberOfTotalStudents+=1
+                numberOfAttendance += student[3]
+            ret_Session.append({"sessionId":session,"date":sessions[session]["date"],"startingTime":sessions[session]["startingTime"],"numberOfAttendance":numberOfAttendance,"numberOfTotalStudents":numberOfTotalStudents})
+        return jsonify(sessions=ret_Session)
