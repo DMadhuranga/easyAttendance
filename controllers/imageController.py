@@ -147,6 +147,11 @@ class imageController:
                     if(len(photoset.values())==0):
                         return jsonify(error="Invalid request")
                     cap = cv2.VideoCapture(0)
+                    fps = getFrameRate(cap)
+                    frame_width = int(cap.get(3))
+                    frame_height = int(cap.get(4))
+                    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+                    out = cv2.VideoWriter("videos/" + str(sessionId) + '.avi', fourcc, fps, (frame_width, frame_height))
                     recognizer = FaceRecognizer()
                     print("Start Loading")
                     recognizer.prepare_training_data(photoset)
@@ -161,6 +166,7 @@ class imageController:
                             names, img = recognizer.predic(frame)
                             if not names is None:
                                 allNames = allNames+names
+                            out.write(frame)
                             cv2.imshow('Video', img)
                             cv2.waitKey(1)
                         process += 1
@@ -180,20 +186,37 @@ class imageController:
                     if(len(photoset.values())==0):
                         return jsonify(error="Invalid request")
                     cap = cv2.VideoCapture(0)
+                    fps = getFrameRate(cap)
+                    frame_width = int(cap.get(3))
+                    frame_height = int(cap.get(4))
+                    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+                    out = cv2.VideoWriter("videos/" + str(sessionId) + '.avi', fourcc, fps, (frame_width, frame_height))
+                    startTime = time.time()
+                    valid = True
+                    while (valid and (time.time() - startTime) < recordingTime):
+                        valid, frame = cap.read()
+                        cv2.imshow('Video', frame)
+                        cv2.waitKey(1)
+                        out.write(frame)
+                    cap.release()
+                    cv2.destroyAllWindows()
+                    cap = cv2.VideoCapture("videos/"+str(sessionId)+".avi")
+                    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+                    out = cv2.VideoWriter("videos/" + str(sessionId) + '_processed.avi', fourcc, fps, (frame_width, frame_height))
                     recognizer = FaceRecognizer()
                     print("Start Loading")
                     recognizer.prepare_training_data(photoset)
                     print("Finish Loading")
-                    valid = True
                     process = 0
                     allNames = []
-                    startTime = time.time()
-                    while(valid and (time.time()-startTime)<recordingTime):
+                    valid = True
+                    while(valid):
                         valid,frame = cap.read()
-                        if valid and process%5==0:
+                        if valid and process%3==0:
                             names, img = recognizer.predic(frame)
                             if not names is None:
                                 allNames = allNames+names
+                            out.write(frame)
                             cv2.imshow('Video', img)
                             cv2.waitKey(1)
                         process += 1

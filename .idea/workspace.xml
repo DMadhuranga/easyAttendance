@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5cc60903-0dca-4d85-b991-eb2114496021" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controllers/courseController.py" afterPath="$PROJECT_DIR$/controllers/courseController.py" />
       <change beforePath="$PROJECT_DIR$/controllers/imageController.py" afterPath="$PROJECT_DIR$/controllers/imageController.py" />
-      <change beforePath="$PROJECT_DIR$/controllers/studentController.py" afterPath="$PROJECT_DIR$/controllers/studentController.py" />
       <change beforePath="$PROJECT_DIR$/database/example.db" afterPath="$PROJECT_DIR$/database/example.db" />
-      <change beforePath="$PROJECT_DIR$/database/studentDB.py" afterPath="$PROJECT_DIR$/database/studentDB.py" />
-      <change beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
       <change beforePath="$PROJECT_DIR$/templates/viewSession.html" afterPath="$PROJECT_DIR$/templates/viewSession.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewSessionAttendance.html" afterPath="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewStudent.html" afterPath="$PROJECT_DIR$/templates/viewStudent.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewStudentAttendance.html" afterPath="$PROJECT_DIR$/templates/viewStudentAttendance.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,7 +17,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/cam$testDB.coverage" NAME="testDB Coverage Results" MODIFIED="1520477653712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$courseDB.coverage" NAME="courseDB Coverage Results" MODIFIED="1517671068085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
-    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1520511148143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1520516629411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$cam.coverage" NAME="cam Coverage Results" MODIFIED="1517129878555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FileEditorManager">
@@ -44,8 +37,8 @@
       <file leaf-file-name="imageController.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="68" column="41" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
+            <state relative-caret-position="455">
+              <caret line="198" column="38" lean-forward="false" selection-start-line="198" selection-start-column="38" selection-end-line="198" selection-end-column="38" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -57,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="226" column="39" lean-forward="true" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
+              <caret line="226" column="39" lean-forward="false" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -67,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/templates/viewSessionAttendance.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="471">
-              <caret line="245" column="379" lean-forward="true" selection-start-line="245" selection-start-column="379" selection-end-line="245" selection-end-column="379" />
+              <caret line="245" column="379" lean-forward="false" selection-start-line="245" selection-start-column="379" selection-end-line="245" selection-end-column="379" />
               <folding />
             </state>
           </provider>
@@ -83,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewStudent.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewStudent.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/viewStudent.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="120" column="25" lean-forward="true" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+            <state relative-caret-position="555">
+              <caret line="337" column="9" lean-forward="false" selection-start-line="337" selection-start-column="9" selection-end-line="337" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -124,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewSession.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="viewSession.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/viewSession.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="329" column="31" lean-forward="true" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="31" />
+            <state relative-caret-position="196">
+              <caret line="131" column="69" lean-forward="false" selection-start-line="131" selection-start-column="69" selection-end-line="131" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -138,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/templates/addCourse.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="172" column="47" lean-forward="true" selection-start-line="172" selection-start-column="47" selection-end-line="172" selection-end-column="47" />
+              <caret line="172" column="47" lean-forward="false" selection-start-line="172" selection-start-column="47" selection-end-line="172" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -215,14 +208,14 @@
         <option value="$PROJECT_DIR$/database/courseDB.py" />
         <option value="$PROJECT_DIR$/templates/viewSection.html" />
         <option value="$PROJECT_DIR$/controllers/courseController.py" />
-        <option value="$PROJECT_DIR$/templates/viewSession.html" />
         <option value="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
         <option value="$PROJECT_DIR$/templates/viewStudentAttendance.html" />
-        <option value="$PROJECT_DIR$/controllers/imageController.py" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/controllers/studentController.py" />
         <option value="$PROJECT_DIR$/database/studentDB.py" />
         <option value="$PROJECT_DIR$/templates/viewStudent.html" />
+        <option value="$PROJECT_DIR$/controllers/imageController.py" />
+        <option value="$PROJECT_DIR$/templates/viewSession.html" />
       </list>
     </option>
   </component>
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520492720989</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Attendance Marking">
+      <created>1520511244809</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520511244809</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -502,7 +502,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19758508" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2107574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -531,7 +531,8 @@
     <MESSAGE value="Add section and enrollment" />
     <MESSAGE value="Add attendance functionalities" />
     <MESSAGE value="Report generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Report generation" />
+    <MESSAGE value="Attendance Marking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attendance Marking" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -872,7 +873,7 @@
     <entry file="file://$PROJECT_DIR$/templates/addCourse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="172" column="47" lean-forward="true" selection-start-line="172" selection-start-column="47" selection-end-line="172" selection-end-column="47" />
+          <caret line="172" column="47" lean-forward="false" selection-start-line="172" selection-start-column="47" selection-end-line="172" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -880,7 +881,7 @@
     <entry file="file://$PROJECT_DIR$/templates/viewSessionAttendance.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
-          <caret line="245" column="379" lean-forward="true" selection-start-line="245" selection-start-column="379" selection-end-line="245" selection-end-column="379" />
+          <caret line="245" column="379" lean-forward="false" selection-start-line="245" selection-start-column="379" selection-end-line="245" selection-end-column="379" />
           <folding />
         </state>
       </provider>
@@ -888,7 +889,7 @@
     <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="226" column="39" lean-forward="true" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
+          <caret line="226" column="39" lean-forward="false" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -899,24 +900,6 @@
           <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewSession.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="329" column="31" lean-forward="true" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="68" column="41" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -970,8 +953,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewStudent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="120" column="25" lean-forward="true" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+        <state relative-caret-position="555">
+          <caret line="337" column="9" lean-forward="false" selection-start-line="337" selection-start-column="9" selection-end-line="337" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="198" column="38" lean-forward="false" selection-start-line="198" selection-start-column="38" selection-end-line="198" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewSession.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="131" column="69" lean-forward="false" selection-start-line="131" selection-start-column="69" selection-end-line="131" selection-end-column="69" />
           <folding />
         </state>
       </provider>
