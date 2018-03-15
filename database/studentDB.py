@@ -115,7 +115,6 @@ class studentDB:
             cursor.execute("select id,image_name from student_pictures join attendance using(id) where session_id=? and deleted=?", array)
             rows = cursor.fetchall()
             dictionary = {}
-            print(len(rows))
             for row in rows:
                 if row[0] not in dictionary.keys():
                     dictionary[row[0]] = []
