@@ -182,20 +182,6 @@
                           </div>
                        </div>
                   </div>
-                  <h4 id="progress-alternatives">Students</h4>
-                  <table hidden="" class="table table-hover table-bordered" id="attendanceTable">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Student Id</th>
-                      <th>Student Name</th>
-                      <th>Attendance</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
@@ -249,7 +235,6 @@
                                 if(marked==0){
                                     document.getElementById('cardFooter').hidden = false;
                                 }else{
-                                    document.getElementById('attendanceTable').hidden=false;
                                     document.getElementById('attendanceRow').hidden = false;
                                     loadAttendance();
                                 }
@@ -309,19 +294,10 @@
                                 noOfStudents = students.length;
                                 for(i=0; i<students.length; i++){
                                     student = students[i];
-                                    icon = "fa fa-times";
                                     if(student.attended=="1"){
                                         noOfPresents++;
-                                        icon = "fa fa-check";
                                     }
-                                    $('#attendanceTable').append("<tr onclick='sendToSection(this)' data-id='"+student.id+"'><td></td><td>"+student.studentId+"</td><td>"+student.studentName+"</td><td><i class='"+icon+"'></i></td></tr>");
                                 }
-                                var t = $('#attendanceTable').DataTable();
-                                t.on( 'order.dt search.dt', function () {
-                                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                                        cell.innerHTML = i+1;
-                                    } );
-                                } ).draw();
                                 document.getElementById("barInClass").hidden = false;
                                 document.getElementById("precentage").innerText = (noOfPresents/noOfStudents)*100 +" %";
                                 document.getElementById("myBar").style = "width: "+(noOfPresents/noOfStudents)*100+"%;";

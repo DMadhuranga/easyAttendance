@@ -33,7 +33,7 @@ class userDB:
     def getUsers(conn):
         if(conn):
             cursor = conn.cursor()
-            cursor.execute("select * from user")
+            cursor.execute("select * from user where deleted='0'")
             rows = cursor.fetchall()
             users = []
             for row in rows:
@@ -95,3 +95,22 @@ class userDB:
                     return user
             return False
         return None
+
+    def checkPassword(conn,userId,password):
+        if (conn):
+            cursor = conn.cursor()
+            array = [userId]
+            cursor.execute("select * from user where user_id=? and deleted='0'", array)
+            rows = cursor.fetchall()
+            if (len(rows) == 1):
+                ret_password = rows[0][2]
+                if(pbkdf2_sha256.verify(password, ret_password)):
+                    return True
+            return False
+        return None
+
+    def changePassword(conn,userId,password):
+        array = [pbkdf2_sha256.hash(password),userId]
+        cursor = conn.cursor()
+        cursor.execute("update user set password=? where user_id=? and deleted='0'", array)
+        conn.commit()

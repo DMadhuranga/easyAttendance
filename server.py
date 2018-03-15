@@ -55,6 +55,12 @@ def getHomePage():
         return render_template("home.html",user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/profile')
+def getProfilePage():
+    if (sessionLogged()):
+        return render_template("profile.html",user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
 @app.route('/logout')
 def logout():
     if('token' in session):
@@ -197,6 +203,49 @@ def pageViewSessionAttendanceSummary():
         return render_template("home.html", user=tokens.getUserDetails(session['token']))
     return render_template("index.html")
 
+@app.route('/page_addUser')
+def getAddUserPage():
+    if (sessionLogged() and sessionAdmin()):
+        return render_template("addUser.html", user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_users')
+def getUsersPage():
+    if (sessionLogged() and sessionAdmin()):
+        return render_template("users.html", user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_viewUser')
+def getViewUserPage():
+    id = request.args.get('userId')
+    if ((sessionLogged() and id) and sessionAdmin()):
+        return render_template("viewUser.html",id=id, user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_attendance')
+def getMarkAttendancePage():
+    if (sessionLogged()):
+        return render_template("markAttendance.html",user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+@app.route('/page_viewRestrictedSession')
+def getViewRestSessionPage():
+    id = request.args.get('sessionId')
+    if (sessionLogged() and id):
+        return render_template("viewRestrictedSession.html",sessionId=id, user=tokens.getUserDetails(session['token']))
+    elif(sessionLogged()):
+        return render_template("home.html", user=tokens.getUserDetails(session['token']))
+    return render_template("index.html")
+
+
 #other_requests_____________________________________________________________________________________________________
 
 @app.route('/login/check', methods=["POST"])
@@ -235,6 +284,18 @@ def getMe():
     if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return
+
+@app.route('/user/addUser',methods=["POST"])
+def addUser():
+    if (authenticationFail(request)  or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return userController.addUser(request)
+
+@app.route('/users')
+def getAllUsers():
+    if (authenticationFail(request) or adminAuthenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return userController.getAllUsers()
 
 @app.route('/student/addStudent',methods=["POST"])
 def addStudent():
@@ -316,13 +377,13 @@ def addSession():
 
 @app.route('/session/getSession/<sessionId>')
 def getSesseion(sessionId):
-    if (authenticationFail(request) or adminAuthenticationFail(request)):
+    if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getSession(sessionId)
 
 @app.route('/attendances/<sessionId>')
 def getAttendance(sessionId):
-    if (authenticationFail(request) or adminAuthenticationFail(request)):
+    if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getAttendance(sessionId)
 
@@ -428,6 +489,24 @@ def markAttendancesAfterSaving(sessionId):
     returnObject = imageController.markAttendanceAfterSaving(request,sessionId)
     imageProcesingStop()
     return returnObject
+
+@app.route('/user/validPassword',methods=["POST"])
+def checkPasswordValidity():
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return userController.checkValidPassword(request)
+
+@app.route('/user/changePassword',methods=["POST"])
+def changePasswordValidity():
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return userController.changePassword(request)
+
+@app.route('/sessions/unmarked')
+def getUnmarkedSessions():
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getUnmarkedSessions()
 
 #run_server__________________________________________________________________________________________________________
 

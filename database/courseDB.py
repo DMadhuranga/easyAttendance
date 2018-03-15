@@ -1,4 +1,5 @@
 import sqlite3
+import datetime
 from sqlite3 import Error
 from classes.Course import Course
 from classes.Section import Section
@@ -262,4 +263,17 @@ class courseDB:
                     ret_sessions[row[1]] = {"sectionId":row[0],"sessionId":row[1],"date":row[2],"startingTime":row[3],"marked":row[4],"students":[]}
                 ret_sessions[row[1]]["students"].append([row[5],row[6],row[7],row[8]])
             return ret_sessions
+        return None
+
+    def getUnmarkedSessions(conn):
+        if (conn):
+            cursor = conn.cursor()
+            todate = datetime.datetime.today().strftime('%Y-%m-%d')
+            cursor.execute("select course_id,course_code,course_title,section_id,year,semester,session_id,date,starting_time,marked from (section join course using(course_id)) join session using(section_id) where session.marked='0' and session.date='"+todate+"' ORDER BY date")
+            sessions = []
+            rows = cursor.fetchall()
+            for row in rows:
+                session = Session(row[0], row[1], row[2],row[3], row[4],row[5],row[6], row[7],row[8],row[9])
+                sessions.append(session)
+            return sessions
         return None

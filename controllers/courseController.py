@@ -277,3 +277,15 @@ class courseController:
                     numberOfAttendance += student[3]
                 ret_Session.append({"sessionId":session,"date":sessions[session]["date"],"startingTime":sessions[session]["startingTime"],"numberOfAttendance":numberOfAttendance,"numberOfTotalStudents":numberOfTotalStudents})
         return jsonify(sessions=ret_Session)
+
+    def getUnmarkedSessions():
+        conn = courseDB.getConnection(dbName)
+        sessions = courseDB.getUnmarkedSessions(conn)
+        if(sessions==None):
+            return jsonify(error="sessions not found")
+        retSessions = []
+        for session in sessions:
+            retSessions.append({'sectionId': session.getSectionId(), 'courseId': session.getCourseId(),
+                               'year': session.getYear(),'semester': session.getSemester(),'courseCode': session.getCourseCode(), 'courseTitle': session.getCourseTitle(),
+                               'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime(),'marked':session.getMarked()})
+        return jsonify(sessions=retSessions)

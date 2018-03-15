@@ -21,7 +21,7 @@
   <body class="sidebar-mini fixed">
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
-    <input type="text" id="sectionId" hidden="" value="{{ sectionId }}">
+    <input type="text" id="userName" hidden="" value="{{ user['userName'] }}">
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -85,53 +85,44 @@
         </section>
       </aside>
       <div class="content-wrapper">
-        <div class="page-title hidden-print">
-          <div class="col-xs-3">
-            <h1><i class="fa fa-file-text-o"></i> Attendance</h1>
+        <div class="page-title">
+          <div>
+            <h1><i class="fa fa-graduation-cap"></i> Users</h1>
+            <p>Add a new user</p>
           </div>
         </div>
-        <div class="row" id="printCard">
-            <div class="col-md-12">
-                <div class="card">
-                    <section class="invoice">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <h2 class="page-header" id="pageTitle"></h2>
-                            </div>
-                        </div>
-                        <div class="row invoice-info">
-                            <div class="col-xs-4" >
-                                <strong>Course Code</strong><br>Year<br>Semester
-                            </div>
-                            <div class="col-xs-4" id="stringOfDetails"></div>
-                        </div>
-                        <div class="row">
-                            <br>
-                            <br>
-                            <div class="col-xs-12 table-responsive">
-                                <table id="studentTable" class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Student Id</th>
-                                        <th>Student Name</th>
-                                        <th>Conducted Sessions</th>
-                                        <th>Attended Sessions</th>
-                                        <th>Attendance Precentage</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row hidden-print mt-20">
-                            <div class="col-xs-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Print</a></div>
-                        </div>
-                    </section>
-                </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <h3 class="card-title">Register</h3>
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="control-label">User Name</label>
+                    <input class="form-control" id="userNameText" type="text" placeholder="Enter user name">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">User Role</label>
+                    <select class="form-control" id="userRole">
+                        <option value="1">Support Staff</option>
+                        <option value="0">Admin</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <input class="form-control" id="password" type="password" placeholder="Enter password">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Confirm Password</label>
+                    <input class="form-control" id="cpassword" type="password" placeholder="Enter password again">
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary icon-btn" onclick="submitForm()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add User</button>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -140,35 +131,89 @@
     <script src="/static/template/js/bootstrap.min.js"></script>
     <script src="/static/template/js/plugins/pace.min.js"></script>
     <script src="/static/template/js/main.js"></script>
-    <script type="text/javascript" src="/static/template/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="/static/template/js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
     <script src="/static/template/js/plugins/bootstrap-notify.min.js"></script>
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
     <script type="text/javascript">
 
-        function sendToStudentView(me) {
-            var id = $(me).data('id');
-            window.location.href = "page_viewStudent?id="+id;
-        }
-
-        function loadStudentInformation() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var id = document.getElementById('sectionId').value;
+        function submitForm() {
+            var userName = document.getElementById('userNameText').value;
+            var password = document.getElementById('password').value;
+            var cpassword = document.getElementById('cpassword').value;
+            var userRole = document.getElementById('userRole').value;
             var token = document.getElementById('token').value;
-            $.ajax({
-                        url : "/section/getSection/"+id,
-                            type : "get",
+            if((userName=="" || password=="") || cpassword==""){
+                $.notify({
+      		    title: "Please complete the form : ",
+      		    message: "Some fields are empty",
+      		    icon: 'fa fa-exclamation'
+      	        },{
+      		    type: "danger"
+      	        });
+            }else if(password.length<8){
+                $.notify({
+      		    title: "Password should have atleast 8 characters  ",
+      		    message: "",
+      		    icon: 'fa fa-exclamation'
+      	        },{
+      		    type: "danger"
+      	        });
+            }else if(password.length>25){
+                $.notify({
+      		    title: "Maximum password length : 25  ",
+      		    message: "",
+      		    icon: 'fa fa-exclamation'
+      	        },{
+      		    type: "danger"
+      	        });
+            }else if(password!=cpassword){
+                $.notify({
+      		    title: "Password mismatch ",
+      		    message: "",
+      		    icon: 'fa fa-exclamation'
+      	        },{
+      		    type: "danger"
+      	        });
+            }else{
+                var studentData = {userName:userName,password:password,RoleId:userRole};
+                swal({
+                title: 'Are you sure?',
+                text: "",
+                type: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#009688',
+                cancelButtonColor: '#bec4ce',
+                confirmButtonText: 'Add User',
+                allowOutsideClick: false
+            }).then(function () {
+                swal({
+                    title: 'Please wait',
+                    text: '',
+                    timer: 3000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    },
+                    allowOutsideClick: false
+                }).then(function () {},
+                    // handling the promise rejection
+                    function (dismiss) {
+                        if (dismiss === 'timer') {
+                            console.log('I was closed by the timer')
+                        }
+                    }
+                );
+
+                $.ajax({
+                        url : "/user/addUser",
+                            type : "post",
                             headers:{
                                 'Token' : token
                             },
                             timeout : 3000,
                             async : "false",
                             contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify(studentData),
                         success : function(data){
-                            $.hideLoading();
                             if(data.hasOwnProperty('error')){
                                 swal({
                                     title:data.error,
@@ -177,74 +222,16 @@
                                     confirmButtonColor:'#009688'
                                 });
                             }else{
-                                document.getElementById('stringOfDetails').innerHTML = "<strong>"+data.courseCode+"</strong><br>"+data.year+"<br>" + data.semester;
-                                document.getElementById("pageTitle").innerHTML = "<i class='fa fa-globe'></i> "+data.courseTitle+"<small class='pull-right'>Date:&nbsp;&nbsp; "+(new Date().toISOString().split("T")[0])+"</small>";
-                            }
-                        },
-                        error : function(a,b,c) {
-                            $.hideLoading();
-                            swal({
-                                title:'Connection failed!',
-                                text:'',
-                                type:'info',
-                                confirmButtonColor:'#009688'
-                            });
-                        }
-                    });
-        }
-
-
-        $(document).ready(function () {
-            loadStudentInformation();
-            loadEnrolledStudent();
-        });
-
-        function loadEnrolledStudent() {
-            $.showLoading({
-            name : "line-pulse"
-        });
-            var token = document.getElementById('token').value;
-            var id = document.getElementById('sectionId').value;
-            $.ajax({
-                        url : "section/getStudentAttendanceSummary/"+id,
-                            type : "get",
-                            headers:{
-                                'Token' : token
-                            },
-                            timeout : 3000,
-                            async : "false",
-                            contentType: "application/json; charset=utf-8",
-                        success : function(data){
-                            $.hideLoading();
-                            if(data.hasOwnProperty('error')){
                                 swal({
-                                    title:data.error,
+                                    title:'User Added!',
                                     text:'',
-                                    type:'error',
+                                    type:'success',
                                     confirmButtonColor:'#009688'
                                 });
-                            }else{
-                                var students = data.students;
-                                var count = 0;
-                                for(tempId in students){
-                                    student = students[tempId];
-                                    count++;
-                                    $('#studentTable').append("<tr onclick='sendToStudentView(this)' data-id='" + student.id + "'><td></td><td>" + student.studentId + "</td><td>" + student.studentName + "</td><td>" + student.conductedDays + "</td><td>" + student.presentDays + "</td><td>" + ((student.presentDays/student.conductedDays)*100).toFixed(2) + "</td></tr>");
-                                }
-                                var t = $('#studentTable').DataTable( {
-                                    searching: false,
-                                    paging: false
-                                } );
-
-                                t.on( 'order.dt search.dt', function () {
-                                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                                        cell.innerHTML = i+1;
-                                    } );
-                                } ).draw();
+                                setTimeout(function(){window.location.href= "page_viewUser?userId="+data.id; },1500);
                             }
                         },
                         error : function(a,b,c) {
-                            $.hideLoading();
                             swal({
                                 title:'Connection failed!',
                                 text:'',
@@ -253,8 +240,14 @@
                             });
                         }
                     });
+            });
+            }
         }
 
+        function testM() {
+
+
+        }
     </script>
   </body>
 </html>

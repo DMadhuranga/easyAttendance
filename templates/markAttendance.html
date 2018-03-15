@@ -22,6 +22,7 @@
     <!-- data -->
     <input type="text" id="token" hidden="" value="{{ user['token'] }}">
     <input type="text" id="userName" hidden="" value="{{ user['userName'] }}">
+    <input type="text" id="roleId" hidden="" value="{{ user['roleId'] }}">
     <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header hidden-print"><a class="logo" href="home">EasyAttendance</a>
@@ -74,7 +75,12 @@
                 <li><a href="page_courses"><i class="fa fa-circle-o"></i> Courses</a></li>
               </ul>
             </li>
-            <li><a href="page_sessions"><i class="fa fa-calendar"></i><span>Sessions</span></a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-calendar"></i><span>Sessions</span><i class="fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="page_addSession"><i class="fa fa-circle-o"></i> Add Session</a></li>
+                <li><a href="page_sessions"><i class="fa fa-circle-o"></i> Sessions</a></li>
+              </ul>
+            </li>
             {% endif %}
           </ul>
         </section>
@@ -82,14 +88,34 @@
       <div class="content-wrapper">
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-dashboard"></i> Home</h1>
-            <p>Start a beautiful journey here</p>
+            <h1><i class="fa fa-dashboard"></i> Sessions</h1>
+            <p>All added sessions</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <div class="card-body">Load Your Data Here</div>
+
+              <div class="card-body">
+
+                  <table class="table table-hover table-bordered" id="sessionTable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>course Code</th>
+                      <th>Course Title</th>
+                      <th>Year</th>
+                      <th>Semester</th>
+                      <th>Date</th>
+                      <th>Starting Time</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -100,9 +126,83 @@
     <script src="/static/template/js/bootstrap.min.js"></script>
     <script src="/static/template/js/plugins/pace.min.js"></script>
     <script src="/static/template/js/main.js"></script>
+    <script type="text/javascript" src="/static/template/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/template/js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="/static/template/assests/library/sweetAlert2/sweetalert2.min.js"></script>
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
     <script type="text/javascript">
+        function loadStudentInformation() {
+            $.showLoading({
+            name : "line-pulse"
+        });
+            var token = document.getElementById('token').value;
+            $.ajax({
+                        url : "/sessions/unmarked",
+                            type : "get",
+                            headers:{
+                                'Token' : token
+                            },
+                            timeout : 3000,
+                            async : "false",
+                            contentType: "application/json; charset=utf-8",
+                        success : function(data){
+                            $.hideLoading();
+                            if(data.hasOwnProperty('error')){
+                                swal({
+                                    title:data.error,
+                                    text:'',
+                                    type:'error',
+                                    confirmButtonColor:'#009688'
+                                });
+                            }else{
+                                var sessions = data.sessions;
+                                for(i=0; i<sessions.length; i++){
+                                    session = sessions[i];
+                                    $('#sessionTable').append("<tr onclick='sendToStudentView(this)' data-id='"+session.sessionId+"'><td>"+i+"</td><td>"+session.courseCode+"</td><td>"+session.courseTitle+'</td><td>'+session.year+'</td><td>'+session.semester+'</td><td>'+session.date+'</td><td>'+session.startingTime+"</td><td><i class='fa fa-spinner'></i></td></tr>");
+                                }
+                                loadTable();
+                            }
+                        },
+                        error : function(a,b,c) {
+                            $.hideLoading();
+                            swal({
+                                title:'Connection failed!',
+                                text:'',
+                                type:'info',
+                                confirmButtonColor:'#009688'
+                            });
+                        }
+                    });
+        }
+
+
+        $(document).ready(function () {
+            loadStudentInformation();
+        });
+
+        function loadTable() {
+            var t = $('#sessionTable').DataTable( {
+                searching: false,
+                paging: false
+            } );
+
+            t.on( 'order.dt search.dt', function () {
+                t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    cell.innerHTML = i+1;
+                } );
+            } ).draw();
+        }
+
+        function sendToStudentView(me) {
+            var id = $(me).data('id');
+            var roleId = document.getElementById("roleId").value;
+            if(roleId=='0'){
+                window.location.href = "page_viewSession?sessionId="+id;
+            }else{
+                window.location.href = "page_viewRestrictedSession?sessionId="+id;
+            }
+
+        }
     </script>
   </body>
 </html>
