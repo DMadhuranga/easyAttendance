@@ -9,6 +9,7 @@ from controllers.userController import userController
 from controllers.studentController import studentController
 from controllers.courseController import courseController
 from controllers.imageController import imageController
+from tkinter import *
 
 app = Flask(__name__)
 tokens = Tokens()
@@ -508,14 +509,37 @@ def getUnmarkedSessions():
         return jsonify(error="Invalid request or user")
     return courseController.getUnmarkedSessions()
 
+@app.route('/clean')
+def cleanServer():
+    tokens.cleanTokens()
+    return jsonify(success="cleared")
+
 #run_server__________________________________________________________________________________________________________
+
+def runserver(port):
+    window = Tk()
+    window.title("Welcome to LikeGeeks app")
+    window.geometry('350x200')
+    lbl = Label(window, text="Hello")
+    lbl.grid(column=0, row=0)
+    def clicked():
+        app.secret_key = "123"
+        app.run(port=port)
+        #webbrowser.open("http://localhost:" + str(portId), new=0, autoraise=True)
+    btn = Button(window, text="Click Me", command=clicked)
+    btn.grid(column=1, row=0)
+    window.mainloop()
+
+#runserver(5000)
 
 if __name__ == '__main__':
     app.secret_key = "123"
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    """sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(('localhost', 0))
     port = sock.getsockname()[1]
-    sock.close()
     portId = port
+    sock.close()
+    portId = port"""
+    port  = 5000
     webbrowser.open("http://localhost:" + str(port), new=0, autoraise=True)
     app.run(port=port)

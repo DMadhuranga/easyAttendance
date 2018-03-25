@@ -62,3 +62,6 @@ class Tokens:
                 details['role']="Staff Member"
             return details
         return None
+
+    def cleanTokens(self):
+        self.tokens.clear()
