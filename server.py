@@ -514,6 +514,12 @@ def cleanServer():
     tokens.cleanTokens()
     return jsonify(success="cleared")
 
+@app.route('/home/getTodayCharts')
+def getTodayAttendanceSummary():
+    if (authenticationFail(request)):
+        return jsonify(error="Invalid request or user")
+    return courseController.getTodaySummary()
+
 #run_server__________________________________________________________________________________________________________
 
 def runserver(port):

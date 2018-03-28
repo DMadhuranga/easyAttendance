@@ -2,7 +2,7 @@ import unittest
 import requests
 import json
 
-url = "http://localhost:56281"
+url = "http://localhost:5000"
 token = ""
 
 def sendPostRequest(url,payload):

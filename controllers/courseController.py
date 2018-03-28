@@ -289,3 +289,10 @@ class courseController:
                                'year': session.getYear(),'semester': session.getSemester(),'courseCode': session.getCourseCode(), 'courseTitle': session.getCourseTitle(),
                                'sessionId': session.getSessionId(),'date': session.getDate(),'startingTime':session.getStartingTime(),'marked':session.getMarked()})
         return jsonify(sessions=retSessions)
+
+    def getTodaySummary():
+        conn = courseDB.getConnection(dbName)
+        summary = courseDB.getTodayAttendanceSummary(conn)
+        if(summary==None):
+            return jsonify(error="data not found")
+        return jsonify(summary=summary)

@@ -6,11 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cc60903-0dca-4d85-b991-eb2114496021" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/userControllerTesting.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Test Results - Unittests_in_courseTest_py.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Test Results - Unittests_in_studentTest_py.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Test Results - Unittests_in_userControllerTesting_py.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Test Results - Unittests_in_userTest_py.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/classes/Tokens.py" afterPath="$PROJECT_DIR$/classes/Tokens.py" />
+      <change beforePath="$PROJECT_DIR$/controllers/courseController.py" afterPath="$PROJECT_DIR$/controllers/courseController.py" />
+      <change beforePath="$PROJECT_DIR$/database/courseDB.py" afterPath="$PROJECT_DIR$/database/courseDB.py" />
+      <change beforePath="$PROJECT_DIR$/database/example.db" afterPath="$PROJECT_DIR$/database/example.db" />
       <change beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
-      <change beforePath="$PROJECT_DIR$/testDB.py" afterPath="$PROJECT_DIR$/testDB.py" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
+      <change beforePath="$PROJECT_DIR$/templates/viewSessionAttendance.html" afterPath="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
+      <change beforePath="$PROJECT_DIR$/tests/userControllerTesting.py" afterPath="$PROJECT_DIR$/tests/userControllerTesting.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,64 +27,44 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/cam$Unittests_in_studentTest_py.coverage" NAME="Unittests in studentTest.py Coverage Results" MODIFIED="1521125499653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/cam$Unittests_in_studentTest_py.coverage" NAME="Unittests in studentTest.py Coverage Results" MODIFIED="1521962795692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$courseDB.coverage" NAME="courseDB Coverage Results" MODIFIED="1517671068085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_DoesUserNameExistTestCase_test_getUser.coverage" NAME="Unittests for userTest.DoesUserNameExistTestCase.test_getUser Coverage Results" MODIFIED="1521112832122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_courseTest_getUnmarkedSessionsTestCase_test_for_set.coverage" NAME="Unittests for courseTest.getUnmarkedSessionsTestCase.test_for_set Coverage Results" MODIFIED="1521130403912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_WidgetTestCase.coverage" NAME="Unittests for userTest.WidgetTestCase Coverage Results" MODIFIED="1521111268010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_courseTest_getSectionsTestCase_test_for_valid_course.coverage" NAME="Unittests for courseTest.getSectionsTestCase.test_for_valid_course Coverage Results" MODIFIED="1521126065419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_courseTest_getUnmarkedSessionsTestCase_test_for_sessions.coverage" NAME="Unittests for courseTest.getUnmarkedSessionsTestCase.test_for_sessions Coverage Results" MODIFIED="1521130400455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/cam$Unittests_in_userControllerTesting_py.coverage" NAME="Unittests in userControllerTesting.py Coverage Results" MODIFIED="1521198603804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/cam$Unittests_in_courseTest_py.coverage" NAME="Unittests in courseTest.py Coverage Results" MODIFIED="1521130409226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/cam$Unittests_in_userControllerTesting_py.coverage" NAME="Unittests in userControllerTesting.py Coverage Results" MODIFIED="1521964395846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_GetUserTestCase.coverage" NAME="Unittests for userTest.GetUserTestCase Coverage Results" MODIFIED="1521962750024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/cam$Unittests_in_courseTest_py.coverage" NAME="Unittests in courseTest.py Coverage Results" MODIFIED="1521962808978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_WidgetTestCase_test_getUsers.coverage" NAME="Unittests for userTest.WidgetTestCase.test_getUsers Coverage Results" MODIFIED="1521110500712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_UserTestCase.coverage" NAME="Unittests for userTest.UserTestCase Coverage Results" MODIFIED="1521111691934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$testDB.coverage" NAME="testDB Coverage Results" MODIFIED="1521817092439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cam$Unittests_in_userTest_py.coverage" NAME="Unittests in userTest.py Coverage Results" MODIFIED="1521121545850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1521809651302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cam$Unittests_in_userTest_py.coverage" NAME="Unittests in userTest.py Coverage Results" MODIFIED="1521962778744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/cam$server.coverage" NAME="server Coverage Results" MODIFIED="1522237204707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_UserTestCase_test_getUserByName.coverage" NAME="Unittests for userTest.UserTestCase.test_getUserByName Coverage Results" MODIFIED="1521111678522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userControllerTesting_getUserTestCase.coverage" NAME="Unittests for userControllerTesting.getUserTestCase Coverage Results" MODIFIED="1521191240905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$cam.coverage" NAME="cam Coverage Results" MODIFIED="1517129878555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_courseTest_getSectionsTestCase_test_for_invalid_course.coverage" NAME="Unittests for courseTest.getSectionsTestCase.test_for_invalid_course Coverage Results" MODIFIED="1521126022258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10794">
-              <caret line="525" column="17" lean-forward="false" selection-start-line="525" selection-start-column="17" selection-end-line="525" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageController.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3528">
-              <caret line="176" column="47" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="47" />
+            <state relative-caret-position="265">
+              <caret line="517" column="26" lean-forward="false" selection-start-line="517" selection-start-column="26" selection-end-line="517" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tokens.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Tokens.py">
+      <file leaf-file-name="testDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="66" column="27" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tokens.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tokens.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="483">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,95 +73,128 @@
       <file leaf-file-name="courseDB.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/courseDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5439">
-              <caret line="267" column="27" lean-forward="false" selection-start-line="267" selection-start-column="8" selection-end-line="267" selection-end-column="27" />
+            <state relative-caret-position="452">
+              <caret line="301" column="41" lean-forward="true" selection-start-line="301" selection-start-column="41" selection-end-line="301" selection-end-column="41" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1521128005452" expanded="true" signature="578:756" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="783:1017" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="1044:1308" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="1348:1519" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="1559:1783" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="1810:2035" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="2075:2251" ph="CREATE TABLE... IF" />
-                <marker date="1521128005452" expanded="true" signature="2400:2458" ph="insert into course... " />
-                <marker date="1521128005452" expanded="true" signature="2630:2668" ph="select * fro... course" />
-                <marker date="1521128005452" expanded="true" signature="3052:3106" ph="select * fro... course" />
-                <marker date="1521128005452" expanded="true" signature="3452:3508" ph="select * fro... course" />
-                <marker date="1521128005452" expanded="true" signature="3846:3893" ph="update course... " />
-                <marker date="1521128005452" expanded="true" signature="4105:4165" ph="insert into section... " />
-                <marker date="1521128005452" expanded="true" signature="4413:4464" ph="insert into enrollment... " />
-                <marker date="1521128005452" expanded="true" signature="4650:4778" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="5198:5327" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="5727:5771" ph="select id fr... enrollment" />
-                <marker date="1521128005452" expanded="true" signature="5851:5917" ph="insert into session... " />
-                <marker date="1521128005452" expanded="true" signature="5986:6031" ph="insert into attendance... " />
-                <marker date="1521128005452" expanded="true" signature="6521:6720" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="7171:7370" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="7741:7933" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="8380:8493" ph="select id,st... attendance" />
-                <marker date="1521128005452" expanded="true" signature="8935:8998" ph="update attendance... " />
-                <marker date="1521128005452" expanded="true" signature="9236:9329" ph="select id,st... attendance" />
-                <marker date="1521128005452" expanded="true" signature="9780:9842" ph="update attendance... " />
-                <marker date="1521128005452" expanded="true" signature="9910:9958" ph="update session... " />
-                <marker date="1521128005452" expanded="true" signature="10206:10317" ph="select id,st... student" />
-                <marker date="1521128005452" expanded="true" signature="10270:10316" ph="select id fr... enrollment" />
-                <marker date="1521128005452" expanded="true" signature="10725:10776" ph="insert into enrollment... " />
-                <marker date="1521128005452" expanded="true" signature="10736:10771" ph="update attendance... " />
-                <marker date="1521128005452" expanded="true" signature="11023:11161" ph="select secti... section" />
-                <marker date="1521128005452" expanded="true" signature="11023:11254" ph="select secti... section" />
-                <marker date="1521128005452" expanded="true" signature="12117:12339" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="12117:12364" ph="select cours... " />
-                <marker date="1521128005452" expanded="true" signature="12117:12366" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="578:756" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="783:1017" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="1044:1308" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="1348:1519" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="1559:1783" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="1810:2035" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="2075:2251" ph="CREATE TABLE... IF" />
+                <marker date="1522234911147" expanded="true" signature="2400:2458" ph="insert into course... " />
+                <marker date="1522234911147" expanded="true" signature="2630:2668" ph="select * fro... course" />
+                <marker date="1522234911147" expanded="true" signature="3052:3106" ph="select * fro... course" />
+                <marker date="1522234911147" expanded="true" signature="3452:3508" ph="select * fro... course" />
+                <marker date="1522234911147" expanded="true" signature="3846:3893" ph="update course... " />
+                <marker date="1522234911147" expanded="true" signature="4105:4165" ph="insert into section... " />
+                <marker date="1522234911147" expanded="true" signature="4413:4464" ph="insert into enrollment... " />
+                <marker date="1522234911147" expanded="true" signature="4650:4778" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="5198:5327" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="5727:5771" ph="select id fr... enrollment" />
+                <marker date="1522234911147" expanded="true" signature="5851:5917" ph="insert into session... " />
+                <marker date="1522234911147" expanded="true" signature="5986:6031" ph="insert into attendance... " />
+                <marker date="1522234911147" expanded="true" signature="6521:6720" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="7171:7370" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="7741:7933" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="8380:8493" ph="select id,st... attendance" />
+                <marker date="1522234911147" expanded="true" signature="8935:8998" ph="update attendance... " />
+                <marker date="1522234911147" expanded="true" signature="9236:9329" ph="select id,st... attendance" />
+                <marker date="1522234911147" expanded="true" signature="9780:9842" ph="update attendance... " />
+                <marker date="1522234911147" expanded="true" signature="9910:9958" ph="update session... " />
+                <marker date="1522234911147" expanded="true" signature="10206:10317" ph="select id,st... student" />
+                <marker date="1522234911147" expanded="true" signature="10270:10316" ph="select id fr... enrollment" />
+                <marker date="1522234911147" expanded="true" signature="10725:10776" ph="insert into enrollment... " />
+                <marker date="1522234911147" expanded="true" signature="10736:10771" ph="update attendance... " />
+                <marker date="1522234911147" expanded="true" signature="11023:11161" ph="select secti... section" />
+                <marker date="1522234911147" expanded="true" signature="11023:11254" ph="select secti... section" />
+                <marker date="1522234911147" expanded="true" signature="12117:12339" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="12117:12364" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="12117:12366" ph="select cours... " />
+                <marker date="1522234911147" expanded="true" signature="12878:13010" ph="select secti... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courseTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/courseTest.py">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="389">
+              <caret line="179" column="22" lean-forward="true" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studentDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/studentDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1521124425627" expanded="true" signature="570:748" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="788:1022" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="1062:1326" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="1353:1524" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="1551:1775" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="1815:2040" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="2080:2256" ph="CREATE TABLE... IF" />
+                <marker date="1521124425627" expanded="true" signature="2405:2463" ph="insert into student... " />
+                <marker date="1521124425627" expanded="true" signature="2636:2675" ph="select * fro... student" />
+                <marker date="1521124425627" expanded="true" signature="3052:3100" ph="select * fro... student" />
+                <marker date="1521124425627" expanded="true" signature="3451:3507" ph="select * fro... student" />
+                <marker date="1521124425627" expanded="true" signature="3835:3876" ph="update student... " />
+                <marker date="1521124425627" expanded="true" signature="4070:4126" ph="select * fro... student" />
+                <marker date="1521124425627" expanded="true" signature="4433:4484" ph="insert into enrollment... " />
+                <marker date="1521124425627" expanded="true" signature="4732:4789" ph="insert into student_pictures... " />
+                <marker date="1521124425627" expanded="true" signature="5556:5709" ph="select cours... " />
+                <marker date="1521124425627" expanded="true" signature="6091:6148" ph="select * fro... student_pictures" />
+                <marker date="1521124425627" expanded="true" signature="6415:6465" ph="update student_pictures... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userControllerTesting.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/userControllerTesting.py">
+      <file leaf-file-name="userDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/userDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1521121259724" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
+                <marker date="1521121259724" expanded="true" signature="744:803" ph="insert into user... " />
+                <marker date="1521121259724" expanded="true" signature="1024:1083" ph="insert into user... " />
+                <marker date="1521121259724" expanded="true" signature="1253:1289" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="1663:1713" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="2062:2113" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="2465:2516" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="2810:2853" ph="update user... " />
+                <marker date="1521121259724" expanded="true" signature="3047:3098" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="3597:3647" ph="select * fro... user" />
+                <marker date="1521121259724" expanded="true" signature="4068:4126" ph="update user... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testDB.py">
+      <file leaf-file-name="viewSessionAttendance.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/viewSessionAttendance.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="252">
+              <caret line="316" column="67" lean-forward="false" selection-start-line="316" selection-start-column="67" selection-end-line="316" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userController.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/userController.py">
+      <file leaf-file-name="viewStudentAttendance.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
-              <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1879">
+              <caret line="149" column="40" lean-forward="true" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,11 +202,19 @@
       <file leaf-file-name="courseController.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/courseController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="331">
+              <caret line="293" column="34" lean-forward="true" selection-start-line="293" selection-start-column="34" selection-end-line="293" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewUser.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/viewUser.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="250" column="38" lean-forward="false" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,8 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/Course.py" />
-        <option value="$PROJECT_DIR$/static/template/css/fontAwesome.min.css" />
         <option value="$PROJECT_DIR$/templates/blank-page.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/classes/Student.py" />
@@ -243,7 +269,6 @@
         <option value="$PROJECT_DIR$/classes/SectionAttendance.py" />
         <option value="$PROJECT_DIR$/classes/SessionAttendance.py" />
         <option value="$PROJECT_DIR$/templates/viewSection.html" />
-        <option value="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
         <option value="$PROJECT_DIR$/controllers/studentController.py" />
         <option value="$PROJECT_DIR$/templates/viewStudent.html" />
         <option value="$PROJECT_DIR$/controllers/imageController.py" />
@@ -253,8 +278,6 @@
         <option value="$PROJECT_DIR$/templates/addUser.html" />
         <option value="$PROJECT_DIR$/templates/viewUser.html" />
         <option value="$PROJECT_DIR$/templates/users.html" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/controllers/courseController.py" />
         <option value="$PROJECT_DIR$/templates/markAttendance.html" />
         <option value="$PROJECT_DIR$/templates/viewRestrictedSession.html" />
         <option value="$PROJECT_DIR$/templates/viewSession.html" />
@@ -262,12 +285,17 @@
         <option value="$PROJECT_DIR$/tests/userTest.py" />
         <option value="$PROJECT_DIR$/database/studentDB.py" />
         <option value="$PROJECT_DIR$/tests/studentTest.py" />
-        <option value="$PROJECT_DIR$/database/courseDB.py" />
         <option value="$PROJECT_DIR$/tests/courseTest.py" />
-        <option value="$PROJECT_DIR$/tests/userControllerTesting.py" />
         <option value="$PROJECT_DIR$/classes/Tokens.py" />
-        <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/testDB.py" />
+        <option value="$PROJECT_DIR$/tests/userControllerTesting.py" />
+        <option value="$PROJECT_DIR$/tests/dataaccesslayertests.py" />
+        <option value="$PROJECT_DIR$/Test Results - Unittests_in_userControllerTesting_py.html" />
+        <option value="$PROJECT_DIR$/controllers/courseController.py" />
+        <option value="$PROJECT_DIR$/database/courseDB.py" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
       </list>
     </option>
   </component>
@@ -302,6 +330,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -309,6 +338,16 @@
             <path>
               <item name="cam" type="b2602c69:ProjectViewProjectNode" />
               <item name="cam" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cam" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cam" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cam" type="b2602c69:ProjectViewProjectNode" />
@@ -324,7 +363,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,40 +423,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="testDB" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cam" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testDB.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="Unittests for userControllerTesting.getUserTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cam" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;userControllerTesting.getUserTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
     <configuration name="Unittests in courseTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -432,6 +436,21 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/courseTest.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration name="Unittests in studentTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cam" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/studentTest.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration name="Unittests in userControllerTesting.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -449,21 +468,36 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/userControllerTesting.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
+    <configuration name="Unittests in userTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cam" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/userTest.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.cam" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python.server" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for userControllerTesting.getUserTestCase" />
-      <item index="5" class="java.lang.String" itemvalue="Python.testDB" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in studentTest.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in userTest.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python.server" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testDB" />
-        <item index="1" class="java.lang.String" itemvalue="Python.server" />
+        <item index="0" class="java.lang.String" itemvalue="Python.server" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for userControllerTesting.getUserTestCase" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in studentTest.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in userTest.py" />
       </list>
     </recent_temporary>
   </component>
@@ -579,39 +613,46 @@
       <option name="project" value="LOCAL" />
       <updated>1521130451661</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Tests added">
+      <created>1521961856568</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1521961856568</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 15h 54m 12s.xml">
+    <history-entry file="Unittests_in_courseTest_py - 2018.03.25 at 12h 45m 24s.xml">
+      <configuration name="Unittests in courseTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_courseTest_py - 2018.03.25 at 12h 53m 44s.xml">
+      <configuration name="Unittests in courseTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_courseTest_py - 2018.03.25 at 12h 56m 49s.xml">
+      <configuration name="Unittests in courseTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_courseTest_py - 2018.03.25 at 15h 35m 32s.xml">
+      <configuration name="Unittests in courseTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_studentTest_py - 2018.03.25 at 12h 55m 32s.xml">
+      <configuration name="Unittests in studentTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_studentTest_py - 2018.03.25 at 12h 56m 36s.xml">
+      <configuration name="Unittests in studentTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.25 at 13h 23m 05s.xml">
       <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 03m 51s.xml">
+    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.25 at 13h 23m 11s.xml">
       <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 06m 51s.xml">
+    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.25 at 13h 38m 29s.xml">
       <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 18m 37s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 21m 54s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 26m 24s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 30m 18s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 32m 40s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 37m 17s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_userControllerTesting_py - 2018.03.16 at 16h 41m 51s.xml">
-      <configuration name="Unittests in userControllerTesting.py" configurationId="tests" />
+    <history-entry file="Unittests_in_userTest_py - 2018.03.25 at 12h 56m 19s.xml">
+      <configuration name="Unittests in userTest.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -631,13 +672,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26234907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20636663" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77936333" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -646,7 +685,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77936333" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -662,37 +704,16 @@
     <MESSAGE value="Add attendance functionalities" />
     <MESSAGE value="Report generation" />
     <MESSAGE value="Attendance Marking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attendance Marking" />
+    <MESSAGE value="Tests added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/template/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="3" column="30837" lean-forward="false" selection-start-line="3" selection-start-column="30837" selection-end-line="3" selection-end-column="30837" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="66" column="16" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/page_addCourse.html" />
-    <entry file="file://$PROJECT_DIR$/classes/Course.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Section.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -785,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewSessionAttendance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5145">
-          <caret line="245" column="379" lean-forward="false" selection-start-line="245" selection-start-column="379" selection-end-line="245" selection-end-column="379" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/User.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -803,9 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -858,13 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="78" column="15" lean-forward="true" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4011">
@@ -900,17 +904,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4998">
-          <caret line="238" column="32" lean-forward="false" selection-start-line="238" selection-start-column="32" selection-end-line="242" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewSession.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2478">
           <caret line="318" column="74" lean-forward="false" selection-start-line="318" selection-start-column="74" selection-end-line="318" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/userController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1449">
+          <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Tokens.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="66" column="27" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="176" column="47" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/dataaccesslayertests.py" />
+    <entry file="file://$PROJECT_DIR$/tests/userTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/studentTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/userControllerTesting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Results - Unittests_in_userControllerTesting_py.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/courseTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Results - Unittests_in_courseTest_py.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Results - Unittests_in_studentTest_py.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="68" lean-forward="true" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tokens.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="250" column="38" lean-forward="false" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1879">
+          <caret line="149" column="40" lean-forward="true" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -930,166 +1042,112 @@
             <marker date="1521121259724" expanded="true" signature="3047:3098" ph="select * fro... user" />
             <marker date="1521121259724" expanded="true" signature="3597:3647" ph="select * fro... user" />
             <marker date="1521121259724" expanded="true" signature="4068:4126" ph="update user... " />
-            <marker date="1521121259724" expanded="true" signature="4074:4095" ph="insert into user... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/studentDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="147" column="17" lean-forward="true" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/studentTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="99" selection-start-column="4" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/userTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewUser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5250">
-          <caret line="250" column="38" lean-forward="false" selection-start-line="250" selection-start-column="33" selection-end-line="250" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/courseDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5439">
-          <caret line="267" column="27" lean-forward="false" selection-start-line="267" selection-start-column="8" selection-end-line="267" selection-end-column="27" />
+        <state relative-caret-position="230">
+          <caret line="127" column="24" lean-forward="true" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1521128005452" expanded="true" signature="578:756" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="783:1017" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="1044:1308" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="1348:1519" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="1559:1783" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="1810:2035" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="2075:2251" ph="CREATE TABLE... IF" />
-            <marker date="1521128005452" expanded="true" signature="2400:2458" ph="insert into course... " />
-            <marker date="1521128005452" expanded="true" signature="2630:2668" ph="select * fro... course" />
-            <marker date="1521128005452" expanded="true" signature="3052:3106" ph="select * fro... course" />
-            <marker date="1521128005452" expanded="true" signature="3452:3508" ph="select * fro... course" />
-            <marker date="1521128005452" expanded="true" signature="3846:3893" ph="update course... " />
-            <marker date="1521128005452" expanded="true" signature="4105:4165" ph="insert into section... " />
-            <marker date="1521128005452" expanded="true" signature="4413:4464" ph="insert into enrollment... " />
-            <marker date="1521128005452" expanded="true" signature="4650:4778" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="5198:5327" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="5727:5771" ph="select id fr... enrollment" />
-            <marker date="1521128005452" expanded="true" signature="5851:5917" ph="insert into session... " />
-            <marker date="1521128005452" expanded="true" signature="5986:6031" ph="insert into attendance... " />
-            <marker date="1521128005452" expanded="true" signature="6521:6720" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="7171:7370" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="7741:7933" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="8380:8493" ph="select id,st... attendance" />
-            <marker date="1521128005452" expanded="true" signature="8935:8998" ph="update attendance... " />
-            <marker date="1521128005452" expanded="true" signature="9236:9329" ph="select id,st... attendance" />
-            <marker date="1521128005452" expanded="true" signature="9780:9842" ph="update attendance... " />
-            <marker date="1521128005452" expanded="true" signature="9910:9958" ph="update session... " />
-            <marker date="1521128005452" expanded="true" signature="10206:10317" ph="select id,st... student" />
-            <marker date="1521128005452" expanded="true" signature="10270:10316" ph="select id fr... enrollment" />
-            <marker date="1521128005452" expanded="true" signature="10725:10776" ph="insert into enrollment... " />
-            <marker date="1521128005452" expanded="true" signature="10736:10771" ph="update attendance... " />
-            <marker date="1521128005452" expanded="true" signature="11023:11161" ph="select secti... section" />
-            <marker date="1521128005452" expanded="true" signature="11023:11254" ph="select secti... section" />
-            <marker date="1521128005452" expanded="true" signature="12117:12339" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="12117:12364" ph="select cours... " />
-            <marker date="1521128005452" expanded="true" signature="12117:12366" ph="select cours... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/courseTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/userController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tokens.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Tokens.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="66" column="27" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/imageController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3528">
-          <caret line="176" column="47" lean-forward="false" selection-start-line="176" selection-start-column="15" selection-end-line="176" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10794">
-          <caret line="525" column="17" lean-forward="false" selection-start-line="525" selection-start-column="17" selection-end-line="525" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1521124425627" expanded="true" signature="570:748" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="788:1022" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="1062:1326" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="1353:1524" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="1551:1775" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="1815:2040" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="2080:2256" ph="CREATE TABLE... IF" />
+            <marker date="1521124425627" expanded="true" signature="2405:2463" ph="insert into student... " />
+            <marker date="1521124425627" expanded="true" signature="2636:2675" ph="select * fro... student" />
+            <marker date="1521124425627" expanded="true" signature="3052:3100" ph="select * fro... student" />
+            <marker date="1521124425627" expanded="true" signature="3451:3507" ph="select * fro... student" />
+            <marker date="1521124425627" expanded="true" signature="3835:3876" ph="update student... " />
+            <marker date="1521124425627" expanded="true" signature="4070:4126" ph="select * fro... student" />
+            <marker date="1521124425627" expanded="true" signature="4433:4484" ph="insert into enrollment... " />
+            <marker date="1521124425627" expanded="true" signature="4732:4789" ph="insert into student_pictures... " />
+            <marker date="1521124425627" expanded="true" signature="5556:5709" ph="select cours... " />
+            <marker date="1521124425627" expanded="true" signature="6091:6148" ph="select * fro... student_pictures" />
+            <marker date="1521124425627" expanded="true" signature="6415:6465" ph="update student_pictures... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/courseController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+        <state relative-caret-position="331">
+          <caret line="293" column="34" lean-forward="true" selection-start-line="293" selection-start-column="34" selection-end-line="293" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/courseDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="301" column="41" lean-forward="true" selection-start-line="301" selection-start-column="41" selection-end-line="301" selection-end-column="41" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1522234911147" expanded="true" signature="578:756" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="783:1017" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="1044:1308" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="1348:1519" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="1559:1783" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="1810:2035" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="2075:2251" ph="CREATE TABLE... IF" />
+            <marker date="1522234911147" expanded="true" signature="2400:2458" ph="insert into course... " />
+            <marker date="1522234911147" expanded="true" signature="2630:2668" ph="select * fro... course" />
+            <marker date="1522234911147" expanded="true" signature="3052:3106" ph="select * fro... course" />
+            <marker date="1522234911147" expanded="true" signature="3452:3508" ph="select * fro... course" />
+            <marker date="1522234911147" expanded="true" signature="3846:3893" ph="update course... " />
+            <marker date="1522234911147" expanded="true" signature="4105:4165" ph="insert into section... " />
+            <marker date="1522234911147" expanded="true" signature="4413:4464" ph="insert into enrollment... " />
+            <marker date="1522234911147" expanded="true" signature="4650:4778" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="5198:5327" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="5727:5771" ph="select id fr... enrollment" />
+            <marker date="1522234911147" expanded="true" signature="5851:5917" ph="insert into session... " />
+            <marker date="1522234911147" expanded="true" signature="5986:6031" ph="insert into attendance... " />
+            <marker date="1522234911147" expanded="true" signature="6521:6720" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="7171:7370" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="7741:7933" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="8380:8493" ph="select id,st... attendance" />
+            <marker date="1522234911147" expanded="true" signature="8935:8998" ph="update attendance... " />
+            <marker date="1522234911147" expanded="true" signature="9236:9329" ph="select id,st... attendance" />
+            <marker date="1522234911147" expanded="true" signature="9780:9842" ph="update attendance... " />
+            <marker date="1522234911147" expanded="true" signature="9910:9958" ph="update session... " />
+            <marker date="1522234911147" expanded="true" signature="10206:10317" ph="select id,st... student" />
+            <marker date="1522234911147" expanded="true" signature="10270:10316" ph="select id fr... enrollment" />
+            <marker date="1522234911147" expanded="true" signature="10725:10776" ph="insert into enrollment... " />
+            <marker date="1522234911147" expanded="true" signature="10736:10771" ph="update attendance... " />
+            <marker date="1522234911147" expanded="true" signature="11023:11161" ph="select secti... section" />
+            <marker date="1522234911147" expanded="true" signature="11023:11254" ph="select secti... section" />
+            <marker date="1522234911147" expanded="true" signature="12117:12339" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="12117:12364" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="12117:12366" ph="select cours... " />
+            <marker date="1522234911147" expanded="true" signature="12878:13010" ph="select secti... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/userControllerTesting.py">
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="389">
+          <caret line="179" column="22" lean-forward="true" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="517" column="26" lean-forward="false" selection-start-line="517" selection-start-column="26" selection-end-line="517" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewSessionAttendance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="316" column="67" lean-forward="false" selection-start-line="316" selection-start-column="67" selection-end-line="316" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -277,3 +277,30 @@ class courseDB:
                 sessions.append(session)
             return sessions
         return None
+
+    def getTodayAttendanceSummary(conn):
+        if (conn):
+            todate = datetime.datetime.today().strftime('%Y-%m-%d')
+            cursor = conn.cursor()
+            array = [todate]
+            cursor.execute("select session_id,marked,id,attended from session join attendance using(session_id) where session.date=? order by session.session_id", array)
+            sessions = []
+            noOfMarkedSessions = 0
+            noOfUnMarkedSessions = 0
+            noOfAttendedStudents = 0
+            noOfAbsentStudents = 0
+            rows = cursor.fetchall()
+            totalStudents = len(rows)
+            for row in rows:
+                if not row[0] in sessions:
+                    sessions.append(row[0])
+                    if row[1]==0:
+                        noOfUnMarkedSessions+=1
+                    else:
+                        noOfMarkedSessions+=1
+                if (row[1]==1) and (row[3]==0):
+                    noOfAbsentStudents+=1
+                elif (row[1]==1) and (row[3]==1):
+                    noOfAttendedStudents+=1
+            return {"noOfMarkedSessions":noOfMarkedSessions,"noOfUnMarkedSessions":noOfUnMarkedSessions,"totalStudents":totalStudents,"noOfAttendedStudents":noOfAttendedStudents,"noOfAbsentStudents":noOfAbsentStudents}
+        return None
