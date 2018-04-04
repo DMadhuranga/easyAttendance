@@ -5,32 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<div id="my_camera" style="width:320px; height:240px;"></div>
-<div id="my_result"></div>
-
-<button onclick="takeAndUpload()">Upload</button>
+<h1>Video Streaming Demonstration</h1>
+<img src="{{ url_for('video_feed') }}">
 <script src="/static/template/js/jquery-2.1.4.min.js"></script>
 <script src="/static/template/assests/library/webcam/webcam.min.js"></script>
-<script type="text/javascript">
-
-
-    $(document).ready(function () {
-        Webcam.attach( '#my_camera' );
-        var count = 0;
-        while(count<1){
-            takeAndUpload();
-            count++;
-        }
-    });
-
-    function takeAndUpload() {
-        var data_uri = Webcam.snap();
-        Webcam.upload( data_uri, '/images/1', function(code, text) {
-    // Upload complete!
-    // 'code' will be the HTTP response code from the server, e.g. 200
-    // 'text' will be the raw response content
-        } );
-    }
-</script>
 </body>
 </html>

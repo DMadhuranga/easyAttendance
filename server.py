@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify, session
+from flask import Flask, request, render_template, jsonify, session,Response
 import webbrowser
 import socket
 import datetime
@@ -10,6 +10,7 @@ from controllers.studentController import studentController
 from controllers.courseController import courseController
 from controllers.imageController import imageController
 from tkinter import *
+import cv2
 
 app = Flask(__name__)
 tokens = Tokens()
@@ -519,6 +520,21 @@ def getTodayAttendanceSummary():
     if (authenticationFail(request)):
         return jsonify(error="Invalid request or user")
     return courseController.getTodaySummary()
+
+@app.route('/video')
+def getTestPage():
+    return render_template("testCam.html")
+
+def gen():
+    cap = cv2.VideoCapture(0)
+    valid, frame = cap.read()
+    while(valid):
+        valid, frame = cap.read()
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #run_server__________________________________________________________________________________________________________
 
