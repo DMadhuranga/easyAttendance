@@ -7,29 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5cc60903-0dca-4d85-b991-eb2114496021" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/database/example.db" afterPath="$PROJECT_DIR$/database/example.db" />
-      <change beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
-      <change beforePath="$PROJECT_DIR$/templates/addCourse.html" afterPath="$PROJECT_DIR$/templates/addCourse.html" />
-      <change beforePath="$PROJECT_DIR$/templates/addSection.html" afterPath="$PROJECT_DIR$/templates/addSection.html" />
-      <change beforePath="$PROJECT_DIR$/templates/addSession.html" afterPath="$PROJECT_DIR$/templates/addSession.html" />
-      <change beforePath="$PROJECT_DIR$/templates/addStudent.html" afterPath="$PROJECT_DIR$/templates/addStudent.html" />
-      <change beforePath="$PROJECT_DIR$/templates/addUser.html" afterPath="$PROJECT_DIR$/templates/addUser.html" />
-      <change beforePath="$PROJECT_DIR$/templates/courses.html" afterPath="$PROJECT_DIR$/templates/courses.html" />
-      <change beforePath="$PROJECT_DIR$/templates/enrollStudents.html" afterPath="$PROJECT_DIR$/templates/enrollStudents.html" />
-      <change beforePath="$PROJECT_DIR$/templates/markAttendance.html" afterPath="$PROJECT_DIR$/templates/markAttendance.html" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" afterPath="$PROJECT_DIR$/templates/profile.html" />
-      <change beforePath="$PROJECT_DIR$/templates/sessions.html" afterPath="$PROJECT_DIR$/templates/sessions.html" />
-      <change beforePath="$PROJECT_DIR$/templates/students.html" afterPath="$PROJECT_DIR$/templates/students.html" />
-      <change beforePath="$PROJECT_DIR$/templates/testCam.html" afterPath="$PROJECT_DIR$/templates/testCam.html" />
-      <change beforePath="$PROJECT_DIR$/templates/users.html" afterPath="$PROJECT_DIR$/templates/users.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewCourse.html" afterPath="$PROJECT_DIR$/templates/viewCourse.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewRestrictedSession.html" afterPath="$PROJECT_DIR$/templates/viewRestrictedSession.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewSection.html" afterPath="$PROJECT_DIR$/templates/viewSection.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewSession.html" afterPath="$PROJECT_DIR$/templates/viewSession.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewSessionAttendance.html" afterPath="$PROJECT_DIR$/templates/viewSessionAttendance.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewStudent.html" afterPath="$PROJECT_DIR$/templates/viewStudent.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewStudentAttendance.html" afterPath="$PROJECT_DIR$/templates/viewStudentAttendance.html" />
-      <change beforePath="$PROJECT_DIR$/templates/viewUser.html" afterPath="$PROJECT_DIR$/templates/viewUser.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,6 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/cam$easyAttendance.coverage" NAME="easyAttendance Coverage Results" MODIFIED="1522853005138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cam$Unittests_in_studentTest_py.coverage" NAME="Unittests in studentTest.py Coverage Results" MODIFIED="1521962795692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/cam$courseDB.coverage" NAME="courseDB Coverage Results" MODIFIED="1517671068085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
     <SUITE FILE_PATH="coverage/cam$Unittests_for_userTest_DoesUserNameExistTestCase_test_getUser.coverage" NAME="Unittests for userTest.DoesUserNameExistTestCase.test_getUser Coverage Results" MODIFIED="1521112832122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -62,13 +40,25 @@
   <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="262" column="27" lean-forward="true" selection-start-line="262" selection-start-column="27" selection-end-line="262" selection-end-column="27" />
+            <state relative-caret-position="294">
+              <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="easyAttendance.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/easyAttendance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="41" column="44" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/tests/courseTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -122,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/database/userDB.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1113">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <marker date="1521121259724" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
                 <marker date="1521121259724" expanded="true" signature="744:803" ph="insert into user... " />
@@ -144,17 +134,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/userController.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewStudentAttendance.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewStudentAttendance.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+              <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -206,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/blank-page.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/classes/Student.py" />
         <option value="$PROJECT_DIR$/templates/page_addCourse.html" />
@@ -257,6 +236,7 @@
         <option value="$PROJECT_DIR$/templates/viewStudent.html" />
         <option value="$PROJECT_DIR$/templates/viewStudentAttendance.html" />
         <option value="$PROJECT_DIR$/templates/viewUser.html" />
+        <option value="$PROJECT_DIR$/easyAttendance.py" />
       </list>
     </option>
   </component>
@@ -350,7 +330,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Python.easyAttendance">
     <configuration name="cam" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -365,6 +345,25 @@
       <module name="cam" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\Dan\PycharmProjects\cam\server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="easyAttendance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cam" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/easyAttendance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -434,36 +433,21 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/userControllerTesting.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Unittests in userTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cam" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/userTest.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.cam" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in studentTest.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in userTest.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.server" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python.server" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
+      <item index="5" class="java.lang.String" itemvalue="Python.easyAttendance" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.server" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in studentTest.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in userTest.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python.easyAttendance" />
+        <item index="1" class="java.lang.String" itemvalue="Python.server" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in courseTest.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in userControllerTesting.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in studentTest.py" />
       </list>
     </recent_temporary>
   </component>
@@ -593,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522237374491</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Home page">
+      <created>1522846878053</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1522846878053</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -645,7 +636,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20636663" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20636663" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -688,7 +679,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/addSession.py" />
     <entry file="file://$PROJECT_DIR$/classes/Enrollment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1093,7 +1083,7 @@
     <entry file="file://$PROJECT_DIR$/tests/courseTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1111,7 +1101,7 @@
     <entry file="file://$PROJECT_DIR$/database/userDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1113">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <marker date="1521121259724" expanded="true" signature="389:584" ph="CREATE TABLE... IF" />
             <marker date="1521121259724" expanded="true" signature="744:803" ph="insert into user... " />
@@ -1131,17 +1121,27 @@
     <entry file="file://$PROJECT_DIR$/controllers/userController.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+          <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="262" column="27" lean-forward="true" selection-start-line="262" selection-start-column="27" selection-end-line="262" selection-end-column="27" />
+        <state relative-caret-position="294">
+          <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyAttendance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="41" column="44" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
