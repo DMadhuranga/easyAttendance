@@ -5,6 +5,10 @@ from database.userDB import userDB
 dbName = 'database/example.db'
 
 class userController:
+
+    # this class handles all the requests related to user details
+    # uses both userDB database access class to access database
+
     def addUser(self):
         if (request.is_json):
             data = request.get_json()

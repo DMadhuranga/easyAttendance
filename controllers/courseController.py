@@ -29,7 +29,12 @@ dbName = 'database/example.db'
 
 class courseController:
 
+    # this class handles all the requests related to course details
+    # uses both courseDB and studentDB database access classes to access database
+
     def addCourse(request):
+        # add a course to course table given a json with courseCode and courseTitle
+
         if (request.is_json):
             data = request.get_json()
             if (('courseCode' in data) and ('courseTitle' in data)):
@@ -47,6 +52,8 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getCourse(courseId):
+        # return a json with details of a course with given courseId
+
         conn = courseDB.getConnection(dbName)
         course = courseDB.getCourse(conn,courseId)
         if(course==None):
@@ -54,6 +61,8 @@ class courseController:
         return jsonify(courseId=course.getCourseId(),courseCode=course.getCourseCode(),courseTitle=course.getCourseTitle())
 
     def getCourseByCode(courseCode):
+        # return a json with details of a course with given courseCode
+
         conn = courseDB.getConnection(dbName)
         course = courseDB.getCourseByCode(conn,courseCode)
         if(course==None):
@@ -61,16 +70,20 @@ class courseController:
         return jsonify(courseId=course.getCourseId(), courseCode=course.getCourseCode(),courseTitle=course.getCourseTitle())
 
     def getCourses():
+        # return a json with details of all courses (list of courses)
+
         conn = courseDB.getConnection(dbName)
         courses = courseDB.getCourses(conn)
         if(courses==None):
-            return jsonify(error="COurse information not available")
+            return jsonify(error="Course information not available")
         retCourses = []
         for course in courses:
             retCourses.append({'courseId':course.getCourseId(),'courseCode':course.getCourseCode(),'courseTitle':course.getCourseTitle()})
         return jsonify(courses=retCourses)
 
     def addSection(request):
+        # add a new section given a json with courseId, semester and year
+
         conn = courseDB.getConnection(dbName)
         if (request.is_json):
             data = request.get_json()
@@ -93,6 +106,8 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getSections(courseId):
+        # return a json with details of all sections (list of sections) of a given course
+
         conn = courseDB.getConnection(dbName)
         sections = courseDB.getSections(conn,courseId)
         if(sections==None):
@@ -104,6 +119,8 @@ class courseController:
         return jsonify(sections=retSections)
 
     def getSessions(sessionId):
+        # return a json with details of all sessions (list of sessions) of a given section
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSessions(conn,sessionId)
         if(sessions==None):
@@ -116,6 +133,8 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getSection(sectionId):
+        # return a json with the details of a section given the sectionId
+
         conn = courseDB.getConnection(dbName)
         section = courseDB.getSection(conn,sectionId)
         if(section==None):
@@ -125,6 +144,8 @@ class courseController:
 
 
     def addSession(request):
+        # add a new session given a json with sectionId, date and startingTime
+
         conn = courseDB.getConnection(dbName)
         if (request.is_json):
             data = request.get_json()
@@ -145,6 +166,8 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getSession(sessionId):
+        # get a json with details of a session given the sessionId
+
         conn = courseDB.getConnection(dbName)
         session = courseDB.getSession(conn,sessionId)
         if(session==None):
@@ -154,6 +177,8 @@ class courseController:
                        date= session.getDate(),startingTime=session.getStartingTime(),marked=session.getMarked())
 
     def getAllSessions():
+        # get a json with details of all session (list of sessions)
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getAllSessions(conn)
         if(sessions==None):
@@ -166,6 +191,8 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getAttendance(sessionId):
+        # get a json with attendance details of a session (list of students with their attendance)
+
         conn = courseDB.getConnection(dbName)
         attendances = courseDB.getAttendance(conn,sessionId)
         if(attendances==None):
@@ -176,6 +203,8 @@ class courseController:
         return jsonify(attendances=retSessions)
 
     def getEnrolledStudents(sectionId):
+        #
+
         conn = courseDB.getConnection(dbName)
         students = courseDB.getSectionStudents(conn,sectionId)
         if(students==None):

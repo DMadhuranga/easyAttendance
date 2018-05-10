@@ -9,7 +9,12 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
    return ''.join(random.choice(chars) for _ in range(size))
 
 class studentDB:
+
+    # studentDB class is the database access class for all the student related information
+
     def getConnection(db_file):
+        # initialize database connection and return database connector
+
         try:
             conn = sqlite3.connect(db_file)
             return conn
@@ -18,6 +23,8 @@ class studentDB:
         return None
 
     def createTable(conn):
+        # create all the database datatables if they do not exists already
+
         cursor = conn.cursor()
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS course (course_id integer PRIMARY KEY AUTOINCREMENT,course_code varchar(25) NOT NULL, course_title varchar(200) NOT NULL, deleted integer(1) DEFAULT 0)")
@@ -34,6 +41,8 @@ class studentDB:
 
 
     def addStudent(conn,studentId,studentName):
+        # create a new entry in student table
+
         array = [studentId, studentName]
         cursor = conn.cursor()
         cursor.execute("insert into student (student_id,student_name) values (?,?)", array)
@@ -41,6 +50,8 @@ class studentDB:
         return cursor.lastrowid
 
     def getStudents(conn):
+        # get details of all the students (list of student objects)
+
         if(conn):
             cursor = conn.cursor()
             cursor.execute("select * from student where deleted='0'")
@@ -53,6 +64,8 @@ class studentDB:
         return None
 
     def getStudent(conn,id):
+        # get details of a given student (student object)
+
         if (conn):
             cursor = conn.cursor()
             array = [id]
@@ -64,6 +77,8 @@ class studentDB:
         return None
 
     def getStudentByStudentId(conn,studentId):
+        # get details of a student (student object) given the studentId
+
         if (conn):
             cursor = conn.cursor()
             array = [studentId]
@@ -75,6 +90,8 @@ class studentDB:
         return None
 
     def deleteStudent(conn,id):
+        # delete a student given the id
+
         if(conn):
             cursor = conn.cursor()
             array = [id]
@@ -82,6 +99,8 @@ class studentDB:
             conn.commit()
 
     def doesStudentIdExist(conn,studentId):
+        # check whether a student exist with the given studentId
+
         if(conn):
             cursor = conn.cursor()
             array = [studentId]
@@ -93,6 +112,8 @@ class studentDB:
         return None
 
     def addSection(conn,id,sectionId):
+        # enroll a student to a given section
+
         if(conn):
             cursor = conn.cursor()
             array = [sectionId, id]
@@ -100,6 +121,8 @@ class studentDB:
             conn.commit()
 
     def addImage(conn,id,extension):
+        # add a new entry ti student_picture table
+
         if(conn):
             cursor = conn.cursor()
             imageId = str(id)+id_generator()+"."+extension
@@ -109,6 +132,8 @@ class studentDB:
             return imageId
 
     def getSessionPhotos(conn,sessionId):
+        # get details of all the photos of students who are registered for the section of given session
+
         if(conn):
             cursor = conn.cursor()
             array = [sessionId,0]
@@ -123,6 +148,8 @@ class studentDB:
         return None
 
     def getEnrolledSections(conn,id):
+        # get details of sections (list of section objects) that the given student has registered for
+
         if(conn):
             cursor = conn.cursor()
             array = [id]
@@ -135,6 +162,8 @@ class studentDB:
         return None
 
     def getNumberOfImages(conn,id):
+        # get number of images that the given student has registered
+
         if(conn):
             cursor = conn.cursor()
             array = [id]
@@ -145,6 +174,8 @@ class studentDB:
         return None
 
     def removeStudentImages(conn,id):
+        # remove all the registered images of a student
+
         if(conn):
             cursor = conn.cursor()
             array = [id]

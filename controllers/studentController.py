@@ -7,6 +7,9 @@ dbName = 'database/example.db'
 
 class studentController:
 
+    # this class handles all the requests related to student details
+    # uses studentDB database access class to access database
+
     def addStudent(request):
         if (request.is_json):
             data = request.get_json()

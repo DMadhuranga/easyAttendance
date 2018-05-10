@@ -530,7 +530,9 @@ def gen():
     valid, frame = cap.read()
     while(valid):
         valid, frame = cap.read()
-        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        cv2.imwrite('t.jpg', frame)
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + open('t.jpg', 'rb').read() + b'\r\n')
 
 @app.route('/video_feed')
 def video_feed():

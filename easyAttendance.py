@@ -6,7 +6,6 @@ import sys
 from tkinter import messagebox
 import socket
 
-
 def check_server(address, port):
     # Create a TCP socket
     s = socket.socket()

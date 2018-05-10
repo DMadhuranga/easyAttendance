@@ -151,9 +151,11 @@
                           </div>
                       </div>
                   </form>
-                  <br><br><br><br><button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendanceAfterSaving()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance After Recording</button>
-                  <br><br><button id="submitBtn" class="btn btn-primary icon-btn" onclick="markAttendanceRealTime()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance Real Time</button>
-
+                  <br><br><br><br><button id="submitBtn" class="btn btn-primary icon-btn btn-block" onclick="markAttendanceAfterSaving()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance After Recording</button>
+                  <br><button id="submitBtn1" class="btn btn-primary icon-btn btn-block" onclick="markAttendanceRealTime()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Mark Attendance Real Time</button>
+              </div>
+              <div class="card-footer" id="cardFooterFinish" hidden="">
+                  <br><button id="finishBtn" class="btn btn-primary icon-btn btn-block" onclick="reloadThisPage()" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Finish</button>
               </div>
             </div>
           </div>
@@ -208,6 +210,15 @@
     <script src="/static/template/js/plugins/bootstrap-notify.min.js"></script>
     <script src="/static/template/assests/library/loader/src/jquery.loading.js"></script>
     <script type="text/javascript">
+
+        function reloadThisPage() {
+            location.reload();
+        }
+
+        function hideButtons(){
+            document.getElementById("cardFooter").hidden = true;
+            document.getElementById("cardFooterFinish").hidden = false;
+        }
 
         function loadStudentInformation() {
             $.showLoading({
@@ -366,9 +377,11 @@
 
                     },
                     error: function (a, b, c) {
+                        $.hideLoading();
                         //$.hideLoading();
                     }
                 });
+                hideButtons();
             }else{
                 swal({
                                 title:'Invalid time!',
@@ -377,6 +390,7 @@
                                 confirmButtonColor:'#009688'
                             });
             }
+
         }
 
         function markAttendanceAfterSaving() {
@@ -411,9 +425,11 @@
 
                     },
                     error: function (a, b, c) {
+                        $.hideLoading();
                         //$.hideLoading();
                     }
                 });
+                hideButtons();
             }else{
                 swal({
                                 title:'Invalid time!',

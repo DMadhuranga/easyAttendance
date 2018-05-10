@@ -22,6 +22,7 @@ dbName = 'database/example.db'
 
 class imageController:
 
+    # this class handles all the requests related to image processing
 
     """def saveImage(id):
         count = 0
