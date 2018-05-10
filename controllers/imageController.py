@@ -10,6 +10,8 @@ from os.path import isfile, join
 
 
 def getFrameRate(cap):
+    # this methods calculate frame rate of a video feed
+
     num_frames = 120
     start = time.time()
     for i in range(0, num_frames):
@@ -61,23 +63,27 @@ class imageController:
             return jsonify(success="Done")"""
 
     def saveImage(id):
-            count = 0
-            cap = cv2.VideoCapture(0)
-            while(count<3 and cap.isOpened()):
-                ret, frame = cap.read()
-                if (ret):
-                    image, size = FaceRecognizer.detect_face(frame)
-                    if not image is None:
-                        name = studentController.saveStudentImage(id)
-                        cv2.imwrite("images/"+name, image)
-                        count += 1
-                    cv2.imshow('image', frame)
-                    cv2.waitKey(1)
-            cap.release()
-            cv2.destroyAllWindows()
-            return jsonify(success="Done")
+        # this methods captures images of a student and save his face in the database
+
+        count = 0
+        cap = cv2.VideoCapture(0)
+        while(count<3 and cap.isOpened()):
+            ret, frame = cap.read()
+            if (ret):
+                image, size = FaceRecognizer.detect_face(frame)
+                if not image is None:
+                    name = studentController.saveStudentImage(id)
+                    cv2.imwrite("images/"+name, image)
+                    count += 1
+                cv2.imshow('image', frame)
+                cv2.waitKey(1)
+        cap.release()
+        cv2.destroyAllWindows()
+        return jsonify(success="Done")
 
     def saveVideo(sessionId,length):
+        # test methods not relevant
+
         noOfFrama = 0
         cap = cv2.VideoCapture(0)
         fps = getFrameRate(cap)
@@ -113,6 +119,8 @@ class imageController:
                 print(recognizer.predic(frame))"""
 
     def markAttendance(sessionId):
+        # test methods not relevant
+
             photoset = studentController.getStudentPictures(sessionId)
             if(len(photoset.values())==0):
                 return jsonify(error="Invalid request")
@@ -139,6 +147,8 @@ class imageController:
             return jsonify(success="Student Attendance Marked")
 
     def markAttendanceRealTime(request,sessionId):
+        # captures video and mark attendance realtime
+
         if (request.is_json):
             data = request.get_json()
             if 'recordingTime' in data:
@@ -178,6 +188,8 @@ class imageController:
         return jsonify(error="Invalid request")
 
     def markAttendanceAfterSaving(request,sessionId):
+        # first save the video then mark attendance
+
         if (request.is_json):
             data = request.get_json()
             if 'recordingTime' in data:

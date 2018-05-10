@@ -10,6 +10,8 @@ class userController:
     # uses both userDB database access class to access database
 
     def addUser(self):
+        # add a new user to the system given a json with userName, password and roleId
+
         if (request.is_json):
             data = request.get_json()
             if ((('userName' in data) and ('password' in data)) and ('RoleId' in data)):
@@ -37,6 +39,8 @@ class userController:
         return jsonify(error="Invalid request")
 
     def getUser(userId):
+        # get a json with details of a user given the userId
+
         conn = userDB.getConnection(dbName)
         user = userDB.getUser(conn,userId)
         if(user==None):
@@ -44,6 +48,8 @@ class userController:
         return jsonify(userId=user.getUserId(),userName = user.getUserName(),roleId=user.getRoleId(),password= user.getPassword())
 
     def getUserByUserName(userName):
+        # get a json with details of a user given the userName
+
         conn = userDB.getConnection(dbName)
         user = userDB.getUserByName(conn, userName)
         if (user == None):
@@ -51,6 +57,8 @@ class userController:
         return jsonify(userId=user.getUserId(), userName=user.getUserName(), roleId=user.getRoleId(),password=user.getPassword())
 
     def getAllUsers():
+        # get a json with details of all the users (list of users)
+
         conn = userDB.getConnection(dbName)
         users = userDB.getUsers(conn)
         if(users==None):
@@ -64,6 +72,8 @@ class userController:
         return jsonify(users=retStudents)
 
     def checkValidPassword(self):
+        # check for userId and password match given a json with userId and password
+
         if (request.is_json):
             data = request.get_json()
             if (('userId' in data) and ('password' in data)):
@@ -80,6 +90,8 @@ class userController:
         return jsonify(error="Invalid request")
 
     def changePassword(self):
+        # change password of an user
+
         if (request.is_json):
             data = request.get_json()
             if (('userId' in data) and ('password' in data)):

@@ -1,5 +1,7 @@
 class SessionAttendance:
 
+    # this class represents an entry in attendance table in the database
+
     sectionId=""
     startingTime=""
     date = ""

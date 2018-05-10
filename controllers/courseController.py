@@ -11,6 +11,8 @@ from classes.SessionAttendance import SessionAttendance
 
 
 def isValidTime(time):
+    # given a string of a time, function returns the validity of the time
+
     timeformat = "%H:%M:%S"
     try:
         validtime = datetime.datetime.strptime(time, timeformat)
@@ -19,6 +21,8 @@ def isValidTime(time):
         return False
 
 def validate(date_text):
+    # given a string of a date, function returns the validity of the date
+
     try:
         datetime.datetime.strptime(date_text, '%Y-%m-%d')
         return True
@@ -203,7 +207,7 @@ class courseController:
         return jsonify(attendances=retSessions)
 
     def getEnrolledStudents(sectionId):
-        #
+        # get details of all the students (list of students) that are enrolled to a given section
 
         conn = courseDB.getConnection(dbName)
         students = courseDB.getSectionStudents(conn,sectionId)
@@ -215,6 +219,8 @@ class courseController:
         return jsonify(students=retSessions)
 
     def getNotEnrolledStudents(sectionId):
+        # get details of all the students (list of students) that are not enrolled to a given section
+
         conn = courseDB.getConnection(dbName)
         students = courseDB.getNotSectionStudents(conn,sectionId)
         if(students==None):
@@ -225,10 +231,14 @@ class courseController:
         return jsonify(students=retSessions)
 
     def markAttendanceToDB(sessionId,ids):
+        # mark attendance of the given students in the given session
+
         conn = courseDB.getConnection(dbName)
         courseDB.markAttendanceToDB(conn,sessionId,ids)
 
     def addStudentToSection(request):
+        # enroll a student to a section given a json with id and sectionId
+
         conn = courseDB.getConnection(dbName)
         if (request.is_json):
             data = request.get_json()
@@ -245,6 +255,8 @@ class courseController:
         return jsonify(error="Invalid request")
 
     def getSectionAttendanceSummary(sectionId):
+        # get a json with all the sessions with their attendance of a given section
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
         if(sessions==None):
@@ -258,6 +270,8 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getStudentAttendanceSummary(sectionId):
+        # get a json with all the students with their attendance of a given section
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
         if(sessions==None):
@@ -277,6 +291,8 @@ class courseController:
         return jsonify(students=students)
 
     def getStudentAttendanceSummaryJSON(sectionId):
+        # get a json with all the sessions with their attendance of a given section
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
         if(sessions==None):
@@ -292,6 +308,8 @@ class courseController:
         return jsonify(students=students)
 
     def getSessionAttendanceSummaryJSON(sectionId):
+        # get a json with all the sessions with their attendance of a given section
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getSectionAttendanceSummary(conn,sectionId)
         if(sessions==None):
@@ -308,6 +326,8 @@ class courseController:
         return jsonify(sessions=ret_Session)
 
     def getUnmarkedSessions():
+        # get a json with list of all the unmarked sessions
+
         conn = courseDB.getConnection(dbName)
         sessions = courseDB.getUnmarkedSessions(conn)
         if(sessions==None):
@@ -320,6 +340,8 @@ class courseController:
         return jsonify(sessions=retSessions)
 
     def getTodaySummary():
+        # get a json with today's session marked summary
+
         conn = courseDB.getConnection(dbName)
         summary = courseDB.getTodayAttendanceSummary(conn)
         if(summary==None):

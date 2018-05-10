@@ -1,4 +1,7 @@
 class Student:
+
+    # this class represents an entry in student table in the database
+
     id = ""
     studentId = ""
     studentName = ""
@@ -18,6 +21,8 @@ class Student:
         return self.id
 
     def printStudent(self):
+        # method used for testing
+
         print("id : " + str(self.getId()))
         print("studentId : "+self.getStudentId())
         print("studentName : " + self.getStudentName())

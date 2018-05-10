@@ -1,5 +1,7 @@
 class Section:
 
+    # this class represents an entry in section table in the database
+
     sectionId = ""
     courseId = ""
     courseCode = ""
@@ -34,6 +36,8 @@ class Section:
         return self.courseTitle
 
     def printCourse(self):
+        # method used for testing
+
         print("SectionId : " + str(self.getSectionId()))
         print("CourseId : "+str(self.getCourseId()))
         print("Year : " + str(self.getYear()))

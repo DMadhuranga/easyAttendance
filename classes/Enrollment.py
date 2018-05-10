@@ -1,5 +1,7 @@
 class Enrollment:
 
+    # this class represents an entry in enrollment table in the database
+
     sectionId = ""
     id = ""
 

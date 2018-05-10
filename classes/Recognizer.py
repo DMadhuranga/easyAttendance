@@ -3,6 +3,8 @@ import cv2
 import time
 
 
+# class was used only for test purposes
+
 def detect_facePublic(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')

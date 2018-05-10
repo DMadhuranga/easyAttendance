@@ -1,5 +1,7 @@
 class Session:
 
+    # this class represents an entry in session table in the database
+
     sectionId=""
     year = ""
     semester = ""
@@ -55,6 +57,8 @@ class Session:
         return self.marked
 
     def printCourse(self):
+        # method used for testing
+
         print("CourseId : "+str(self.getCourseId()))
         print("CourseCode : " + self.getCourseCode())
         print("CourseTitle : " + self.getCourseTitle())

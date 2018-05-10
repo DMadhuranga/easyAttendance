@@ -22,10 +22,15 @@ def detect_facePublic(img):
 
 class FaceRecognizer:
 
+    # this class is an adapter class
+    # connects the system and face_recognition library
+
     known_faces = []
     face_names = []
 
     def detect_face(img):
+        # detects faces in a given image
+
         small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
         rgb_small_frame = small_frame[:, :, ::-1]
         face_locations = face_recognition.face_locations(rgb_small_frame)
@@ -39,6 +44,8 @@ class FaceRecognizer:
         return img[top:bottom, left:right], face_locations[0]
 
     def detect_face1(img):
+        # test method
+
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5)
@@ -48,6 +55,8 @@ class FaceRecognizer:
         return gray[y:y + w, x:x + h], faces[0]
 
     def prepare_training_data(self,imageSet):
+        # prepare data need to fetch for the trainer (two lists. one with face encodings another with identifiers)
+
         cnt = 0
         for studentID in imageSet.keys():
             for image_name in imageSet[studentID]:
@@ -61,6 +70,8 @@ class FaceRecognizer:
                     pass
 
     def predic(self,img):
+        # find whether a known student is in the given image, if exist return set of identifiers of the students
+
         small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
         rgb_small_frame = small_frame[:, :, ::-1]
         face_locations = face_recognition.face_locations(rgb_small_frame)

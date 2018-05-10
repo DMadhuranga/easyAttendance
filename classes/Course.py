@@ -1,4 +1,7 @@
 class Course:
+
+    # this class represents an entry in course table in the database
+
     courseId = ""
     courseCode = ""
     courseTitle = ""

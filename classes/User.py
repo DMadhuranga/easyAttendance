@@ -1,8 +1,12 @@
 class User:
+
+    # this class represents an entry in user table in the database
+
     userName = ""
     password = ""
     userId = ""
     roleId = ""
+
     def __init__(self,userId,userName,password,roleId):
         self.userId = userId
         self.password = password
@@ -25,6 +29,8 @@ class User:
         return self.roleId
 
     def printUser(self):
+        # method used for testing
+
         print("userId",self.getUserId())
         print("userName", self.getUserName())
         print("Password", self.getPassword())
