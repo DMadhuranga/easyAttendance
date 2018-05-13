@@ -24,3 +24,9 @@ Built using [dlib](http://dlib.net/)'s state-of-the-art face recognition built w
 ## Features
 
 ### Report generation
+
+For every course section, the system generate two types of reports. Student based reports and session(lecture or class) based reports. In the student based report, you can see attendance of each student with their name and attendance precentage. In the session based report, you can see no of attendance and it's variance for each session throughout the semester. You can also download all the generated reports into pdf format.
+
+### Portable application
+
+Easy attendance application is portable. Therefore, even if you move it into another computer you will not lose any information stored in the system.
